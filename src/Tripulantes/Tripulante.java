@@ -14,7 +14,7 @@ public abstract class Tripulante {
         this.antiguedad = antiguedad;
     }
 
-    public double sumaConsejo(){return 0;}
+    private double sumaConsejo(){return 0;}
 
     public double getSueldo(){
         double subsidio;
