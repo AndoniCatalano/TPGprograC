@@ -4,36 +4,38 @@ public abstract class Mision {
 
     protected boolean preparada = false;
     protected String resultado = null;
-    public final void ejecutarCicloMision(Nave nave, InformeMision informe) {
-        preparar(nave);
+    public final void ejecutarCicloMision(Asistente asis) {
+        preparar(asis);
         if (preparada){
-            ejecutarObjetivo(nave);
+            ejecutarObjetivo(asis);
         }
         else{
             // Tirar excepcion
         }
-        evaluar(nave);
-        cerrar(nave, informe);
-    }
-
-    public void preparar(Nave nave){
-        // verifica que este en condicion de ejecutar
-        this.preparada = true;
-    }
-
-    protected abstract void ejecutarObjetivo(Nave nave);
-
-    public abstract void evaluar(Nave nave);
-
-
-    public void cerrar(Nave nave,InformeMision informe){
-        if(resultado == null){
-        // Tirar excepcion
+        evaluar(asis);
+        if(resultado!=null && this.asis){
+            cerrar(asis);
         }
         else{
-            // Cambio los valores de energia, desgaste, combustible a la nave
-            // Relleno el informe
+            // Tirar excepcion
+        }
+
+    }
+
+    public void preparar(Asistente asis){
+        if (this.asis.getCombustible()>3 && this.asis.getDesgaste()>3) {
+            this.preparada = true;
         }
     }
+
+    protected abstract void ejecutarObjetivo(Asistente asis);
+
+
+    public abstract void evaluar(Asistente asis);
+
+
+    public abstract void cerrar(Asistente asis);
+
+
 }
 
