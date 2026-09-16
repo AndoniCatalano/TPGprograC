@@ -4,17 +4,18 @@ public abstract class Mision {
 
     protected boolean preparada = false;
     protected String resultado = null;
-    public final void ejecutarCicloMision(Asistente asis) {
-        preparar(asis);
+    Informe inf = new Informe();
+    public final void ejecutarCicloMision(combustible, desgaste,) { // TENER TODOS LOS PARAMETROS
+        preparar(combustible, desgaste);
         if (preparada){
-            ejecutarObjetivo(asis);
+            ejecutarObjetivo();
         }
         else{
             // Tirar excepcion
         }
-        evaluar(asis);
-        if(resultado!=null && this.asis){
-            cerrar(asis);
+        evaluar();
+        if(resultado!=null && inf!=null){
+            cerrar();
         }
         else{
             // Tirar excepcion
@@ -22,20 +23,25 @@ public abstract class Mision {
 
     }
 
-    public void preparar(Asistente asis){
-        if (this.asis.getCombustible()>3 && this.asis.getDesgaste()>3) {
+    public void preparar(double combustible, double desgaste){
+        if (desgaste>3 && desgaste>3) {
             this.preparada = true;
         }
     }
 
-    protected abstract void ejecutarObjetivo(Asistente asis);
+    protected abstract void ejecutarObjetivo();
 
 
-    public abstract void evaluar(Asistente asis);
+    public abstract void evaluar(); // poner resultado
 
 
-    public abstract void cerrar(Asistente asis);
+    public abstract void cerrar(); // crear inf
 
+    public abstract double getEnergia();
+
+    public Informe getInforme(){
+        return inf;
+    }
 
 }
 

@@ -11,9 +11,10 @@ public class M01 extends Mision{
 
     }
     public abstract void cerrar(Asistente asis){
-        this.asis.setCombustible(this.asis.getCombustible() - 4);
-        this.asis.setDesgaste(this.asis.getDesgaste() - 4);
-        this.asis.setEnergia(this.asis.getEnergia + 5);
+
     }
 
+    public double getEnergia(){
+        return 5;
+    }
 }
