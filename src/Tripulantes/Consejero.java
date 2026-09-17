@@ -6,11 +6,10 @@ public class Consejero extends Tripulante{
     private static final double plusConsejo = 2;
     private ArrayList<String> consejos;
 
-    public Consejero(String identidad, String origen, int antiguedad){
-        super(identidad,origen,antiguedad);
+    public Consejero(String identidad, int antiguedad){
+        super(identidad,antiguedad);
 
         this.sueldoBase = 600;
-        this.cargo = "Consejero";
         this.plusAntiguedad = 0.05;
         this.consejos = new ArrayList<>();
     }
@@ -20,8 +19,9 @@ public class Consejero extends Tripulante{
     }
 
     @Override
-    public double sumaConsejo(){
-        return this.consejos.size() * plusConsejo;
+    public double getSueldo(){
+        return this.sueldoBase +
+                this.sueldoBase * this.plusAntiguedad * this.antiguedad +
+                this.consejos.size() * this.plusConsejo;
     }
-
 }
