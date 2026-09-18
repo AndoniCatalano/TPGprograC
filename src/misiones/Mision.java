@@ -11,14 +11,14 @@ public abstract class Mision {
             ejecutarObjetivo();
         }
         else{
-            // Tirar excepcion
+            // indicar que no se puede ejecutar
         }
         evaluar();
         if(resultado!=null){
             cerrar();
         }
         else{
-            // Tirar excepcion
+            // Indicar que no se puede cerrar
         }
 
     }
@@ -40,6 +40,7 @@ public abstract class Mision {
     public Informe getInforme(){
         return inf;
     }
+
 
 }
 

@@ -6,9 +6,10 @@ public class M01 extends Mision{
     protected abstract void ejecutarObjetivo(){
 
     }
+
     @Override
     public abstract void evaluar(){
-        if (condicion de exito){
+        if (){ // condicion de exito
             resultado = "Mision exitosa"
         }
         else{
