@@ -1,18 +1,25 @@
 package misiones;
 
-public class M02 extends Mision {
+public class M01 extends Mision{
 
     @Override
-    protected abstract void ejecutarObjetivo(Asistente asis){
+    protected abstract void ejecutarObjetivo(){
 
     }
     @Override
-    public abstract void evaluar(Asistente asis){
-
+    public abstract void evaluar(){
+        if (condicion de exito){
+            resultado = "Mision exitosa"
+        }
+        else{
+            resultado = "Mision fallida"
+        }
     }
-    public abstract void cerrar(Asistente asis){
-
+    @Override
+    public abstract void cerrar(){
+        // RELLENAR INFORME
     }
+    @Override
     public double getEnergia(){
         return 5;
     }
