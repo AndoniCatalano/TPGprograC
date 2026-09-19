@@ -3,12 +3,13 @@ package misiones;
 public class M01 extends Mision{
 
     @Override
-    protected abstract void ejecutarObjetivo(){
-
+    protected void ejecutarObjetivo(){
+        this.acciones.add("[M-01] Ejecutando objetivo");
+        this.acciones.add("[M-01] Recolectando datos");
     }
 
     @Override
-    public abstract void evaluar(){
+    public void evaluar(){
         if (){ // condicion de exito
             resultado = "Mision exitosa"
         }
@@ -16,10 +17,8 @@ public class M01 extends Mision{
             resultado = "Mision fallida"
         }
     }
-    @Override
-    public abstract void cerrar(){
-        // RELLENAR INFORME
-    }
+
+
     @Override
     public double getEnergia(){
         return 5;
