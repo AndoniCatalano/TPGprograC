@@ -8,42 +8,53 @@ public class Asistente {
     evaluarResultado()
     cerrar()
     * */
-    Mision mision;
-    Nave nave;
-    NaveFactory fabrica = new NaveFactory();
+
+
 
     public Asistente(){
 
     }
 
-
-
-    public void creaNave(String tipoNave){
-        nave = fabrica.getNave(tipoNave);
+    public void anadirTripulante(Tripulante tripulante, Nave nave){
+        nave.addTripulante(tripulante);
     }
 
-    public double consultarEnergia(){
-        return this.nave.getEnergia();
+    public void mostrarSueldos(Nave nave){
+        nave.mostrarSueldos();
     }
 
-    public double consultarCombustible(){
-        return this.nave.getCombustible();
+    public Nave creaNave(String tipoNave){
+
+        return fabrica.getNave(tipoNave);
     }
 
-    public double consultarDesgaste(){
-        return this.nave.getDesgaste();
-    }
-    public void ordenCargaCombustible(double cantidad){
-        this.nave.cargaComubstible(cantidad);
+    public double consultarEnergia(Nave nave){
+
+        return nave.getEnergia();
     }
 
-    public void ordenCargaEnergia(double cantidad){
-        this.nave.cargaEnergia(cantidad);
+    public double consultarCombustible(Nave nave){
+
+        return nave.getCombustible();
+    }
+
+    public double consultarDesgaste(Nave nave){
+
+        return nave.getDesgaste();
+    }
+    public boolean ordenCargaCombustible(double cantidad, Nave nave){
+        return nave.cargaComubstible(cantidad);
+    }
+
+    public boolean ordenCargaEnergia(double cantidad, Nave nave){
+
+        return nave.cargaEnergia(cantidad);
     }
 
     //al realizar el mantenimiento reseteamos a 0 el desgaste o hacemos que reste cierta cantidad?
-    public void ordenMantenimientoNave(){
-        this.nave.realizarMantenimiento();
+    public boolean ordenMantenimientoNave(){
+
+        return this.nave.realizarMantenimiento();
     }
 
 
