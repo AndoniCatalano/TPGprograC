@@ -35,6 +35,7 @@ public abstract class NaveInicial implements Nave {
             this.necesitaMantenimiento = false;
         }
 
+        @Override
         public void consumeCombustible(int cantCombustible){
             if (cantCombustible <= this.combustible)
                 this.combustible -= cantCombustible;
@@ -42,6 +43,7 @@ public abstract class NaveInicial implements Nave {
                 this.combustible = 0;
         }
 
+        @Override
         public void consumeEnergia(int cantEnergia){
             if (cantEnergia <= this.energia)
                 this.energia -= cantEnergia;
@@ -49,6 +51,7 @@ public abstract class NaveInicial implements Nave {
                 this.energia = 0;
         }
 
+        @Override
         public void incrementaDesgaste(int cantDesgaste){
             this.desgaste += cantDesgaste;
             if (this.desgaste >= 80)
@@ -68,6 +71,7 @@ public abstract class NaveInicial implements Nave {
             return total;
         }
 
+        @Override
         public void insertaTripulante(Tripulante tripulante){
             int i = 0;
             int n = this.arrayTripulantes.length;
@@ -77,6 +81,7 @@ public abstract class NaveInicial implements Nave {
                 this.arrayTripulantes[i] = tripulante;
         }
 
+        @Override
         public void insertaMision(Mision mision){
             int i = 0;
             int n = this.arrayInformes.length;
@@ -86,6 +91,7 @@ public abstract class NaveInicial implements Nave {
                 this.arrayInformes[i] = mision;
         }
 
+        @Override
         public void insertaBitacora(Bitacora bitacora){
             int i = 0;
             int n = this.arrayBitacoras.length;
@@ -94,36 +100,45 @@ public abstract class NaveInicial implements Nave {
             if (i < n)
                 this.arrayBitacoras[i] = bitacora;
         }
+
         //getters
 
+        @Override
         public int getCombustible(){
             return this.combustible;
         }
 
+        @Override
         public int getEnergia(){
             return this.energia;
         }
 
+        @Override
         public int getDesgaste(){
             return this.desgaste;
         }
 
+        @Override
         public boolean getNecesitaMantenimiento() {
             return this.necesitaMantenimiento;
         }
 
+        @Override
         public Motor getMotorWarp() {
             return this.motorWarp;
         }
 
+        @Override
         public Tripulante[] getArrayTripulantes() {
-            return this.arrayTripulante;
+            return this.arrayTripulantes;
         }
 
+        @Override
         public Mision[] getArrayInformes() {
             return this.arrayInformes;
         }
 
+        @Override
         public Bitacora[] getArrayBitacoras() {
                 return this.arrayBitacoras;
         }
