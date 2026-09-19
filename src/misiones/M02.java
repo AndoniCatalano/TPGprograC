@@ -8,15 +8,6 @@ public class M01 extends Mision{
         this.acciones.add("[M-02] Recolectando recursos");
     }
 
-    @Override
-    public void evaluar(){
-        if (){ // condicion de exito
-            resultado = "Mision exitosa"
-        }
-        else{
-            resultado = "Mision fallida"
-        }
-    }
 
     @Override
     public double getEnergia(){

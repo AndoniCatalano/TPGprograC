@@ -9,17 +9,6 @@ public class M01 extends Mision{
     }
 
     @Override
-    public void evaluar(){
-        if (){ // condicion de exito
-            resultado = "Mision exitosa"
-        }
-        else{
-            resultado = "Mision fallida"
-        }
-    }
-
-
-    @Override
     public double getEnergia(){
         return 5;
     }
