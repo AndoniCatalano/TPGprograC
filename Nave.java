@@ -1,11 +1,12 @@
 public interface Nave { //contiene los métodos comunes a todas las naves
-    public void cargaCombustible(int combustible);
-    public void cargaEnergia(int energia);
-    public void realizarMantenimiento();
-    public void consumeCombustible(int cantCombustible);
-    public void consumeEnergia(int cantEnergia);
-    public void incrementaDesgaste(int cantDesgaste);
+    public boolean cargaCombustible(int cantCombustible);
+    public boolean cargaEnergia(int cantEnergia);
+    public boolean realizarMantenimiento();
+    public boolean consumeCombustible(int cantCombustible);
+    public boolean consumeEnergia(int cantEnergia);
+    public boolean incrementaDesgaste(int cantDesgaste);
     public double liquidarHaberes();
+    public void muestraSueldos();
 
 
     public void insertaTripulante(Tripulante tripulante);
