@@ -12,7 +12,7 @@ public abstract class Tripulante{
     }
 
     public  String getIdentidad() {
-        return identidad;
+        return this.identidad;
     }
 
 
