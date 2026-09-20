@@ -6,6 +6,7 @@ public class M01 extends Mision{
     protected void ejecutarObjetivo(){
         this.acciones.add("[M-02] Ejecutando objetivo");
         this.acciones.add("[M-02] Recolectando recursos");
+        combustibleGastado = 4;
     }
 
 

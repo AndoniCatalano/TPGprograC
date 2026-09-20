@@ -11,7 +11,7 @@ public abstract class Mision {
     protected List<String> observaciones = new ArrayList<>();
     Informe inf = new Informe();
 
-    public final void ejecutarCicloMision(double combustible, double desgaste,) {
+    public final void ejecutarCicloMision(double combustible, double desgaste) {
 
         preparar(combustible, desgaste);
         if (!this.preparada) {
@@ -28,6 +28,7 @@ public abstract class Mision {
     }
 
     public void preparar(double combustible, double desgaste){
+        this.acciones.add("Preparando mision");
         if (desgaste>3 && combustible>3) {
             this.preparada = true;
         }
@@ -37,6 +38,7 @@ public abstract class Mision {
 
     public void evaluar() {
         double exito = Math.random();
+        this.acciones.add("Evaluando mision");
         if (exito > 0.3) {
             this.resultado = "EXITO";
         } else {
@@ -46,6 +48,7 @@ public abstract class Mision {
 
     public void cerrar() {
 
+        this.acciones.add("Preparando informe");
         this.inf.setMision_ejecutada(this);
         this.inf.setResultado(this.resultado);
         this.inf.setEnergiaCons((int) this.getEnergia());
@@ -53,7 +56,7 @@ public abstract class Mision {
         this.inf.setCombustibleCons(this.combustibleGastado);
         this.inf.setEstadoFinal(this.estado);
         this.inf.setObservaciones(this.observaciones);
-
+        this.acciones.add("Cerrando mision");
     }
 
     public abstract double getEnergia();
