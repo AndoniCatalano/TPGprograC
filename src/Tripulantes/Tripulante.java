@@ -11,6 +11,11 @@ public abstract class Tripulante{
         this.antiguedad = antiguedad;
     }
 
+    public  String getIdentidad() {
+        return identidad;
+    }
+
+
     public double getSueldo(){
         return  this.sueldoBase + this.sueldoBase * this.antiguedad * this.plusAntiguedad;
     }
