@@ -18,4 +18,16 @@ public class MotorWarp{
     public void iniciarSalto(){
         estado.iniciarSalto();
     }
+
+    public void ejecutarSalto(){
+        estado.ejecutarSalto();
+    }
+
+    public void finalizarSalto(){
+        estado.finalizarSalto();
+    }
+
+    public void terminarEnfriamiento(){
+        estado.terminarEnfriamiento();
+    }
 }

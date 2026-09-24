@@ -7,14 +7,21 @@ public class EnWarpState implements State{
         this.m = m;
     }
 
+    @Override
+    public String toString() {
+        return "En Warp";
+    }
+
     @java.lang.Override
     public void iniciarSalto() {
         //arroja excepcion el salto ya fue iniciado
+        System.out.println("ERROR");
     }
 
     @java.lang.Override
     public void ejecutarSalto() {
         // ya esta siendo ejecutad
+        System.out.println("ERROR");
     }
 
     @java.lang.Override
@@ -25,5 +32,6 @@ public class EnWarpState implements State{
     @java.lang.Override
     public void terminarEnfriamiento() {
         //arroja excepcion no puede terminar enfriamiento, esto lo maneja el estado Enfriamiento
+        System.out.println("ERROR");
     }
 }
