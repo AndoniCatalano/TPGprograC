@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Paquete preparado asistente">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Tripulante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tripulantes/Tripulante.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AndoniCatalano&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AndoniCatalano/TPGprograC.git&quot;,
+    &quot;accountId&quot;: &quot;8ff3952b-34ec-467f-bba1-21e989d8872b&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="2.172656797617791" />
+      <entry key="MS500" value="6.344538783176712" />
+      <entry key="S2" value="17.54124367728974" />
+      <entry key="S5" value="31.199022272653124" />
+      <entry key="S10" value="41.64591651277186" />
+      <entry key="S30" value="59.53634109376136" />
+      <entry key="S60" value="84.7859468096875" />
+      <entry key="M2" value="129.26067363763352" />
+      <entry key="M5" value="204.6533128806128" />
+      <entry key="M10" value="257.17620733204006" />
+      <entry key="M15" value="283.09632474821035" />
+      <entry key="M30" value="317.03573166573943" />
+      <entry key="H1" value="338.44927294990623" />
+      <entry key="H2" value="350.63700064559805" />
+      <entry key="H4" value="357.1615735076017" />
+      <entry key="D1" value="362.8375532573912" />
+      <entry key="W1" value="363.833367674526" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.7936454452469167E-71" />
+      <entry key="S2" value="2.0597681561049037E-18" />
+      <entry key="S5" value="8.927199183966036E-8" />
+      <entry key="S10" value="3.6132698999791685E-4" />
+      <entry key="S30" value="0.10767197591979098" />
+      <entry key="S60" value="0.47844981359353383" />
+      <entry key="M2" value="1.490894572224203" />
+      <entry key="M5" value="6.94483073473429" />
+      <entry key="M10" value="16.088475039178174" />
+      <entry key="M15" value="22.540351365496665" />
+      <entry key="M30" value="32.65156542008798" />
+      <entry key="H1" value="39.819532422113994" />
+      <entry key="H2" value="44.12198648916843" />
+      <entry key="H4" value="46.483904608678216" />
+      <entry key="D1" value="48.56947510394841" />
+      <entry key="W1" value="48.938216407839626" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="2.0942861458900865" />
+      <entry key="MS500" value="6.301418761963776" />
+      <entry key="S2" value="17.51159453045801" />
+      <entry key="S5" value="31.177760960119105" />
+      <entry key="S10" value="41.63202353602171" />
+      <entry key="S30" value="59.63553863758416" />
+      <entry key="S60" value="85.25559377284398" />
+      <entry key="M2" value="130.73935818442658" />
+      <entry key="M5" value="211.57267574672645" />
+      <entry key="M10" value="273.23282857068585" />
+      <entry key="M15" value="305.6060673846096" />
+      <entry key="M30" value="349.66449438671646" />
+      <entry key="H1" value="378.2547111568128" />
+      <entry key="H2" value="394.75112704769725" />
+      <entry key="H4" value="403.6413242986884" />
+      <entry key="D1" value="411.4063030720537" />
+      <entry key="W1" value="412.77147963573077" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3JTUMA2RCGU0nXR0UPM1hmPY35o" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tripulantes&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Paquete preparado asistente" />
+      <created>1789684502931</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1789684502931</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
