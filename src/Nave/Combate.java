@@ -1,3 +1,5 @@
+package Nave;
+
 public class Combate extends NaveInicial {
     public Combate() {
 

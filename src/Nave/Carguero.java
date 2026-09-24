@@ -1,3 +1,5 @@
+package Nave;
+
 public class Carguero extends NaveInicial {
     public Carguero() {
 

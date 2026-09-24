@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Paquete preparado asistente">
+    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="merge tripulantes + package nave">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Tripulante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tripulantes/Tripulante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Nave/Carguero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/Carguero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Nave/Combate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/Combate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Nave/Exploradora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/Exploradora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Nave/Nave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/Nave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Nave/NaveFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/NaveFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Nave/NaveInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/NaveInicial.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,62 +46,65 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="2.172656797617791" />
-      <entry key="MS500" value="6.344538783176712" />
-      <entry key="S2" value="17.54124367728974" />
-      <entry key="S5" value="31.199022272653124" />
-      <entry key="S10" value="41.64591651277186" />
-      <entry key="S30" value="59.53634109376136" />
-      <entry key="S60" value="84.7859468096875" />
-      <entry key="M2" value="129.26067363763352" />
-      <entry key="M5" value="204.6533128806128" />
-      <entry key="M10" value="257.17620733204006" />
-      <entry key="M15" value="283.09632474821035" />
-      <entry key="M30" value="317.03573166573943" />
-      <entry key="H1" value="338.44927294990623" />
-      <entry key="H2" value="350.63700064559805" />
-      <entry key="H4" value="357.1615735076017" />
-      <entry key="D1" value="362.8375532573912" />
-      <entry key="W1" value="363.833367674526" />
+      <entry key="MS100" value="1.6018854020692656E-31" />
+      <entry key="MS500" value="7.017370728503595E-7" />
+      <entry key="S2" value="0.038438188424854115" />
+      <entry key="S5" value="0.4053906822581415" />
+      <entry key="S10" value="1.073743672362077" />
+      <entry key="S30" value="3.8822092728383266" />
+      <entry key="S60" value="8.32690980019596" />
+      <entry key="M2" value="19.239037557546396" />
+      <entry key="M5" value="67.58544871327409" />
+      <entry key="M10" value="156.92506203252125" />
+      <entry key="M15" value="229.17710930187107" />
+      <entry key="M30" value="355.93895693523984" />
+      <entry key="H1" value="454.9239138193165" />
+      <entry key="H2" value="517.7587638787328" />
+      <entry key="H4" value="553.3126528322271" />
+      <entry key="D1" value="585.3212552582091" />
+      <entry key="W1" value="591.0400577133104" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.7936454452469167E-71" />
-      <entry key="S2" value="2.0597681561049037E-18" />
-      <entry key="S5" value="8.927199183966036E-8" />
-      <entry key="S10" value="3.6132698999791685E-4" />
-      <entry key="S30" value="0.10767197591979098" />
-      <entry key="S60" value="0.47844981359353383" />
-      <entry key="M2" value="1.490894572224203" />
-      <entry key="M5" value="6.94483073473429" />
-      <entry key="M10" value="16.088475039178174" />
-      <entry key="M15" value="22.540351365496665" />
-      <entry key="M30" value="32.65156542008798" />
-      <entry key="H1" value="39.819532422113994" />
-      <entry key="H2" value="44.12198648916843" />
-      <entry key="H4" value="46.483904608678216" />
-      <entry key="D1" value="48.56947510394841" />
-      <entry key="W1" value="48.938216407839626" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000001395983" />
+      <entry key="S2" value="1.0034373217397785" />
+      <entry key="S5" value="1.10381222434497" />
+      <entry key="S10" value="1.3529764870586656" />
+      <entry key="S30" value="2.499545924781298" />
+      <entry key="S60" value="4.379101750095165" />
+      <entry key="M2" value="7.918308672689954" />
+      <entry key="M5" value="16.907555044937748" />
+      <entry key="M10" value="28.52140319595888" />
+      <entry key="M15" value="37.77014550388391" />
+      <entry key="M30" value="55.63413424528336" />
+      <entry key="H1" value="71.21633901003797" />
+      <entry key="H2" value="81.81600719376048" />
+      <entry key="H4" value="88.04338170054726" />
+      <entry key="D1" value="93.78592337629217" />
+      <entry key="W1" value="94.82516670546059" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.0942861458900865" />
-      <entry key="MS500" value="6.301418761963776" />
-      <entry key="S2" value="17.51159453045801" />
-      <entry key="S5" value="31.177760960119105" />
-      <entry key="S10" value="41.63202353602171" />
-      <entry key="S30" value="59.63553863758416" />
-      <entry key="S60" value="85.25559377284398" />
-      <entry key="M2" value="130.73935818442658" />
-      <entry key="M5" value="211.57267574672645" />
-      <entry key="M10" value="273.23282857068585" />
-      <entry key="M15" value="305.6060673846096" />
-      <entry key="M30" value="349.66449438671646" />
-      <entry key="H1" value="378.2547111568128" />
-      <entry key="H2" value="394.75112704769725" />
-      <entry key="H4" value="403.6413242986884" />
-      <entry key="D1" value="411.4063030720537" />
-      <entry key="W1" value="412.77147963573077" />
+      <entry key="MS100" value="1.7912180739430564E-31" />
+      <entry key="MS500" value="1.0195227946487538E-6" />
+      <entry key="S2" value="0.06480208791501779" />
+      <entry key="S5" value="0.7230050708878649" />
+      <entry key="S10" value="1.8702454512703044" />
+      <entry key="S30" value="6.05676197513167" />
+      <entry key="S60" value="12.444928827953941" />
+      <entry key="M2" value="26.946201441041616" />
+      <entry key="M5" value="84.34208676112269" />
+      <entry key="M10" value="185.33550369700032" />
+      <entry key="M15" value="266.8564930381407" />
+      <entry key="M30" value="411.5125377393744" />
+      <entry key="H1" value="526.1036026186537" />
+      <entry key="H2" value="599.5543102378147" />
+      <entry key="H4" value="641.3451807290357" />
+      <entry key="D1" value="679.1052741990659" />
+      <entry key="W1" value="685.864949892776" />
     </decayedShown>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8,
@@ -118,16 +126,23 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tripulantes&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\andoni\IdeaProjects\TPG\src\Nave" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -196,5 +211,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="merge tripulantes + package nave" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge tripulantes + package nave" />
   </component>
 </project>

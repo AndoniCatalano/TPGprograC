@@ -1,3 +1,5 @@
+package Nave;
+
 public class NaveFactory {
     public Nave getNave(String tipoNave){
         if(tipoNave.equalsIgnoreCase("carguero"))

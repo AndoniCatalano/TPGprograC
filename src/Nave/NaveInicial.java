@@ -1,3 +1,4 @@
+package Nave;
 public abstract class NaveInicial implements Nave {
         protected int combustible;
         protected int energia;

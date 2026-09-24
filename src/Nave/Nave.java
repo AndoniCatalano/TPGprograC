@@ -1,3 +1,7 @@
+package Nave;
+
+import Tripulantes.Tripulante;
+
 public interface Nave { //contiene los métodos comunes a todas las naves
     public boolean cargaCombustible(int cantCombustible);
     public boolean cargaEnergia(int cantEnergia);
