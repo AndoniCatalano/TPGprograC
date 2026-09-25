@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="merge tripulantes + package nave">
+    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Sistema agregado y algunas correcciones de paquetes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Nave/Carguero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/Carguero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Nave/Combate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/Combate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Nave/Exploradora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/Exploradora.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Nave/Nave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/Nave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Nave/NaveFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/NaveFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Nave/NaveInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave/NaveInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sistema.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,61 +41,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.6018854020692656E-31" />
-      <entry key="MS500" value="7.017370728503595E-7" />
-      <entry key="S2" value="0.038438188424854115" />
-      <entry key="S5" value="0.4053906822581415" />
-      <entry key="S10" value="1.073743672362077" />
-      <entry key="S30" value="3.8822092728383266" />
-      <entry key="S60" value="8.32690980019596" />
-      <entry key="M2" value="19.239037557546396" />
-      <entry key="M5" value="67.58544871327409" />
-      <entry key="M10" value="156.92506203252125" />
-      <entry key="M15" value="229.17710930187107" />
-      <entry key="M30" value="355.93895693523984" />
-      <entry key="H1" value="454.9239138193165" />
-      <entry key="H2" value="517.7587638787328" />
-      <entry key="H4" value="553.3126528322271" />
-      <entry key="D1" value="585.3212552582091" />
-      <entry key="W1" value="591.0400577133104" />
+      <entry key="MS100" value="1.0000000012460422" />
+      <entry key="MS500" value="1.016567054866121" />
+      <entry key="S2" value="1.4616444572719127" />
+      <entry key="S5" value="2.438464563338804" />
+      <entry key="S10" value="3.403987983413013" />
+      <entry key="S30" value="7.173352931427376" />
+      <entry key="S60" value="13.47425305238552" />
+      <entry key="M2" value="23.796284329516297" />
+      <entry key="M5" value="50.400092942553854" />
+      <entry key="M10" value="109.31195154101503" />
+      <entry key="M15" value="174.1231374140494" />
+      <entry key="M30" value="321.25449996179987" />
+      <entry key="H1" value="461.93537903060184" />
+      <entry key="H2" value="561.6407491757979" />
+      <entry key="H4" value="621.3839136534991" />
+      <entry key="D1" value="677.1373026728031" />
+      <entry key="W1" value="687.2901453259309" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000001395983" />
-      <entry key="S2" value="1.0034373217397785" />
-      <entry key="S5" value="1.10381222434497" />
-      <entry key="S10" value="1.3529764870586656" />
-      <entry key="S30" value="2.499545924781298" />
-      <entry key="S60" value="4.379101750095165" />
-      <entry key="M2" value="7.918308672689954" />
-      <entry key="M5" value="16.907555044937748" />
-      <entry key="M10" value="28.52140319595888" />
-      <entry key="M15" value="37.77014550388391" />
-      <entry key="M30" value="55.63413424528336" />
-      <entry key="H1" value="71.21633901003797" />
-      <entry key="H2" value="81.81600719376048" />
-      <entry key="H4" value="88.04338170054726" />
-      <entry key="D1" value="93.78592337629217" />
-      <entry key="W1" value="94.82516670546059" />
+      <entry key="MS100" value="5.4999229816237824E-36" />
+      <entry key="MS500" value="8.873017163077229E-8" />
+      <entry key="S2" value="0.01725908749446505" />
+      <entry key="S5" value="0.19715841693405736" />
+      <entry key="S10" value="0.4459492988889791" />
+      <entry key="S30" value="0.8900802406239378" />
+      <entry key="S60" value="1.3631562072087244" />
+      <entry key="M2" value="2.753382373928808" />
+      <entry key="M5" value="8.605051392099377" />
+      <entry key="M10" value="19.736473840069497" />
+      <entry key="M15" value="30.180911412071215" />
+      <entry key="M30" value="53.088114954970145" />
+      <entry key="H1" value="75.62546089694041" />
+      <entry key="H2" value="92.17035996126019" />
+      <entry key="H4" value="102.31499535319112" />
+      <entry key="D1" value="111.93460601219813" />
+      <entry key="W1" value="113.70190157202215" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.7912180739430564E-31" />
-      <entry key="MS500" value="1.0195227946487538E-6" />
-      <entry key="S2" value="0.06480208791501779" />
-      <entry key="S5" value="0.7230050708878649" />
-      <entry key="S10" value="1.8702454512703044" />
-      <entry key="S30" value="6.05676197513167" />
-      <entry key="S60" value="12.444928827953941" />
-      <entry key="M2" value="26.946201441041616" />
-      <entry key="M5" value="84.34208676112269" />
-      <entry key="M10" value="185.33550369700032" />
-      <entry key="M15" value="266.8564930381407" />
-      <entry key="M30" value="411.5125377393744" />
-      <entry key="H1" value="526.1036026186537" />
-      <entry key="H2" value="599.5543102378147" />
-      <entry key="H4" value="641.3451807290357" />
-      <entry key="D1" value="679.1052741990659" />
-      <entry key="W1" value="685.864949892776" />
+      <entry key="MS100" value="0.7071067820987038" />
+      <entry key="MS500" value="0.9485972365289767" />
+      <entry key="S2" value="1.4432345742881962" />
+      <entry key="S5" value="2.575275141957598" />
+      <entry key="S10" value="3.7887681390274888" />
+      <entry key="S30" value="7.994932319228636" />
+      <entry key="S60" value="14.759495407762056" />
+      <entry key="M2" value="26.468767323019588" />
+      <entry key="M5" value="58.92224217392763" />
+      <entry key="M10" value="128.96489403527107" />
+      <entry key="M15" value="204.2247882005036" />
+      <entry key="M30" value="374.279651329069" />
+      <entry key="H1" value="537.5187297915426" />
+      <entry key="H2" value="653.7862964890917" />
+      <entry key="H4" value="723.6853710438033" />
+      <entry key="D1" value="789.0694753872159" />
+      <entry key="W1" value="800.9916946642285" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -126,7 +121,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Sistema&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
@@ -214,6 +209,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="merge tripulantes + package nave" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge tripulantes + package nave" />
+    <MESSAGE value="Sistema agregado y algunas correcciones de paquetes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sistema agregado y algunas correcciones de paquetes" />
   </component>
 </project>

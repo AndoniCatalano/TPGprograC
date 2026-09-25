@@ -1,3 +1,7 @@
+// Almacenar los asistente
+// Insertar y buscar naves
+//
+
 import Asistente.*;
 import Nave.*;
 import Tripulantes.Tripulante;
@@ -22,7 +26,7 @@ public class Sistema {
     public void addNave(Nave nave){
         Asistente asistente = new Asistente();
         this.asistentes.add(asistente);
-        asistente.nave = nave;
+        asistente.setNave(nave);
     }
 
     public void removeNave(Nave nave){
@@ -33,19 +37,19 @@ public class Sistema {
     }
 
     public void asignaMision(Mision mision){
-        asistente.mision = mision;
+        asistente.setMision(mision);
     }
 
-    public void addTripulante(Nave nave, Tripulante tripulante){
-        nave.addTripulante(tripulante);
+    public void addTripulante(Asistente asistente, Tripulante tripulante){
+        asistente.addTripulante(tripulante);
     }
 
-    public void removeTripulante(Nave nave, Tripulante tripulante){
-        nave.removeTripulante(tripulante);
+    public void removeTripulante(Asistente asistente, Tripulante tripulante){
+        asistente.removeTripulante(tripulante);
     }
 
-    public void liquidarHaberes(Nave nave){
-        nave.liquidarHaberes();
+    public void liquidarHaberes(Asistente asistente){
+        asistente.liquidarHaberes();
     }
 
 }
