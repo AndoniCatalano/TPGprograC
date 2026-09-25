@@ -15,13 +15,13 @@ public class EnWarpState implements State{
     @java.lang.Override
     public void iniciarSalto() {
         //arroja excepcion el salto ya fue iniciado
-        System.out.println("ERROR");
+        System.out.println("ERROR: el motor se encuentra en estado Warp, no puede ser iniciado");
     }
 
     @java.lang.Override
     public void ejecutarSalto() {
         // ya esta siendo ejecutad
-        System.out.println("ERROR");
+        System.out.println("ERROR: el salto ya esta siendo ejecutado");
     }
 
     @java.lang.Override
@@ -32,6 +32,6 @@ public class EnWarpState implements State{
     @java.lang.Override
     public void terminarEnfriamiento() {
         //arroja excepcion no puede terminar enfriamiento, esto lo maneja el estado Enfriamiento
-        System.out.println("ERROR");
+        System.out.println("ERROR: el motor no necesita enfriarse");
     }
 }
