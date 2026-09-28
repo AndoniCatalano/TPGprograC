@@ -9,44 +9,47 @@ public class Asistente {
     cerrar()
     * */
 
+    private Nave nave;
+    private Mision mision;
+
+
 
 
     public Asistente(){
 
     }
 
-    public void anadirTripulante(Tripulante tripulante, Nave nave){
+    public void addTripulante(Tripulante tripulante){
         nave.addTripulante(tripulante);
     }
 
-    public void mostrarSueldos(Nave nave){
+    public void mostrarSueldos(){
         nave.mostrarSueldos();
     }
 
-    public Nave creaNave(String tipoNave){
-
-        return fabrica.getNave(tipoNave);
+    public void setNave(Nave nave){
+        this.nave = nave;
     }
 
-    public double consultarEnergia(Nave nave){
+    public double consultarEnergia(){
 
         return nave.getEnergia();
     }
 
-    public double consultarCombustible(Nave nave){
+    public double consultarCombustible(){
 
         return nave.getCombustible();
     }
 
-    public double consultarDesgaste(Nave nave){
+    public double consultarDesgaste(){
 
         return nave.getDesgaste();
     }
-    public boolean ordenCargaCombustible(double cantidad, Nave nave){
+    public boolean ordenCargaCombustible(double cantidad){
         return nave.cargaComubstible(cantidad);
     }
 
-    public boolean ordenCargaEnergia(double cantidad, Nave nave){
+    public boolean ordenCargaEnergia(double cantidad){
 
         return nave.cargaEnergia(cantidad);
     }
@@ -54,7 +57,7 @@ public class Asistente {
     //al realizar el mantenimiento reseteamos a 0 el desgaste o hacemos que reste cierta cantidad?
     public boolean ordenMantenimientoNave(){
 
-        return this.nave.realizarMantenimiento();
+        return nave.realizarMantenimiento();
     }
 
 
