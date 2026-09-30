@@ -4,150 +4,69 @@ public abstract class NaveInicial implements Nave {
         protected int desgaste;
         protected boolean necesitaMantenimiento; //depende del desgaste
         protected Motor motorWarp;
-        protected Tripulante[] arrayTripulantes;
-        protected Mision[] arrayInformes;
-        protected Bitacora[] arrayBitacoras;
 
 
-        public NaveInicial(int combustibleInicial, int energiaInicial, int maxTripulantes, int maxMision){ //la diferencia entre los tipos de nave es por sus configs iniciales
+        public NaveInicial(int combustibleInicial, int energiaInicial){ //la diferencia entre los tipos de nave es por sus configs iniciales
             this.combustible = combustibleInicial;
             this.energia = energiaInicial;
             this.desgaste = 0;
             this.necesitaMantenimiento = false;
             this.motorWarp = new Motor();
-            this.arrayTripulantes = new Tripulante[maxTripulantes];
-            this.arrayInformes = new Mision[maxMision];
         }
 
         @Override
-        public boolean cargaCombustible(int cantCombustible){
-            boolean exito;
+        public void cargaCombustible(int cantCombustible) throws OperacionRechazadaException{
             if (cantCombustible <= 0 || (this.combustible + cantCombustible) > 100)
-                exito = false;
-            else{
+                throw new OperacionRechazadaException("La carga de combustible supera la capacidad máxima (100) o es inválida.");
+            else
                 this.combustible += cantCombustible;
-                exito = true;
-            }
-            return exito;
         }
 
         @Override
-        public boolean cargaEnergia(int cantEnergia){
-            boolean exito;
-            if(cantEnergia <= 0 || (this.energia + cantEnergia) > 100)
-                exito = false;
-            else{
+        public void cargaEnergia(int cantEnergia) throws OperacionRechazadaException{
+            if (cantEnergia <= 0 || (this.energia + cantEnergia) > 100)
+                throw new OperacionRechazadaException("La carga de energía supera la capacidad máxima (100) o es inválida.");
+            else
                 this.energia += cantEnergia;
-                exito = true;
-            }
-            return exito;
         }
 
         @Override
-        public boolean realizarMantenimiento(){
-            boolean exito;
+        public void realizarMantenimiento() throws OperacionRechazadaException{
             if (this.desgaste < 80)
-                exito = false;
-            else {
+                throw new OperacionRechazadaException("La nave no requiere mantenimiento. El desgaste actual (" + this.desgaste + ") es menor a 80.");
+            else{
                 this.desgaste = 0;
                 this.necesitaMantenimiento = false;
-                exito = true;
             }
-            return exito;
         }
 
         @Override
-        public boolean consumeCombustible(int cantCombustible){
-            boolean exito;
+        public void consumeCombustible(int cantCombustible) throws OperacionRechazadaException{
             if (cantCombustible <= 0 || cantCombustible > this.combustible)
-                exito = false;
-            else {
+                throw new OperacionRechazadaException("Combustible insuficiente para el consumo solicitado.");
+            else
                 this.combustible -= cantCombustible;
-                exito = true;
-            }
-            return exito;
         }
 
         @Override
-        public boolean consumeEnergia(int cantEnergia){
-            boolean exito;
+        public void consumeEnergia(int cantEnergia) throws OperacionRechazadaException{
             if (cantEnergia <= 0 || cantEnergia > this.energia)
-                exito = false;
-            else{
+                throw new OperacionRechazadaException("Energía insuficiente para el consumo solicitado.");
+            else
                 this.energia -= cantEnergia;
-                exito = true;
-            }
-            return exito;
         }
 
         @Override
-        public boolean incrementaDesgaste(int cantDesgaste){
-            boolean exito;
-            if(cantDesgaste <= 0)
-                exito = false;
+        public void incrementaDesgaste(int cantDesgaste) throws OperacionRechazadaException{
+            if (cantDesgaste <= 0)
+                throw new OperacionRechazadaException("El desgaste a incrementar debe ser mayor a cero.");
             else {
                 this.desgaste += cantDesgaste;
                 if (this.desgaste >= 80)
                     this.necesitaMantenimiento = true;
                 if (this.desgaste > 100)                //valor tope del desgaste
                     this.desgaste = 100;
-                exito = true;
             }
-            return exito;
-        }
-
-        @Override
-        public double liquidarHaberes(){
-            double total = 0;
-            int n = this.arrayTripulantes.length;
-            int i;
-            for (i = 0; i < n; i++)
-                if(this.arrayTripulantes[i] != null)
-                    total += this.arrayTripulantes[i].getSueldo();
-            return total;
-        }
-
-        @Override
-        public void muestraSueldos(){
-            double sueldo;
-            int n = this.arrayTripulantes.length;
-            int i;
-            System.out.println("\nSueldos de la Tripulación: ");
-            for (i=0; i < n; i++)
-                if (this.arrayTripulantes[i] != null){
-                    sueldo = this.arrayTripulantes[i].getSueldo();
-                    System.out.println("\nTripulante " + this.arrayTripulantes[i].getIdentidad() + ": $" + sueldo);
-                }
-        }
-
-        @Override
-        public void insertaTripulante(Tripulante tripulante){
-            int i = 0;
-            int n = this.arrayTripulantes.length;
-            while (i < n && this.arrayTripulantes[i] != null)
-                i++;
-            if (i < n)
-                this.arrayTripulantes[i] = tripulante;
-        }
-
-        @Override
-        public void insertaMision(Mision mision){
-            int i = 0;
-            int n = this.arrayInformes.length;
-            while (i < n && this.arrayInformes[i] != null)
-                i++;
-            if (i < n)
-                this.arrayInformes[i] = mision;
-        }
-
-        @Override
-        public void insertaBitacora(Bitacora bitacora){
-            int i = 0;
-            int n = this.arrayBitacoras.length;
-            while (i < n && this.arrayBitacoras[i] != null)
-                i++;
-            if (i < n)
-                this.arrayBitacoras[i] = bitacora;
         }
 
         //getters
@@ -175,21 +94,6 @@ public abstract class NaveInicial implements Nave {
         @Override
         public Motor getMotorWarp() {
             return this.motorWarp;
-        }
-
-        @Override
-        public Tripulante[] getArrayTripulantes() {
-            return this.arrayTripulantes;
-        }
-
-        @Override
-        public Mision[] getArrayInformes() {
-            return this.arrayInformes;
-        }
-
-        @Override
-        public Bitacora[] getArrayBitacoras() {
-                return this.arrayBitacoras;
         }
 }
 

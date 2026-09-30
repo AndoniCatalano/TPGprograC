@@ -1,5 +1,6 @@
 public class NaveFactory {
-    public Nave getNave(String tipoNave){
+
+    public Nave getNave(String tipoNave) throws TipoNaveInvalidoException{
         if(tipoNave.equalsIgnoreCase("carguero"))
             return new Carguero();
         else
@@ -9,6 +10,7 @@ public class NaveFactory {
                 if (tipoNave.equalsIgnoreCase("exploradora"))
                     return new Exploradora();
                 else
-                    return null; //acá quizá debería lanzar alguna excepción, por ahora lo soluciono así
+                    throw new TipoNaveInvalidoException("Tipo de nave inválido: " + tipoNave);
     }
+
 }
