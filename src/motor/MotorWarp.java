@@ -15,19 +15,19 @@ public class MotorWarp{
         return this.estado;
     }
 
-    public void iniciarSalto(){
+    public void iniciarSalto() throws TransicionInvalidaException{
         estado.iniciarSalto();
     }
 
-    public void ejecutarSalto(){
+    public void ejecutarSalto() throws TransicionInvalidaException{
         estado.ejecutarSalto();
     }
 
-    public void finalizarSalto(){
+    public void finalizarSalto() throws TransicionInvalidaException{
         estado.finalizarSalto();
     }
 
-    public void terminarEnfriamiento(){
+    public void terminarEnfriamiento() throws TransicionInvalidaException{
         estado.terminarEnfriamiento();
     }
 }
