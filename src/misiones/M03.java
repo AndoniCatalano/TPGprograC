@@ -1,6 +1,6 @@
 package misiones;
 
-public class M01 extends Mision{
+public class M03 extends Mision{
 
     @Override
     protected void ejecutarObjetivo(){
