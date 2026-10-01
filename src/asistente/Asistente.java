@@ -10,9 +10,21 @@ public class Asistente {
     * */
 
     private Nave nave;
-    private Mision mision;
+    // private Mision mision; Creo que no hace falta el atributo, ya se pasaria la mision m1,m2 o m3 a la funcion de ejectuarmision
 
+    public void ejecutarMision(Mision mision) {
+        try {
+            boolean exito = mision.ejecutarCicloMision(this);
 
+            if (exito) {
+                // Aca iria lo del salto que dice el pdf, algo como nave.salto() o nave.prepararsalto()
+            }
+            this.registrarEventoBitacora("Misión finalizada. Éxito");
+
+        } catch (IllegalStateException error) {
+            this.registrarEventoBitacora("Misión abortada: " + error.getMessage());
+        }
+    }
 
 
     public Asistente(){
