@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class Sistema {
     private static Sistema _instancia = null;
-    private ArrayList<Asistente> asistentes;
+    private ArrayList<Nave> naves;
 
     private Sistema() {
-        this.asistentes = new ArrayList<>();
+        this.naves = new ArrayList<>();
     }
 
     public static Sistema getSistema(){
@@ -20,40 +20,32 @@ public class Sistema {
     }
 
     public void addNave(Nave nave){
-        Asistente asistente = new Asistente();
-        this.asistentes.add(asistente);
-        asistente.setNave(nave);
+        this.naves.add(nave);
     }
 
     public void removeNave(Nave nave){
-        Nave auxNave;
-        this.asistentes.removeIf(asistente ->
-                asistente.getNave() != null &&
-                asistente.getNave.equals(nave));
+        this.naves.remove(nave);
     }
 
-    public void asignaMision(Asistente asistente, Mision mision){
-        asistente.setMision(mision);
+    public void addTripulante(Nave nave, Tripulante tripulante){
+        nave.addTripulante(tripulante);
     }
 
-    public void addTripulante(Asistente asistente, Tripulante tripulante){
-        asistente.addTripulante(tripulante);
+    public void removeTripulante(Nave nave, Tripulante tripulante){
+        nave.removeTripulante(tripulante);
     }
 
-    public void removeTripulante(Asistente asistente, Tripulante tripulante){
-        asistente.removeTripulante(tripulante);
+    public void liquidarHaberes(Nave nave){
+        nave.liquidarHaberes();
     }
 
-    public void liquidarHaberes(Asistente asistente){
-        asistente.liquidarHaberes();
+    public ArrayList<Nave> getNaves(){
+        return new ArrayList<>(this.naves);
     }
 
-    public ArrayList<Asistente> getAsistentes(){
-        return new ArrayList<>(this.asistentes);
-    }
-
-    public void ejecutarMision(Asistente asistente){
-        asistente.ejecutarMision();
+    public void ejecutarMision(Nave nave, Mision mision){
+        Asistente asistente = nave.getAsistente();
+        asistente.ejecutarMision(mision);
     }
 
 }
