@@ -4,15 +4,12 @@ public class M02 extends Mision{
 
     @Override
     protected void ejecutarObjetivo(){
-        this.acciones.add("[M-02] Ejecutando objetivo");
-        this.acciones.add("[M-02] Recolectando recursos");
+        asis.escribirEvento("[M-02] Ejecutando objetivo");
+        asis.escribirEvento("[M-02] Recolectando recursos");
         combustibleGastado = 4;
+        desgasteAcumulado = 4;
+        energia = 5;
     }
 
-
-    @Override
-    public double getEnergia(){
-        return 5;
-    }
 }
 

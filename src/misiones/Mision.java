@@ -1,4 +1,5 @@
 package misiones;
+import Asistente;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -6,65 +7,55 @@ public abstract class Mision {
 
     protected boolean preparada = false;
     protected String resultado = null;
-    protected List<String> acciones = new ArrayList<>();
     protected double combustibleGastado;
-    protected List<String> observaciones = new ArrayList<>();
-    Informe inf = new Informe();
+    protected double desgasteAcumulado;
+    protected double energia;
 
-    public final void ejecutarCicloMision(double combustible, double desgaste) {
-
-        preparar(combustible, desgaste);
+    public final void ejecutarCicloMision(Asistente asis){
+        preparar(asis);
         if (!this.preparada) {
             throw new IllegalStateException("Error de contrato: Una misión no podrá ejecutarse sin preparación previa.");
         }
-
         ejecutarObjetivo();
         evaluar();
         if (this.resultado == null) {
             throw new IllegalStateException("Error de contrato: Una misión no podrá cerrarse sin resultado e informe.");
         }
-
-        cerrar();
+        cerrar(asis);
     }
 
-    public void preparar(double combustible, double desgaste){
-        this.acciones.add("Preparando mision");
-        if (desgaste>3 && combustible>3) {
+    public void preparar(Asistente asis){
+        if (asis.consultarCombustible>3 && asis.consultarDesgaste>3){
             this.preparada = true;
+            asis.escribirEvento("Mision preparada con exito");
         }
+
     }
 
     protected abstract void ejecutarObjetivo();
 
-    public void evaluar() {
+    public void evaluar(){
         double exito = Math.random();
         this.acciones.add("Evaluando mision");
-        if (exito > 0.3) {
+        if (exito > 0.5){
             this.resultado = "EXITO";
-        } else {
+        }else {
             this.resultado = "FRACASO";
         }
     }
 
-    public void cerrar() {
-
-        this.acciones.add("Preparando informe");
-        this.inf.setMision_ejecutada(this);
-        this.inf.setResultado(this.resultado);
-        this.inf.setEnergiaCons((int) this.getEnergia());
-        this.inf.setAccionesRealizadas(this.acciones);
-        this.inf.setCombustibleCons(this.combustibleGastado);
-        this.inf.setEstadoFinal(this.estado);
-        this.inf.setObservaciones(this.observaciones);
-        this.acciones.add("Cerrando mision");
+    public void cerrar(Asistente asis){
+        asis.escribirEvento("Mision ejecutada: " + this.getClass().getSimpleName());
+        asis.escribirEvento("Resultado de la mision: " + this.resultado);
+        asis.agregaEnergia(energia);
+        asis.GastarCombustible(combustibleGastado);
+        asis.AcumulaDesgaste(desgasteAcumulado);
+        asis.escribirEvento("Energia agregada: " + energia);
+        asis.escribirEvento("Combustible gastado: " + combustibleGastado);
+        asis.escribirEvento("Desgaste consumado: " + desgasteAcumulado);
+        asis.escribirEvento("Estado final de la nave: " + asis.estadoNave);
+        asis.escribirEvento("Mision cerrada");
     }
-
-    public abstract double getEnergia();
-
-    public Informe getInforme(){
-        return inf;
-    }
-
 
 }
 
