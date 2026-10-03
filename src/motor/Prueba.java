@@ -7,7 +7,7 @@ public class Prueba {
 
         // Prueba 1: Transición válida
         try {
-            motor.iniciarSalto();
+            motor.prepararSalto();
             System.out.println("Estado tras iniciar: " + motor.getEstado());
         } catch (TransicionInvalidaException e) {
             System.out.println(e.getMessage());
@@ -15,7 +15,7 @@ public class Prueba {
 
         // Prueba 2: Transición inválida (intentar iniciar de nuevo)
         try {
-            motor.iniciarSalto();
+            motor.prepararSalto();
         } catch (TransicionInvalidaException e) {
             System.out.println("Fallo esperado: " + e.getMessage());
         }

@@ -13,7 +13,7 @@ public class PreparandoState implements State{
     }
 
     @Override
-    public void iniciarSalto() throws TransicionInvalidaException {
+    public void prepararSalto() throws TransicionInvalidaException {
         //arroja excepcion el salto ya fue iniciado
         //System.out.println("ERROR: el salto ya a sido iniciado");
         throw new TransicionInvalidaException("ERROR: el salto ya a sido iniciado");
@@ -25,7 +25,7 @@ public class PreparandoState implements State{
     }
 
     @Override
-    public void finalizarSalto() throws TransicionInvalidaException{
+    public void enfriar() throws TransicionInvalidaException{
         //arroja excepcion el salto lo termina el estado EnWarp
         //System.out.println("ERROR: el salto aun no fue ejecutado");
         throw new TransicionInvalidaException("ERROR: el salto aun no fue ejecutado");

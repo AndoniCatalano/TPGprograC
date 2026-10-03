@@ -1,9 +1,9 @@
 package motor;
 
 public interface State {
-    void iniciarSalto() throws TransicionInvalidaException;
+    void prepararSalto() throws TransicionInvalidaException;
     void ejecutarSalto() throws TransicionInvalidaException;
-    void finalizarSalto() throws TransicionInvalidaException;
+    void enfriar() throws TransicionInvalidaException;
     void terminarEnfriamiento() throws TransicionInvalidaException;
 
 }

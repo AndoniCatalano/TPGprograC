@@ -13,7 +13,7 @@ public class EnfriamientoState implements State{
     }
 
     @Override
-    public void iniciarSalto()  throws TransicionInvalidaException{
+    public void prepararSalto()  throws TransicionInvalidaException{
         //arroja excepcion el salto ya fue iniciado
         //System.out.println("ERROR: no es posible iniciar el salto, el motor se encuentra en enfriamiento");
         throw new TransicionInvalidaException("ERROR: no es posible iniciar el salto, el motor se encuentra en enfriamiento");
@@ -27,10 +27,10 @@ public class EnfriamientoState implements State{
     }
 
     @Override
-    public void finalizarSalto()  throws TransicionInvalidaException{
+    public void enfriar()  throws TransicionInvalidaException{
         //el salto ya fue finalizado
         //System.out.println("ERROR: no es posible finalizar el salto, el motor se encuentra en enfriamiento");
-        throw new TransicionInvalidaException("ERROR: no es posible finalizar el salto, el motor se encuentra en enfriamiento");
+        throw new TransicionInvalidaException("ERROR: el motor se encuentra en enfriamiento");
     }
 
     @Override

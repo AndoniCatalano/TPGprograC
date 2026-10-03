@@ -13,7 +13,7 @@ public class DisponibleState implements State{
     }
 
     @Override
-    public void iniciarSalto() {
+    public void prepararSalto() {
         this.m.setEstado(new PreparandoState(m));
     }
 
@@ -25,7 +25,7 @@ public class DisponibleState implements State{
     }
 
     @Override
-    public void finalizarSalto()  throws TransicionInvalidaException{
+    public void enfriar()  throws TransicionInvalidaException{
         //arrojar excepcion este metodo lo maneja el estado EnWarp
         //System.out.println("ERROR: intenta finalizar el salto cuando no esta iniciado");
         throw new TransicionInvalidaException("ERROR: intenta finalizar el salto cuando no esta iniciado");

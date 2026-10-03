@@ -13,7 +13,7 @@ public class EnWarpState implements State{
     }
 
     @Override
-    public void iniciarSalto() throws TransicionInvalidaException {
+    public void prepararSalto() throws TransicionInvalidaException {
         //arroja excepcion el salto ya fue iniciado
         //System.out.println("ERROR: el motor se encuentra en estado Warp, no puede ser iniciado");
         throw new TransicionInvalidaException("ERROR: el motor se encuentra en estado Warp, no puede ser iniciado");
@@ -27,7 +27,7 @@ public class EnWarpState implements State{
     }
 
     @Override
-    public void finalizarSalto() {
+    public void enfriar() {
         this.m.setEstado(new DisponibleState(m));
     }
 
