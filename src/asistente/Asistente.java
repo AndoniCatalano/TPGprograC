@@ -1,14 +1,18 @@
+package asistente;
+
+import java.util.ArrayList;
+
 public class Asistente {
     /*
     Mapa mapa
-    Mision mision
+
 
     preparar()
     ejecutar()
     evaluarResultado()
     cerrar()
     * */
-
+    private ArrayList<Evento> bitacora;
     private Nave nave;
     // private Mision mision; Creo que no hace falta el atributo, ya se pasaria la mision m1,m2 o m3 a la funcion de ejectuarmision
 
@@ -18,6 +22,21 @@ public class Asistente {
 
             if (exito) {
                 // Aca iria lo del salto que dice el pdf, algo como nave.salto() o nave.prepararsalto()
+                try {
+                    nave.prepararSalto();
+                    nave.ejecutarSalto();
+                    nave.terminarEnfriamiento();
+                    //terminamos el enfriamiento, que como tal no existe, ya que ahora no podemos medir el paso del tiempo
+                    System.out.println("Salto realizado con exito");//esto queda para el testeo nomas
+                    //bitacora
+                    registrarEventoBitacora("Salto realizado con exito");
+                }catch (TransicionInvalidaException e){
+                    System.out.println(e.getMessage());//esto tambien queda para el testeo
+                    //bitacora
+                    registrarEventoBitacora(e.getMessage);
+                }
+
+
             }
             this.registrarEventoBitacora("Misión finalizada. Éxito");
 
@@ -27,77 +46,113 @@ public class Asistente {
     }
 
 
-    public Asistente(){
 
-    }
-
-    public void addTripulante(Tripulante tripulante){
-        nave.addTripulante(tripulante);
-    }
-
-    public void mostrarSueldos(){
-        nave.mostrarSueldos();
-    }
-
-    public void setNave(Nave nave){
+    public Asistente(Nave nave){
+        this.bitacora = new ArrayList<>();
         this.nave = nave;
     }
 
-    public double consultarEnergia(){
+    public void saltoWarp(){
+
+    }
+
+    public void registrarEventoBitacora(String mensaje){
+        this.bitacora.add(new Evento(mensaje));
+    }
+
+    public void addTripulante(Tripulante tripulante){
+        this.nave.addTripulante(tripulante);
+    }
+
+    public void mostrarSueldos(){
+        this.nave.mostrarSueldos();
+    }
+
+
+
+    public int consultarEnergia(){
 
         return nave.getEnergia();
     }
 
-    public double consultarCombustible(){
+    public int consultarCombustible(){
 
         return nave.getCombustible();
     }
 
-    public double consultarDesgaste(){
+    public int consultarDesgaste(){
 
         return nave.getDesgaste();
     }
-    public boolean ordenCargaCombustible(double cantidad){
-        return nave.cargaComubstible(cantidad);
+    public void cargaCombustible(int cantidad){
+        boolean exito = nave.cargaCombustible(cantidad);
+
+        if(exito){
+            registrarEventoBitacora("Se cargo " + cantidad + " unidades de combustible");
+        }else {
+            registrarEventoBitacora("No se pudo cargar " + cantidad + " unidades de combustible");
+        }
     }
 
-    public boolean ordenCargaEnergia(double cantidad){
+    public void cargaEnergia(int cantidad){
 
-        return nave.cargaEnergia(cantidad);
-    }
+        boolean exito = nave.cargaEnergia(cantidad);
 
-    //al realizar el mantenimiento reseteamos a 0 el desgaste o hacemos que reste cierta cantidad?
-    public boolean ordenMantenimientoNave(){
-
-        return nave.realizarMantenimiento();
-    }
-
-
-
-   /*
-    public void prepararMision(Mision mision){
-
-    }
-
-    public void ejecutarMision(Mision mision){
-
-    }
-
-    public void iniciarMision(Mision mision){
-
-    }
-    */
-
-
-
-    public void actualizaInforme(Informe informe){
+        if(exito){
+            registrarEventoBitacora("Se cargo " + cantidad + " unidades de energia");
+        }else {
+            registrarEventoBitacora("No se pudo cargar " + cantidad + " unidades de energia");
+        }
 
     }
 
 
-    public Informe entregaInforme(Informe inf){
-        return inf;
+
+    public void mantenimientoNave(){
+
+        boolean exito = nave.realizarMantenimiento();
+
+        if(exito){
+            registrarEventoBitacora("Se realizo el mantenimiento con exito");
+        }else{
+            registrarEventoBitacora("No se puedo realizar el mantenimiento");
+        }
     }
+
+    public void consumeCombustible(int cantidad){
+        boolean exito = nave.consumeCombustible(cantidad);
+
+        if(exito){
+            registrarEventoBitacora("Se consumieron " + cantidad + " unidades de combustible");
+        }else{
+            registrarEventoBitacora("No se pudieron consumir " + cantidad + " unidades de combustible");
+        }
+
+    }
+
+    public void consumeCombustible(int cantidad){
+        boolean exito = nave.consumeEnergia(cantidad);
+
+        if(exito){
+            registrarEventoBitacora("Se consumieron " + cantidad + " unidades de energia");
+        }else{
+            registrarEventoBitacora("No se pudieron consumir " + cantidad + " unidades de energia");
+        }
+
+    }
+
+
+    public void incrementaDesgaste(int cantidad){
+        boolean exito = nave.incrementaDesgaste(cantidad);
+
+        if(exito){
+            registrarEventoBitacora("Se incremento el desgaste en " + cantidad);
+        }else{
+            registrarEventoBitacora("No se pudo incrementar el desgaste en " + cantidad);
+        }
+    }
+
+
 
 
 
