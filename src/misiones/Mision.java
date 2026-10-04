@@ -11,21 +11,23 @@ public abstract class Mision {
     protected double desgasteAcumulado;
     protected double energia;
 
-    public final void ejecutarCicloMision(Asistente asis){
+    public final boolean ejecutarCicloMision(Asistente asis){
         preparar(asis);
         if (!this.preparada) {
             throw new IllegalStateException("Error de contrato: Una misión no podrá ejecutarse sin preparación previa.");
         }
-        ejecutarObjetivo();
+        ejecutarObjetivo(asis);
         evaluar();
         if (this.resultado == null) {
             throw new IllegalStateException("Error de contrato: Una misión no podrá cerrarse sin resultado e informe.");
         }
         cerrar(asis);
+
+        return this.resultado.equals("EXITO");
     }
 
     public void preparar(Asistente asis){
-        if (asis.consultarCombustible>3 && asis.consultarDesgaste>3){
+        if (asis.consultarCombustible() > combustibleGastado && asis.consultarDesgaste() > desgasteAcumulado){
             this.preparada = true;
             asis.escribirEvento("Mision preparada con exito");
         }
