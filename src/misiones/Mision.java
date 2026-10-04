@@ -44,6 +44,10 @@ public abstract class Mision {
         }
     }
 
+    // public void evaluar(){
+    //    double exito = true;
+    // }
+
     public void cerrar(Asistente asis){
         asis.escribirEvento("Mision ejecutada: " + this.getClass().getSimpleName());
         asis.escribirEvento("Resultado de la mision: " + this.resultado);
