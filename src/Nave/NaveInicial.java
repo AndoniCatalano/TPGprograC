@@ -1,196 +1,107 @@
-package Nave;
+import Asistente.Asistente;
+import Tripulantes.Tripulante;
+import java.util.ArrayList;
+
 public abstract class NaveInicial implements Nave {
-        protected int combustible;
-        protected int energia;
         protected int desgaste;
         protected boolean necesitaMantenimiento; //depende del desgaste
         protected Motor motorWarp;
-        protected Tripulante[] arrayTripulantes;
-        protected Mision[] arrayInformes;
-        protected Bitacora[] arrayBitacoras;
+        protected Asistente asistente;
+        protected ArrayList<Tripulante> tripulantes;
+        protected Tanque tanque;
 
-
-        public NaveInicial(int combustibleInicial, int energiaInicial, int maxTripulantes, int maxMision){ //la diferencia entre los tipos de nave es por sus configs iniciales
-            this.combustible = combustibleInicial;
-            this.energia = energiaInicial;
+        public NaveInicial(int combustibleInicial, int energiaInicial){ //la diferencia entre los tipos de nave es por sus configs iniciales
+            this.tanque = new Tanque(combustibleInicial, energiaInicial);
             this.desgaste = 0;
             this.necesitaMantenimiento = false;
             this.motorWarp = new Motor();
-            this.arrayTripulantes = new Tripulante[maxTripulantes];
-            this.arrayInformes = new Mision[maxMision];
+            this.tripulantes = new ArrayList<>();
+            this.asistente = new Asistente(this);   //Al asistente se le asigna una sola nave
+        }
+
+        //Delego a Tanque el combustible y la energía
+        @Override
+        public void cargaCombustible(int cantCombustible) throws OperacionRechazadaException {
+            this.tanque.cargaCombustible(cantCombustible);
         }
 
         @Override
-        public boolean cargaCombustible(int cantCombustible){
-            boolean exito;
-            if (cantCombustible <= 0 || (this.combustible + cantCombustible) > 100)
-                exito = false;
-            else{
-                this.combustible += cantCombustible;
-                exito = true;
-            }
-            return exito;
+        public void cargaEnergia(int cantEnergia) throws OperacionRechazadaException {
+            this.tanque.cargaEnergia(cantEnergia);
         }
 
         @Override
-        public boolean cargaEnergia(int cantEnergia){
-            boolean exito;
-            if(cantEnergia <= 0 || (this.energia + cantEnergia) > 100)
-                exito = false;
-            else{
-                this.energia += cantEnergia;
-                exito = true;
-            }
-            return exito;
+        public void consumeCombustible(int cantCombustible) throws OperacionRechazadaException {
+            this.tanque.consumeCombustible(cantCombustible);
         }
 
         @Override
-        public boolean realizarMantenimiento(){
-            boolean exito;
+        public void consumeEnergia(int cantEnergia) throws OperacionRechazadaException {
+            this.tanque.consumeEnergia(cantEnergia);
+        }
+
+        @Override
+        public void realizarMantenimiento() throws OperacionRechazadaException{
             if (this.desgaste < 80)
-                exito = false;
-            else {
+                throw new OperacionRechazadaException("La nave no requiere mantenimiento. El desgaste actual (" + this.desgaste + ") es menor a 80.");
+            else{
                 this.desgaste = 0;
                 this.necesitaMantenimiento = false;
-                exito = true;
             }
-            return exito;
         }
 
         @Override
-        public boolean consumeCombustible(int cantCombustible){
-            boolean exito;
-            if (cantCombustible <= 0 || cantCombustible > this.combustible)
-                exito = false;
-            else {
-                this.combustible -= cantCombustible;
-                exito = true;
-            }
-            return exito;
-        }
-
-        @Override
-        public boolean consumeEnergia(int cantEnergia){
-            boolean exito;
-            if (cantEnergia <= 0 || cantEnergia > this.energia)
-                exito = false;
-            else{
-                this.energia -= cantEnergia;
-                exito = true;
-            }
-            return exito;
-        }
-
-        @Override
-        public boolean incrementaDesgaste(int cantDesgaste){
-            boolean exito;
-            if(cantDesgaste <= 0)
-                exito = false;
+        public void incrementaDesgaste(int cantDesgaste) throws OperacionRechazadaException{
+            if (cantDesgaste <= 0)
+                throw new OperacionRechazadaException("El desgaste a incrementar debe ser mayor a cero.");
             else {
                 this.desgaste += cantDesgaste;
                 if (this.desgaste >= 80)
                     this.necesitaMantenimiento = true;
                 if (this.desgaste > 100)                //valor tope del desgaste
                     this.desgaste = 100;
-                exito = true;
             }
-            return exito;
+        }
+
+        //Tripulantes
+        @Override
+        public void addTripulante(Tripulante tripulante) {
+            this.tripulantes.add(tripulante);
         }
 
         @Override
-        public double liquidarHaberes(){
+        public void removeTripulante(Tripulante tripulante) {
+            this.tripulantes.remove(tripulante);
+        }
+
+        @Override
+        public void liquidarHaberes() {
             double total = 0;
-            int n = this.arrayTripulantes.length;
-            int i;
-            for (i = 0; i < n; i++)
-                if(this.arrayTripulantes[i] != null)
-                    total += this.arrayTripulantes[i].getSueldo();
-            return total;
+            for (Tripulante t : this.tripulantes)
+                total += t.getSueldo();
+            System.out.println("Liquidación total de haberes: $" + total);
         }
+
+        //Getters
+        @Override
+        public int getCombustible() { return this.tanque.getCombustible(); }
 
         @Override
-        public void muestraSueldos(){
-            double sueldo;
-            int n = this.arrayTripulantes.length;
-            int i;
-            System.out.println("\nSueldos de la Tripulación: ");
-            for (i=0; i < n; i++)
-                if (this.arrayTripulantes[i] != null){
-                    sueldo = this.arrayTripulantes[i].getSueldo();
-                    System.out.println("\nTripulante " + this.arrayTripulantes[i].getIdentidad() + ": $" + sueldo);
-                }
-        }
+        public int getEnergia() { return this.tanque.getEnergia(); }
 
         @Override
-        public void insertaTripulante(Tripulante tripulante){
-            int i = 0;
-            int n = this.arrayTripulantes.length;
-            while (i < n && this.arrayTripulantes[i] != null)
-                i++;
-            if (i < n)
-                this.arrayTripulantes[i] = tripulante;
-        }
+        public int getDesgaste() { return this.desgaste; }
 
         @Override
-        public void insertaMision(Mision mision){
-            int i = 0;
-            int n = this.arrayInformes.length;
-            while (i < n && this.arrayInformes[i] != null)
-                i++;
-            if (i < n)
-                this.arrayInformes[i] = mision;
-        }
+        public boolean getNecesitaMantenimiento() { return this.necesitaMantenimiento; }
 
         @Override
-        public void insertaBitacora(Bitacora bitacora){
-            int i = 0;
-            int n = this.arrayBitacoras.length;
-            while (i < n && this.arrayBitacoras[i] != null)
-                i++;
-            if (i < n)
-                this.arrayBitacoras[i] = bitacora;
-        }
-
-        //getters
+        public Motor getMotorWarp() { return this.motorWarp; }
 
         @Override
-        public int getCombustible(){
-            return this.combustible;
-        }
+        public Tanque getTanque() { return this.tanque; }
 
         @Override
-        public int getEnergia(){
-            return this.energia;
-        }
-
-        @Override
-        public int getDesgaste(){
-            return this.desgaste;
-        }
-
-        @Override
-        public boolean getNecesitaMantenimiento() {
-            return this.necesitaMantenimiento;
-        }
-
-        @Override
-        public Motor getMotorWarp() {
-            return this.motorWarp;
-        }
-
-        @Override
-        public Tripulante[] getArrayTripulantes() {
-            return this.arrayTripulantes;
-        }
-
-        @Override
-        public Mision[] getArrayInformes() {
-            return this.arrayInformes;
-        }
-
-        @Override
-        public Bitacora[] getArrayBitacoras() {
-                return this.arrayBitacoras;
-        }
+        public Asistente getAsistente() { return this.asistente; }
 }
 
