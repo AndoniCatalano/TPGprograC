@@ -34,7 +34,7 @@ public abstract class Mision {
 
     }
 
-    protected abstract void ejecutarObjetivo();
+    protected abstract void ejecutarObjetivo(Asistente asis);
 
     public void evaluar(){
         double exito = Math.random();
