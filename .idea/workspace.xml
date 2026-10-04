@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6dd040e9-ed0a-4c8a-b1f2-2ec5e1f4ad05" name="Changes" comment="se agrego la Excepcion">
-      <change afterPath="$PROJECT_DIR$/src/asistente/Evento.java" afterDir="false" />
+    <list default="true" id="6dd040e9-ed0a-4c8a-b1f2-2ec5e1f4ad05" name="Changes" comment="se creo el evento, y se mofidicaron varios metodos de asistente">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/asistente/Asistente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/asistente/Asistente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/asistente/Informe.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +111,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="se agrego la Excepcion" />
-    <option name="LAST_COMMIT_MESSAGE" value="se agrego la Excepcion" />
+    <MESSAGE value="se creo el evento, y se mofidicaron varios metodos de asistente" />
+    <option name="LAST_COMMIT_MESSAGE" value="se creo el evento, y se mofidicaron varios metodos de asistente" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

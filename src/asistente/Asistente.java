@@ -22,21 +22,7 @@ public class Asistente {
 
             if (exito) {
                 // Aca iria lo del salto que dice el pdf, algo como nave.salto() o nave.prepararsalto()
-                try {
-                    nave.prepararSalto();
-                    nave.ejecutarSalto();
-                    nave.terminarEnfriamiento();
-                    //terminamos el enfriamiento, que como tal no existe, ya que ahora no podemos medir el paso del tiempo
-                    System.out.println("Salto realizado con exito");//esto queda para el testeo nomas
-                    //bitacora
-                    registrarEventoBitacora("Salto realizado con exito");
-                }catch (TransicionInvalidaException e){
-                    System.out.println(e.getMessage());//esto tambien queda para el testeo
-                    //bitacora
-                    registrarEventoBitacora(e.getMessage);
-                }
-
-
+                this.registrarEventoBitacora("Misión finalizada. Éxito");
             }
             this.registrarEventoBitacora("Misión finalizada. Éxito");
 
@@ -53,7 +39,19 @@ public class Asistente {
     }
 
     public void saltoWarp(){
-
+        try {
+            nave.prepararSalto();
+            nave.ejecutarSalto();
+            nave.terminarEnfriamiento();
+            //terminamos el enfriamiento, que como tal no existe, ya que ahora no podemos medir el paso del tiempo
+            System.out.println("Salto realizado con exito");//esto queda para el testeo nomas
+            //bitacora
+            registrarEventoBitacora("Salto realizado con exito");
+        }catch (TransicionInvalidaException e){
+            System.out.println(e.getMessage());//esto tambien queda para el testeo
+            //bitacora
+            registrarEventoBitacora(e.getMessage());
+        }
     }
 
     public void registrarEventoBitacora(String mensaje){
@@ -85,70 +83,58 @@ public class Asistente {
         return nave.getDesgaste();
     }
     public void cargaCombustible(int cantidad){
-        boolean exito = nave.cargaCombustible(cantidad);
-
-        if(exito){
-            registrarEventoBitacora("Se cargo " + cantidad + " unidades de combustible");
-        }else {
-            registrarEventoBitacora("No se pudo cargar " + cantidad + " unidades de combustible");
+        try{
+            nave.cargaCombustible(cantidad);
+        }catch (OperacionRechazadaException e){
+            registrarEventoBitacora(e.getMessage());
         }
     }
 
     public void cargaEnergia(int cantidad){
 
-        boolean exito = nave.cargaEnergia(cantidad);
-
-        if(exito){
-            registrarEventoBitacora("Se cargo " + cantidad + " unidades de energia");
-        }else {
-            registrarEventoBitacora("No se pudo cargar " + cantidad + " unidades de energia");
+        try{
+            nave.cargaEnergia(cantidad);
+        }catch(OperacionRechazadaException e){
+            registrarEventoBitacora(e.getMessage());
         }
 
     }
 
 
 
-    public void mantenimientoNave(){
+    public void realizarMantenimiento(){
 
-        boolean exito = nave.realizarMantenimiento();
-
-        if(exito){
-            registrarEventoBitacora("Se realizo el mantenimiento con exito");
-        }else{
-            registrarEventoBitacora("No se puedo realizar el mantenimiento");
+        try{
+            nave.realizarMantenimiento();
+        }catch (OperacionRechazadaException e){
+            registrarEventoBitacora(e.getMessage());
         }
     }
 
     public void consumeCombustible(int cantidad){
-        boolean exito = nave.consumeCombustible(cantidad);
-
-        if(exito){
-            registrarEventoBitacora("Se consumieron " + cantidad + " unidades de combustible");
-        }else{
-            registrarEventoBitacora("No se pudieron consumir " + cantidad + " unidades de combustible");
+        try{
+            nave.consumeCombustible(cantidad);
+        }catch (OperacionRechazadaException e){
+            registrarEventoBitacora(e.getMessage());
         }
 
     }
 
-    public void consumeCombustible(int cantidad){
-        boolean exito = nave.consumeEnergia(cantidad);
-
-        if(exito){
-            registrarEventoBitacora("Se consumieron " + cantidad + " unidades de energia");
-        }else{
-            registrarEventoBitacora("No se pudieron consumir " + cantidad + " unidades de energia");
+    public void consumeEnergia(int cantidad){
+        try{
+            nave.consumeEnergia(cantidad);
+        }catch(OperacionRechazadaException e){
+            registrarEventoBitacora(e.getMessage());
         }
 
     }
 
 
     public void incrementaDesgaste(int cantidad){
-        boolean exito = nave.incrementaDesgaste(cantidad);
-
-        if(exito){
-            registrarEventoBitacora("Se incremento el desgaste en " + cantidad);
-        }else{
-            registrarEventoBitacora("No se pudo incrementar el desgaste en " + cantidad);
+        try {
+            nave.incrementaDesgaste(cantidad);
+        }catch (OperacionRechazadaException e){
+            registrarEventoBitacora(e.getMessage());
         }
     }
 
