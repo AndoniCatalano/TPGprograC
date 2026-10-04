@@ -1,4 +1,7 @@
-public interface Nave { //contiene los métodos comunes a todas las naves
+import Asistente.Asistente;
+import Tripulantes.Tripulante;
+
+public interface Nave {
     public void cargaCombustible(int cantCombustible) throws OperacionRechazadaException;
     public void cargaEnergia(int cantEnergia) throws OperacionRechazadaException;
     public void realizarMantenimiento() throws OperacionRechazadaException;
@@ -11,4 +14,10 @@ public interface Nave { //contiene los métodos comunes a todas las naves
     public int getDesgaste();
     public boolean getNecesitaMantenimiento();
     public Motor getMotorWarp();
+    public Tanque getTanque();
+    public Asistente getAsistente();
+
+    public void addTripulante(Tripulante tripulante);
+    public void removeTripulante(Tripulante tripulante);
+    public void liquidarHaberes();
 }
