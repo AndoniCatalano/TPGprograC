@@ -1,12 +1,12 @@
-import Asistente.*;
-import Nave.*;
-import Tripulantes.Tripulante;
+import Asistente.Asistente;
+import Nave.Nave;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sistema {
     private static Sistema _instancia = null;
-    private ArrayList<Nave> naves;
+    private final ArrayList<Nave> naves;
 
     private Sistema() {
         this.naves = new ArrayList<>();
@@ -27,18 +27,6 @@ public class Sistema {
         this.naves.remove(nave);
     }
 
-    public void addTripulante(Nave nave, Tripulante tripulante){
-        nave.addTripulante(tripulante);
-    }
-
-    public void removeTripulante(Nave nave, Tripulante tripulante){
-        nave.removeTripulante(tripulante);
-    }
-
-    public void liquidarHaberes(Nave nave){
-        nave.liquidarHaberes();
-    }
-
     public ArrayList<Nave> getNaves(){
         return new ArrayList<>(this.naves);
     }
@@ -47,5 +35,4 @@ public class Sistema {
         Asistente asistente = nave.getAsistente();
         asistente.ejecutarMision(mision);
     }
-
 }
