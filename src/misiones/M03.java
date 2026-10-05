@@ -10,8 +10,8 @@ public class M03 extends Mision {
 
     @Override
     protected void ejecutarObjetivo(Asistente asis) {
-        asis.escribirEvento("[M-03] Ejecutando objetivo");
-        asis.escribirEvento("[M-03] Completando regreso");
+        asis.registrarEventoBitacora("[M-03] Ejecutando objetivo");
+        asis.registrarEventoBitacora("[M-03] Completando regreso");
     }
 
 }

@@ -29,7 +29,7 @@ public abstract class Mision {
     public void preparar(Asistente asis){
         if (asis.consultarCombustible() > combustibleGastado && asis.consultarDesgaste() > desgasteAcumulado){
             this.preparada = true;
-            asis.escribirEvento("Mision preparada con exito");
+            asis.registrarEventoBitacora("Mision preparada con exito");
         }
 
     }
@@ -38,7 +38,6 @@ public abstract class Mision {
 
     public void evaluar(){
         double exito = Math.random();
-        this.acciones.add("Evaluando mision");
         if (exito > 0.5){
             this.resultado = "EXITO";
         }else {
@@ -51,16 +50,17 @@ public abstract class Mision {
     // }
 
     public void cerrar(Asistente asis){
-        asis.escribirEvento("Mision ejecutada: " + this.getClass().getSimpleName());
-        asis.escribirEvento("Resultado de la mision: " + this.resultado);
+        asis.registrarEventoBitacora("Mision ejecutada: " + this.getClass().getSimpleName());
+        asis.registrarEventoBitacora("Resultado de la mision: " + this.resultado);
         asis.agregaEnergia(energia);
         asis.GastarCombustible(combustibleGastado);
         asis.AcumulaDesgaste(desgasteAcumulado);
-        asis.escribirEvento("Energia agregada: " + energia);
-        asis.escribirEvento("Combustible gastado: " + combustibleGastado);
-        asis.escribirEvento("Desgaste consumado: " + desgasteAcumulado);
-        asis.escribirEvento("Estado final de la nave: " + asis.estadoNave);
-        asis.escribirEvento("Mision cerrada");
+        asis.registrarEventoBitacora("Energia agregada: " + energia);
+        asis.registrarEventoBitacora("Combustible gastado: " + combustibleGastado);
+        asis.registrarEventoBitacora("Desgaste consumado: " + desgasteAcumulado);
+        asis.registrarEventoBitacora("Estado final de la nave: " + asis.estadoNave);
+        asis.registrarEventoBitacora("Mision cerrada");
+        asis.saltoWarp();
     }
 
 }

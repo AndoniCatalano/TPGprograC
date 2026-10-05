@@ -10,8 +10,8 @@ public class M02 extends Mision {
 
     @Override
     protected void ejecutarObjetivo(Asistente asis){
-        asis.escribirEvento("[M-02] Ejecutando objetivo");
-        asis.escribirEvento("[M-02] Recolectando recursos");
+        asis.registrarEventoBitacora("[M-02] Ejecutando objetivo");
+        asis.registrarEventoBitacora("[M-02] Recolectando recursos");
     }
 
 }
