@@ -5,41 +5,55 @@ import Tripulantes.Tripulante;
 import java.util.ArrayList;
 
 public abstract class Nave implements INave {
+        protected int combustible;
+        protected int energia;
         protected int desgaste;
         protected boolean necesitaMantenimiento; //depende del desgaste
         protected Motor motorWarp;
         protected Asistente asistente;
         protected ArrayList<Tripulante> tripulantes;
-        protected Tanque tanque;
 
         public Nave(int combustibleInicial, int energiaInicial){ //la diferencia entre los tipos de nave es por sus configs iniciales
-            this.tanque = new Tanque(combustibleInicial, energiaInicial);
+            this.combustible = combustibleInicial;
+            this.energia = energiaInicial;
             this.desgaste = 0;
             this.necesitaMantenimiento = false;
             this.motorWarp = new Motor();
             this.tripulantes = new ArrayList<>();
-            this.asistente = new Asistente(this);   //Al asistente se le asigna una sola nave
+            this.asistente = new Asistente(this);   //Al asistente se le asigna una sola nave, rel bidireccional
         }
 
-        //Delego a Tanque el combustible y la energía
+
         @Override
         public void cargaCombustible(int cantCombustible) throws OperacionRechazadaException {
-            this.tanque.cargaCombustible(cantCombustible);
+            if (cantCombustible <= 0 || (this.combustible + cantCombustible) > 100)
+                throw new OperacionRechazadaException("La carga de combustible supera la capacidad máxima (100) o es inválida.");
+            else
+                this.combustible += cantCombustible;
         }
 
         @Override
         public void cargaEnergia(int cantEnergia) throws OperacionRechazadaException {
-            this.tanque.cargaEnergia(cantEnergia);
+            if (cantEnergia <= 0 || (this.energia + cantEnergia) > 100)
+                throw new OperacionRechazadaException("La carga de energía supera la capacidad máxima (100) o es inválida.");
+            else
+                this.energia += cantEnergia;
         }
 
         @Override
         public void consumeCombustible(int cantCombustible) throws OperacionRechazadaException {
-            this.tanque.consumeCombustible(cantCombustible);
+            if (cantCombustible <= 0 || cantCombustible > this.combustible)
+                throw new OperacionRechazadaException("Combustible insuficiente para el consumo solicitado.");
+            else
+                this.combustible -= cantCombustible;
         }
 
         @Override
         public void consumeEnergia(int cantEnergia) throws OperacionRechazadaException {
-            this.tanque.consumeEnergia(cantEnergia);
+            if (cantEnergia <= 0 || cantEnergia > this.energia)
+                throw new OperacionRechazadaException("Energía insuficiente para el consumo solicitado.");
+            else
+                this.energia -= cantEnergia;
         }
 
         @Override
@@ -86,10 +100,10 @@ public abstract class Nave implements INave {
 
         //Getters
         @Override
-        public int getCombustible() { return this.tanque.getCombustible(); }
+        public int getCombustible() { return this.combustible; }
 
         @Override
-        public int getEnergia() { return this.tanque.getEnergia(); }
+        public int getEnergia() { return this.energia; }
 
         @Override
         public int getDesgaste() { return this.desgaste; }
@@ -99,9 +113,6 @@ public abstract class Nave implements INave {
 
         @Override
         public Motor getMotorWarp() { return this.motorWarp; }
-
-        @Override
-        public Tanque getTanque() { return this.tanque; }
 
         @Override
         public Asistente getAsistente() { return this.asistente; }

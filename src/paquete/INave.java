@@ -11,12 +11,12 @@ public interface INave {
     public void consumeEnergia(int cantEnergia) throws OperacionRechazadaException;
     public void incrementaDesgaste(int cantDesgaste) throws OperacionRechazadaException;
 
+
     public int getCombustible();
     public int getEnergia();
     public int getDesgaste();
     public boolean getNecesitaMantenimiento();
     public Motor getMotorWarp();
-    public Tanque getTanque();
     public Asistente getAsistente();
 
     public void addTripulante(Tripulante tripulante);
