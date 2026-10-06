@@ -74,7 +74,7 @@ public abstract class Nave implements INave {
                 this.desgaste += cantDesgaste;
                 if (this.desgaste >= 80)
                     this.necesitaMantenimiento = true;
-                if (this.desgaste > 100)             
+                if (this.desgaste > 100)       //valor tope del desgaste       
                     this.desgaste = 100;
             }
         }
