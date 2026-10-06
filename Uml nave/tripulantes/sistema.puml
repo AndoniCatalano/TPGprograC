@@ -1,0 +1,139 @@
+@startuml
+class Sistema {
+- Sistema _instancia
+- ArrayList<Asistente> asistentes
++ Sistema getSistema()
++ void addNave(Nave)
++ void removeNave(Nave)
++ void asignaMision(Mision)
++ void addTripulante(Nave,Tripulante)
++ void removeTripulante(Nave,Tripulante)
++ void liquidarHaberes(Nave)
+}
+
+
+class Tripulantes.Vulcano {
++ double getSueldo()
+}
+
+class Main {
++ {static} void main(String[])
+- {static} void verificarSueldo(String,Tripulante,double)
+}
+
+class Tripulantes.Teniente {
+}
+interface Nave.Nave {
++ boolean cargaCombustible(int)
++ boolean cargaEnergia(int)
++ boolean realizarMantenimiento()
++ boolean consumeCombustible(int)
++ boolean consumeEnergia(int)
++ boolean incrementaDesgaste(int)
++ double liquidarHaberes()
++ void muestraSueldos()
++ void insertaTripulante(Tripulante)
++ void insertaMision(Mision)
++ void insertaBitacora(Bitacora)
++ int getCombustible()
++ int getEnergia()
++ int getDesgaste()
++ boolean getNecesitaMantenimiento()
++ Motor getMotorWarp()
++ Tripulante[] getArrayTripulantes()
++ Mision[] getArrayInformes()
++ Bitacora[] getArrayBitacoras()
+}
+
+class Tripulantes.Alferez {
+}
+abstract class Tripulantes.Tripulante {
+# String identidad
+# int antiguedad
+# double sueldoBase
+# double plusAntiguedad
++ String getIdentidad()
++ double getSueldo()
+}
+
+
+class Tripulantes.Capitan {
+}
+class Tripulantes.Consejero {
+- {static} double plusConsejo
+- ArrayList<String> consejos
++ void addConsejo(String)
++ double getSueldo()
+}
+
+
+class Nave.Carguero {
+}
+class Tripulantes.Terricola {
++ double getSueldo()
+}
+
+abstract class Nave.NaveInicial {
+# int combustible
+# int energia
+# int desgaste
+# boolean necesitaMantenimiento
+# Motor motorWarp
+# Tripulante[] arrayTripulantes
+# Mision[] arrayInformes
+# Bitacora[] arrayBitacoras
++ boolean cargaCombustible(int)
++ boolean cargaEnergia(int)
++ boolean realizarMantenimiento()
++ boolean consumeCombustible(int)
++ boolean consumeEnergia(int)
++ boolean incrementaDesgaste(int)
++ double liquidarHaberes()
++ void muestraSueldos()
++ void insertaTripulante(Tripulante)
++ void insertaMision(Mision)
++ void insertaBitacora(Bitacora)
++ int getCombustible()
++ int getEnergia()
++ int getDesgaste()
++ boolean getNecesitaMantenimiento()
++ Motor getMotorWarp()
++ Tripulante[] getArrayTripulantes()
++ Mision[] getArrayInformes()
++ Bitacora[] getArrayBitacoras()
+}
+
+
+abstract class Tripulantes.TripulanteDecorator {
+# Tripulante tripulanteDecorado
++ {abstract}double getSueldo()
+}
+
+
+class Nave.Combate {
+}
+class Nave.NaveFactory {
++ Nave getNave(String)
+}
+
+class Tripulantes.Marciano {
++ double getSueldo()
+}
+
+class Nave.Exploradora {
+}
+
+
+Tripulantes.TripulanteDecorator <|-- Tripulantes.Vulcano
+Tripulantes.Tripulante <|-- Tripulantes.Teniente
+Tripulantes.Tripulante <|-- Tripulantes.Alferez
+Tripulantes.Tripulante <|-- Tripulantes.Capitan
+Tripulantes.Tripulante <|-- Tripulantes.Consejero
+Nave.NaveInicial <|-- Nave.Carguero
+Tripulantes.TripulanteDecorator <|-- Tripulantes.Terricola
+Nave.Nave <|.. Nave.NaveInicial
+Tripulantes.Tripulante <|-- Tripulantes.TripulanteDecorator
+Nave.NaveInicial <|-- Nave.Combate
+Tripulantes.TripulanteDecorator <|-- Tripulantes.Marciano
+Nave.NaveInicial <|-- Nave.Exploradora
+@enduml

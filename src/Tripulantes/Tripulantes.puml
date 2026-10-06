@@ -1,0 +1,34 @@
+@startuml
+class Tripulantes.Teniente {
+}
+class Tripulantes.Alferez {
+}
+abstract class Tripulantes.Tripulante {
+# String identidad
+# String cargo
+# String origen
+# double sueldoBase
+# double plusAntiguedad
+# int antiguedad
+- double sumaConsejo()
++ double getSueldo()
+}
+
+
+class Tripulantes.Capitan {
+}
+class Tripulantes.Consejero {
+- {static} double plusConsejo
+- ArrayList<String> consejos
++ void addConsejo(String)
++ double sumaConsejo()
+}
+
+
+
+
+Tripulantes.Tripulante <|-- Tripulantes.Teniente
+Tripulantes.Tripulante <|-- Tripulantes.Alferez
+Tripulantes.Tripulante <|-- Tripulantes.Capitan
+Tripulantes.Tripulante <|-- Tripulantes.Consejero
+@enduml
