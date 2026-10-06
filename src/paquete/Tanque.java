@@ -1,3 +1,5 @@
+package paquete;
+
 public class Tanque {
     private int combustible;
     private int energia;
