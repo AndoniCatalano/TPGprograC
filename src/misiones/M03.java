@@ -1,5 +1,5 @@
 package misiones;
-import Asistente;
+import asistente.Asistente;
 
 public class M03 extends Mision {
 

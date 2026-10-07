@@ -1,5 +1,5 @@
 package misiones;
-import Asistente;
+import asistente.Asistente;
 
 public abstract class Mision {
 
@@ -25,7 +25,7 @@ public abstract class Mision {
     }
 
     public void preparar(Asistente asis){
-        if (asis.consultarCombustible() > combustibleGastado && asis.consultarDesgaste() > desgasteAcumulado){
+        if (asis.consultarCombustible() >= combustibleGastado && asis.consultarDesgaste() >= desgasteAcumulado){
             this.preparada = true;
             asis.registrarEventoBitacora("Mision preparada con exito");
         }
@@ -47,8 +47,8 @@ public abstract class Mision {
         asis.registrarEventoBitacora("Mision ejecutada: " + this.getClass().getSimpleName());
         asis.registrarEventoBitacora("Resultado de la mision: " + this.resultado);
         asis.agregaEnergia(energia);
-        asis.GastarCombustible(combustibleGastado);
-        asis.AcumulaDesgaste(desgasteAcumulado);
+        asis.gastarCombustible(combustibleGastado);
+        asis.acumulaDesgaste(desgasteAcumulado);
         asis.registrarEventoBitacora("Energia agregada: " + energia);
         asis.registrarEventoBitacora("Combustible gastado: " + combustibleGastado);
         asis.registrarEventoBitacora("Desgaste consumado: " + desgasteAcumulado);
