@@ -20,9 +20,12 @@ public abstract class Nave implements INave {
             this.necesitaMantenimiento = false;
             this.motorWarp = new Motor();
             this.tripulantes = new ArrayList<>();
-            this.asistente = new Asistente(this);   //Al asistente se le asigna una sola nave, rel bidireccional
         }
 
+        @Override
+        public void setAsistente(Asistente asistente) {
+            this.asistente = asistente;
+        }
 
         @Override
         public void cargaCombustible(int cantCombustible) throws OperacionRechazadaException {

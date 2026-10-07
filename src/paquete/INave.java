@@ -18,6 +18,7 @@ public interface INave {
     public boolean getNecesitaMantenimiento();
     public Motor getMotorWarp();
     public Asistente getAsistente();
+    public Asistente setAsistente(Asistente asistente);     //para la relación bidireccional
 
     public void addTripulante(Tripulante tripulante);
     public void removeTripulante(Tripulante tripulante);
