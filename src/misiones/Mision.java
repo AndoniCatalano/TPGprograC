@@ -1,7 +1,5 @@
 package misiones;
 import Asistente;
-import java.util.List;
-import java.util.ArrayList;
 
 public abstract class Mision {
 
@@ -45,10 +43,6 @@ public abstract class Mision {
         }
     }
 
-    // public void evaluar(){
-    //    double exito = true;
-    // }
-
     public void cerrar(Asistente asis){
         asis.registrarEventoBitacora("Mision ejecutada: " + this.getClass().getSimpleName());
         asis.registrarEventoBitacora("Resultado de la mision: " + this.resultado);
@@ -58,9 +52,7 @@ public abstract class Mision {
         asis.registrarEventoBitacora("Energia agregada: " + energia);
         asis.registrarEventoBitacora("Combustible gastado: " + combustibleGastado);
         asis.registrarEventoBitacora("Desgaste consumado: " + desgasteAcumulado);
-        asis.registrarEventoBitacora("Estado final de la nave: " + asis.estadoNave);
         asis.registrarEventoBitacora("Mision cerrada");
-        asis.saltoWarp();
     }
 
 }

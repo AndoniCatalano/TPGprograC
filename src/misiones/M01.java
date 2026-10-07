@@ -1,4 +1,5 @@
 package misiones;
+import Asistente;
 
 public class M01 extends Mision {
 
@@ -12,6 +13,7 @@ public class M01 extends Mision {
     protected void ejecutarObjetivo(Asistente asis) {
         asis.registrarEventoBitacora("[M-01] Ejecutando objetivo");
         asis.registrarEventoBitacora("[M-01] Recolectando datos");
+        asis.registrarEventoBitacora("[M-01] Mision ejecutada");
     }
 
 }
