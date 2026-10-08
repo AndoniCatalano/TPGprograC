@@ -13,7 +13,7 @@ public class Asistente {
     cerrar()
     * */
     private ArrayList<Evento> bitacora;
-    private Nave nave;
+    private INave nave;
     // private Mision mision; Creo que no hace falta el atributo, ya se pasaria la mision m1,m2 o m3 a la funcion de ejectuarmision
 
     public void ejecutarMision(Mision mision) {
