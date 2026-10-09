@@ -7,13 +7,13 @@ public class NaveFactory {
     public INave getNave(String tipoNave) throws TipoNaveInvalidoException {
         INave nuevaNave = null;
         if(tipoNave.equalsIgnoreCase("carguero"))
-            return new Carguero();
+            nuevaNave = new Carguero();
         else
             if (tipoNave.equalsIgnoreCase("combate"))
-                return new Combate();
+                nuevaNave = new Combate();
             else
                 if (tipoNave.equalsIgnoreCase("exploradora"))
-                    return new Exploradora();
+                    nuevaNave = new Exploradora();
                 else
                     throw new TipoNaveInvalidoException("Tipo de nave inválido: " + tipoNave);
 
