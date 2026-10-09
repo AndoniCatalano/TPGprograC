@@ -33,7 +33,7 @@ public class Asistente {
 
 
 
-    public Asistente(Nave nave){
+    public Asistente(INave nave){
         this.bitacora = new ArrayList<>();
         this.nave = nave;
     }
