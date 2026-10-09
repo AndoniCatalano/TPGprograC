@@ -7,16 +7,7 @@ public abstract class Tripulante{
     protected double plusAntiguedad;
 
 
-    /**
-     * precondicion:
-     * - la antiguedad no puede ser negativa
-     * @param identidad
-     * @param antiguedad
-     * @throws AntiguedadInvalidaException
-     */
-    public Tripulante(String identidad, int antiguedad) throws AntiguedadInvalidaException{
-        if(antiguedad < 0)
-            throw new AntiguedadInvalidaException();
+    public Tripulante(String identidad, int antiguedad){
         this.identidad = identidad;
         this.antiguedad = antiguedad;
     }

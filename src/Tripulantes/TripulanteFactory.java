@@ -1,9 +1,32 @@
 package Tripulantes;
 
 public class TripulanteFactory {
-    public static Tripulante creaTripulante(String rol, String origen, String identidad, int antiguedad) throws OrigenTripulanteException, RolTripulanteInvalidoException {
+
+
+    /**
+     * precondiciones:
+     * -origen valido no nulo (terricola/marciano/vulcano)
+     * -rol valido no nulo (capitan/teniente/consejero/alferez)
+     * -antiguedad no negativa
+     *
+     * postcondiciones:
+     * se devuelve un tripulante de tipo Tripulante con un rol y un origen asignados
+     *
+     * @param rol
+     * @param origen
+     * @param identidad
+     * @param antiguedad
+     * @return
+     * @throws AntiguedadInvalidaException
+     * @throws OrigenTripulanteException
+     * @throws RolTripulanteInvalidoException
+     */
+    public static Tripulante creaTripulante(String rol, String origen, String identidad, int antiguedad) throws AntiguedadInvalidaException,OrigenTripulanteException, RolTripulanteInvalidoException {
         Tripulante tripulante;
 
+        if(antiguedad < 0){
+            throw new AntiguedadInvalidaException();
+        }
         if (rol == null) {
             throw new RolTripulanteInvalidoException();
         }
