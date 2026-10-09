@@ -1,17 +1,17 @@
 package motor;
 
 public class MotorWarp{
-    private State estado;
+    private IState estado;
 
     public MotorWarp(){
-        estado = new DisponibleState(this);
+        this.estado = new DisponibleState(this);
     }
 
-    public void setEstado(State estado){
+    public void setEstado(IState estado){
         this.estado = estado;
     }
 
-    public State getEstado(){
+    public IState getEstado(){
         return this.estado;
     }
 

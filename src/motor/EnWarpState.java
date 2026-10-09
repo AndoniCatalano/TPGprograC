@@ -1,6 +1,6 @@
 package motor;
 
-public class EnWarpState implements State{
+public class EnWarpState implements IState{
     private MotorWarp m;
 
     public EnWarpState(MotorWarp m){

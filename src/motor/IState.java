@@ -1,6 +1,6 @@
 package motor;
 
-public interface State {
+public interface IState {
     void prepararSalto() throws TransicionInvalidaException;
     void ejecutarSalto() throws TransicionInvalidaException;
     void enfriar() throws TransicionInvalidaException;

@@ -3,6 +3,7 @@ package nave;
 import asistente.Asistente;
 import Tripulantes.Tripulante;
 import motor.MotorWarp;
+import motor.TransicionInvalidaException;
 
 public interface INave {
     public void cargaCombustible(int cantCombustible) throws OperacionRechazadaException;
@@ -24,4 +25,11 @@ public interface INave {
     public void addTripulante(Tripulante tripulante);
     public void removeTripulante(Tripulante tripulante);
     public void liquidarHaberes();
+    public void mostrarSueldos();
+
+
+    public void prepararSalto() throws TransicionInvalidaException ;
+    public void terminarEnfriamiento() throws TransicionInvalidaException ;
+    public void ejecutarSalto() throws TransicionInvalidaException;
+
 }

@@ -1,6 +1,6 @@
 package motor;
 
-public class PreparandoState implements State{
+public class PreparandoState implements IState{
     private MotorWarp m;
 
     public PreparandoState(MotorWarp m){

@@ -1,8 +1,14 @@
 package asistente;
+import nave.*;
+import misiones.*;
+import motor.*;
+
+import Tripulantes.Tripulante;
+
 
 import java.util.ArrayList;
 
-public class Asistente {
+public class Asistente{
     /*
     Mapa mapa
 
@@ -24,8 +30,6 @@ public class Asistente {
                 // Aca iria lo del salto que dice el pdf, algo como nave.salto() o nave.prepararsalto()
                 this.registrarEventoBitacora("Misión finalizada. Éxito");
             }
-            this.registrarEventoBitacora("Misión finalizada. Éxito");
-
         } catch (IllegalStateException error) {
             this.registrarEventoBitacora("Misión abortada: " + error.getMessage());
         }
@@ -63,7 +67,7 @@ public class Asistente {
     }
 
     public void mostrarSueldos(){
-        this.nave.mostrarSueldos();
+        this.nave.liquidarHaberes();
     }
 
 
@@ -101,6 +105,11 @@ public class Asistente {
     }
 
 
+    public void mostrarBitacora(){
+        for (Evento evento: bitacora){
+            System.out.println(evento);
+        }
+    }
 
     public void realizarMantenimiento(){
 

@@ -5,34 +5,35 @@ public abstract class Mision {
 
     protected boolean preparada = false;
     protected String resultado = null;
-    protected double combustibleGastado;
-    protected double desgasteAcumulado;
-    protected double energia;
+    protected int combustibleGastado;
+    protected int desgasteAcumulado;
+    protected int energia;
 
-    public final boolean ejecutarCicloMision(Asistente asis){
-        preparar(asis);
-        if (!this.preparada) {
-            throw new IllegalStateException("Error de contrato: Una misión no podrá ejecutarse sin preparación previa.");
+    public final boolean ejecutarCicloMision(Asistente asistente){
+        preparar(asistente);
+        if(!this.preparada){
+            return false;
+        } else {
+            ejecutarObjetivo(asistente);
+            evaluar();
+            if(this.resultado != null){
+                cerrar(asistente);
+                return this.resultado.equals("EXITO");
+            } else{
+                throw new IllegalStateException("No se dieron las condiciones de exito");
+            }
         }
-        ejecutarObjetivo(asis);
-        evaluar();
-        if (this.resultado == null) {
-            throw new IllegalStateException("Error de contrato: Una misión no podrá cerrarse sin resultado e informe.");
-        }
-        cerrar(asis);
-
-        return this.resultado.equals("EXITO");
     }
 
-    public void preparar(Asistente asis){
-        if (asis.consultarCombustible() >= combustibleGastado && asis.consultarDesgaste() >= desgasteAcumulado){
+    public void preparar(Asistente asistente){
+        if (asistente.consultarCombustible() >= this.combustibleGastado && asistente.consultarDesgaste() >= desgasteAcumulado){
             this.preparada = true;
-            asis.registrarEventoBitacora("Mision preparada con exito");
+            asistente.registrarEventoBitacora("Mision preparada con exito");
         }
 
     }
 
-    protected abstract void ejecutarObjetivo(Asistente asis);
+    protected abstract void ejecutarObjetivo(Asistente asistente);
 
     public void evaluar(){
         double exito = Math.random();
@@ -43,16 +44,16 @@ public abstract class Mision {
         }
     }
 
-    public void cerrar(Asistente asis){
-        asis.registrarEventoBitacora("Mision ejecutada: " + this.getClass().getSimpleName());
-        asis.registrarEventoBitacora("Resultado de la mision: " + this.resultado);
-        asis.agregaEnergia(energia);
-        asis.gastarCombustible(combustibleGastado);
-        asis.acumulaDesgaste(desgasteAcumulado);
-        asis.registrarEventoBitacora("Energia agregada: " + energia);
-        asis.registrarEventoBitacora("Combustible gastado: " + combustibleGastado);
-        asis.registrarEventoBitacora("Desgaste consumado: " + desgasteAcumulado);
-        asis.registrarEventoBitacora("Mision cerrada");
+    public void cerrar(Asistente asistente){
+        asistente.registrarEventoBitacora("Mision ejecutada: " + this.getClass().getSimpleName());
+        asistente.registrarEventoBitacora("Resultado de la mision: " + this.resultado);
+        asistente.cargaEnergia(this.energia);
+        asistente.consumeCombustible(this.combustibleGastado);
+        asistente.incrementaDesgaste(this.desgasteAcumulado);
+        asistente.registrarEventoBitacora("Energia agregada: " + energia);
+        asistente.registrarEventoBitacora("Combustible gastado: " + combustibleGastado);
+        asistente.registrarEventoBitacora("Desgaste consumado: " + desgasteAcumulado);
+        asistente.registrarEventoBitacora("Mision cerrada");
     }
 
 }
