@@ -89,6 +89,7 @@ public class Asistente{
     public void cargaCombustible(int cantidad){
         try{
             nave.cargaCombustible(cantidad);
+            registrarEventoBitacora("Se cargaron " + cantidad " unidades de combustible");
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -98,6 +99,7 @@ public class Asistente{
 
         try{
             nave.cargaEnergia(cantidad);
+            registrarEventoBitacora("Se cargaron " + cantidad " unidades de energia");
         }catch(OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -115,6 +117,7 @@ public class Asistente{
 
         try{
             nave.realizarMantenimiento();
+            registrarEventoBitacora("Se realizo mantenimiento en la nave");
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -123,6 +126,7 @@ public class Asistente{
     public void consumeCombustible(int cantidad){
         try{
             nave.consumeCombustible(cantidad);
+            registrarEventoBitacora(¨Se consumieron ¨ + cantidad " unidades de combustible");
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -132,6 +136,7 @@ public class Asistente{
     public void consumeEnergia(int cantidad){
         try{
             nave.consumeEnergia(cantidad);
+            registrarEventoBitacora(¨Se consumieron ¨ + cantidad " unidades de energia");
         }catch(OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -142,6 +147,7 @@ public class Asistente{
     public void incrementaDesgaste(int cantidad){
         try {
             nave.incrementaDesgaste(cantidad);
+            registrarEventoBitacora(¨Se incremento el desgaste de la nave en ¨ + cantidad " unidades");
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
