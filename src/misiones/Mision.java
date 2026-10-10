@@ -26,7 +26,7 @@ public abstract class Mision {
     }
 
     public void preparar(Asistente asistente){
-        if (asistente.consultarCombustible() >= this.combustibleGastado && asistente.consultarDesgaste() >= desgasteAcumulado){
+        if (asistente.consultarCombustible() >= this.combustibleGastado && (asistente.consultarDesgaste() + this.desgasteAcumulado) <= 100){
             this.preparada = true;
             asistente.registrarEventoBitacora("Mision preparada con exito");
         }
