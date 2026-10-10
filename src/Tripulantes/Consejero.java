@@ -26,6 +26,12 @@ public class Consejero extends Tripulante{
      * @param cantidadConsejos
      * @throws CantidadConsejosInvalidaException
      */
+
+    public void addConsejos(int cantidadConsejos) throws CantidadConsejosInvalidaException{
+        if (cantidadConsejos < 0)
+            throw new CantidadConsejosInvalidaException();
+        this.cantidadConsejos += cantidadConsejos;
+    }
     public void setCantidadConsejos(int cantidadConsejos) throws CantidadConsejosInvalidaException{
         if (cantidadConsejos < 0)
             throw new CantidadConsejosInvalidaException();

@@ -4,12 +4,12 @@ public class TripulanteFactory {
 
 
     /**
-     * precondiciones:
+     * <b>precondiciones</b>
      * -origen valido no nulo (terricola/marciano/vulcano)
      * -rol valido no nulo (capitan/teniente/consejero/alferez)
      * -antiguedad no negativa
      *
-     * postcondiciones:
+     * <b>postcondiciones</b>
      * se devuelve un tripulante de tipo Tripulante con un rol y un origen asignados
      *
      * @param rol

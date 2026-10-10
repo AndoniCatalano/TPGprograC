@@ -4,7 +4,7 @@ import asistente.Asistente;
 
 public class NaveFactory {
 
-    public INave getNave(String tipoNave) throws TipoNaveInvalidoException {
+    public static INave getNave(String tipoNave) throws TipoNaveInvalidoException {
         INave nuevaNave = null;
         if(tipoNave.equalsIgnoreCase("carguero"))
             nuevaNave = new Carguero();

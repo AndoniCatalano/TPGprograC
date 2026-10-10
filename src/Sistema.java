@@ -1,6 +1,7 @@
 import asistente.Asistente;
 import nave.Nave;
 import misiones.Mision;
+import nave.NaveFactory;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,8 @@ public class Sistema {
         return _instancia;
     }
 
-    public void addNave(Nave nave){
+    public void addNave(String tipo){
+        Nave nave = NaveFactory.getNave(tipo);
         this.naves.add(nave);
     }
 
