@@ -30,6 +30,7 @@ public interface INave {
 
     public void prepararSalto() throws TransicionInvalidaException ;
     public void terminarEnfriamiento() throws TransicionInvalidaException ;
+    public void finalizarSalto() throws TransicionInvalidaException;
     public void ejecutarSalto() throws TransicionInvalidaException;
 
 }

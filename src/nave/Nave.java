@@ -330,6 +330,11 @@ public abstract class Nave implements INave {
         this.motorWarp.ejecutarSalto();
     }
 
+    @Override
+    public void finalizarSalto() throws TransicionInvalidaException{
+        this.motorWarp.finalizarSalto();
+    }
+
     /**
      * Delega la finalización del enfriamiento al motor.
      *
