@@ -1,0 +1,30 @@
+@startuml
+class asistente.Asistente {
+- ArrayList<Evento> bitacora
+- INave nave
++ void ejecutarMision(Mision)
++ void saltoWarp()
++ void registrarEventoBitacora(String)
++ void addTripulante(Tripulante)
++ void mostrarSueldos()
++ int consultarEnergia()
++ int consultarCombustible()
++ int consultarDesgaste()
++ void cargaCombustible(int)
++ void cargaEnergia(int)
++ void mostrarBitacora()
++ void realizarMantenimiento()
++ void consumeCombustible(int)
++ void consumeEnergia(int)
++ void incrementaDesgaste(int)
+}
+
+
+class asistente.Evento {
+- Instant momento
+- String mensaje
++ String toString()
+}
+
+
+@enduml

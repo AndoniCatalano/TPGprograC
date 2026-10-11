@@ -1,0 +1,72 @@
+@startuml
+class nave.Carguero {
+}
+interface nave.INave {
++ void cargaCombustible(int)
++ void cargaEnergia(int)
++ void realizarMantenimiento()
++ void consumeCombustible(int)
++ void consumeEnergia(int)
++ void incrementaDesgaste(int)
++ int getCombustible()
++ int getEnergia()
++ int getDesgaste()
++ boolean getNecesitaMantenimiento()
++ MotorWarp getMotorWarp()
++ Asistente getAsistente()
++ void setAsistente(Asistente)
++ void addTripulante(Tripulante)
++ void removeTripulante(Tripulante)
++ void liquidarHaberes()
++ void mostrarSueldos()
++ void prepararSalto()
++ void terminarEnfriamiento()
++ void ejecutarSalto()
+}
+
+class nave.Combate {
+}
+class nave.NaveFactory {
++ INave getNave(String)
+}
+
+abstract class nave.Nave {
+# int combustible
+# int energia
+# int desgaste
+# boolean necesitaMantenimiento
+# MotorWarp motorWarp
+# Asistente asistente
+# ArrayList<Tripulante> tripulantes
++ void setAsistente(Asistente)
++ void cargaCombustible(int)
++ void cargaEnergia(int)
++ void consumeCombustible(int)
++ void consumeEnergia(int)
++ void realizarMantenimiento()
++ void incrementaDesgaste(int)
++ void addTripulante(Tripulante)
++ void removeTripulante(Tripulante)
++ void liquidarHaberes()
++ int getCombustible()
++ int getEnergia()
++ int getDesgaste()
++ boolean getNecesitaMantenimiento()
++ MotorWarp getMotorWarp()
++ Asistente getAsistente()
++ void prepararSalto()
++ void ejecutarSalto()
++ void terminarEnfriamiento()
++ void mostrarSueldos()
+}
+
+
+class nave.Exploradora {
+}
+
+
+nave.Nave <|-- nave.Carguero
+nave.Nave <|-- nave.Combate
+nave.INave <|.. nave.Nave
+nave.Nave <|-- nave.Exploradora
+@enduml

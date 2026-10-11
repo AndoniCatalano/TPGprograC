@@ -1,0 +1,34 @@
+@startuml
+class misiones.M03 {
+# void ejecutarObjetivo(Asistente)
++ void cerrar(Asistente)
+}
+
+class misiones.M01 {
+# void ejecutarObjetivo(Asistente)
+}
+
+abstract class misiones.Mision {
+# boolean preparada
+# String resultado
+# int combustibleGastado
+# int desgasteAcumulado
+# int energia
++ boolean ejecutarCicloMision(Asistente)
++ void preparar(Asistente)
+# {abstract}void ejecutarObjetivo(Asistente)
++ void evaluar()
++ void cerrar(Asistente)
+}
+
+
+class misiones.M02 {
+# void ejecutarObjetivo(Asistente)
+}
+
+
+
+misiones.Mision <|-- misiones.M03
+misiones.Mision <|-- misiones.M01
+misiones.Mision <|-- misiones.M02
+@enduml

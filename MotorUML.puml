@@ -1,0 +1,70 @@
+@startuml
+class motor.MotorWarp {
+- IState estado
++ void setEstado(IState)
++ IState getEstado()
++ void prepararSalto()
++ void ejecutarSalto()
++ void finalizarSalto()
++ void terminarEnfriamiento()
+}
+
+
+class motor.Prueba {
++ {static} void main(String[])
+}
+
+interface motor.IState {
+~ void prepararSalto()
+~ void ejecutarSalto()
+~ void enfriar()
+~ void terminarEnfriamiento()
+}
+
+class motor.EnWarpState {
+- MotorWarp m
++ String toString()
++ void prepararSalto()
++ void ejecutarSalto()
++ void enfriar()
++ void terminarEnfriamiento()
+}
+
+
+class motor.DisponibleState {
+- MotorWarp m
++ String toString()
++ void prepararSalto()
++ void ejecutarSalto()
++ void enfriar()
++ void terminarEnfriamiento()
+}
+
+
+class motor.PreparandoState {
+- MotorWarp m
++ String toString()
++ void prepararSalto()
++ void ejecutarSalto()
++ void enfriar()
++ void terminarEnfriamiento()
+}
+
+
+class motor.EnfriamientoState {
+- MotorWarp m
++ String toString()
++ void prepararSalto()
++ void ejecutarSalto()
++ void enfriar()
++ void terminarEnfriamiento()
+}
+
+
+
+
+motor.IState <|.. motor.EnWarpState
+motor.IState <|.. motor.DisponibleState
+motor.IState <|.. motor.PreparandoState
+motor.IState <|.. motor.EnfriamientoState
+@enduml
