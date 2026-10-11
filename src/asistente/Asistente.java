@@ -50,7 +50,7 @@ public class Asistente{
                 // Aca iria lo del salto que dice el pdf, algo como nave.salto() o nave.prepararsalto()
                 this.registrarEventoBitacora("Misión finalizada. Éxito");
             }
-        } catch (IllegalStateException error) {
+        } catch (ContratoMisionException error) {
             this.registrarEventoBitacora("Misión abortada: " + error.getMessage());
         }
     }
