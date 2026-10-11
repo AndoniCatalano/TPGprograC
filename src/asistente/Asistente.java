@@ -8,6 +8,11 @@ import Tripulantes.Tripulante;
 
 import java.util.ArrayList;
 
+/*
+    <b>invariante:</b> nave != null
+    <b>invariante:</b> bitacora != null
+ */
+
 public class Asistente{
     /*
     Mapa mapa
@@ -22,7 +27,22 @@ public class Asistente{
     private INave nave;
     // private Mision mision; Creo que no hace falta el atributo, ya se pasaria la mision m1,m2 o m3 a la funcion de ejectuarmision
 
+    /*
+        <b>pre</b> nave != null
+        <b>post</b> el asistente y la nave quedan vinculados
+     */
+    public Asistente(INave nave){
+        assert nave != null : "Error la nave no puede ser  null";
+        this.bitacora = new ArrayList<>();
+        this.nave = nave;
+    }
+
+    /*
+        <b>pre</b> mision != null
+        <b>post</b> se intenta la ejecucion de la mision y se registra en la bitacora el resultado
+     */
     public void ejecutarMision(Mision mision) {
+        assert mision != null: "Error la mision no puede ser null";
         try {
             boolean exito = mision.ejecutarCicloMision(this);
 
@@ -37,10 +57,7 @@ public class Asistente{
 
 
 
-    public Asistente(INave nave){
-        this.bitacora = new ArrayList<>();
-        this.nave = nave;
-    }
+
 
     public void saltoWarp(){
         try {
@@ -58,11 +75,20 @@ public class Asistente{
         }
     }
 
+    /*
+        <b>pre</b> mensaje != null
+        <b>post</b> el evento se agrego a la bitacora
+     */
     public void registrarEventoBitacora(String mensaje){
+        assert mensaje != null : "Error el mensaje no puede ser null";
         this.bitacora.add(new Evento(mensaje));
     }
 
+    /*
+        <b>pre</b> tripulante != null
+     */
     public void addTripulante(Tripulante tripulante){
+        assert tripulante != null : "Error el tripulante no puede ser nulo";
         this.nave.addTripulante(tripulante);
     }
 
@@ -87,9 +113,10 @@ public class Asistente{
         return nave.getDesgaste();
     }
     public void cargaCombustible(int cantidad){
+
         try{
             nave.cargaCombustible(cantidad);
-            registrarEventoBitacora("Se cargaron " + cantidad " unidades de combustible");
+            registrarEventoBitacora("Se cargaron " + cantidad + " unidades de combustible");
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -99,7 +126,7 @@ public class Asistente{
 
         try{
             nave.cargaEnergia(cantidad);
-            registrarEventoBitacora("Se cargaron " + cantidad " unidades de energia");
+            registrarEventoBitacora("Se cargaron " + cantidad + " unidades de energia");
         }catch(OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -126,7 +153,7 @@ public class Asistente{
     public void consumeCombustible(int cantidad){
         try{
             nave.consumeCombustible(cantidad);
-            registrarEventoBitacora(¨Se consumieron ¨ + cantidad " unidades de combustible");
+            registrarEventoBitacora("Se consumieron " + cantidad + " unidades de combustible");
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -136,7 +163,7 @@ public class Asistente{
     public void consumeEnergia(int cantidad){
         try{
             nave.consumeEnergia(cantidad);
-            registrarEventoBitacora(¨Se consumieron ¨ + cantidad " unidades de energia");
+            registrarEventoBitacora("Se consumieron " + cantidad + " unidades de energia");
         }catch(OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -147,7 +174,7 @@ public class Asistente{
     public void incrementaDesgaste(int cantidad){
         try {
             nave.incrementaDesgaste(cantidad);
-            registrarEventoBitacora(¨Se incremento el desgaste de la nave en ¨ + cantidad " unidades");
+            registrarEventoBitacora("Se incremento el desgaste de la nave en " + cantidad + " unidades");
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
