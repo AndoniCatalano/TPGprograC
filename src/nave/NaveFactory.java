@@ -13,7 +13,7 @@ public class NaveFactory {
      * @return Un objeto INave, listo para operar.
      * @throws TipoNaveInvalidoException Si el string pasado por parámetro no corresponde a ningún tipo de nave conocido.
      */
-    public INave getNave(String tipoNave) throws TipoNaveInvalidoException {
+    public static INave getNave(String tipoNave) throws TipoNaveInvalidoException {
         assert tipoNave != null && !tipoNave.isEmpty() : "Precondición fallida: el String tipoNave es nulo o está vacío";
 
         INave nuevaNave = null;

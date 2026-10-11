@@ -2,6 +2,7 @@ import asistente.Asistente;
 import nave.Nave;
 import misiones.Mision;
 import nave.NaveFactory;
+import nave.TipoNaveInvalidoException;
 
 import java.util.ArrayList;
 
@@ -20,8 +21,8 @@ public class Sistema {
         return _instancia;
     }
 
-    public void addNave(String tipo){
-        Nave nave = NaveFactory.getNave(tipo);
+    public void addNave(String tipo) throws TipoNaveInvalidoException {
+        Nave nave = (Nave) NaveFactory.getNave(tipo);
         this.naves.add(nave);
     }
 

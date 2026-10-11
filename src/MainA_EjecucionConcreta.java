@@ -9,10 +9,9 @@ public class MainA_EjecucionConcreta {
         System.out.println("--- ESCENARIO A: Ejecución Correcta ---");
 
         // Crear una nave de cada tipo
-        NaveFactory factory = new NaveFactory();
-        INave exploradora = factory.getNave("exploradora");
-        INave carguero = factory.getNave("carguero");
-        INave combate = factory.getNave("combate");
+        INave exploradora = NaveFactory.getNave("exploradora");
+        INave carguero = NaveFactory.getNave("carguero");
+        INave combate = NaveFactory.getNave("combate");
 
         // Seleccionar una y asignarle una tripulación válida
         System.out.println("Seleccionando nave Exploradora y asignando tripulación mínima válida...");

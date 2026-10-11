@@ -10,7 +10,6 @@ import asistente.Asistente;
 import misiones.M01;
 import misiones.M02;
 import misiones.M03;
-import nave.INave;
 import nave.Nave;
 import nave.NaveFactory;
 import nave.OperacionRechazadaException;
@@ -21,9 +20,8 @@ import java.util.ArrayList;
 public class MainPruebas {
     public static void main(String[] args)
             throws TipoNaveInvalidoException, OperacionRechazadaException {
-        Sistema sistema = Sistema.getSistema();
-        NaveFactory fabrica = new NaveFactory();
-        probarLimites(fabrica);
+            Sistema sistema = Sistema.getSistema();
+            probarLimites();
 
         String[] tipos = {
                 "carguero", "combate", "exploradora",
@@ -33,32 +31,37 @@ public class MainPruebas {
                 "carguero", "combate", "exploradora"
         };
         int cantidadInicial = sistema.getNaves().size();
-        ArrayList<Nave> flota = new ArrayList<>();
 
-        System.out.println("\n=== Creación e inserción de flota de prueba ===");
-        for (int i = 0; i < tipos.length; i++) {
-            String tipo = tipos[i];
+        System.out.println("\n=== Creación e inserción de naves de prueba ===");
+        for (String tipo : tipos) {
             sistema.addNave(tipo);
-            System.out.printf("%s agregado: combustible=%d, energía=%d%n",
-                    String.format("Nave-%02d (%s)", i + 1, nave.getClass().getSimpleName()),
+        }
+
+        ArrayList<Nave> naves = sistema.getNaves();
+        validar(naves.size() == cantidadInicial + tipos.length,
+                "No se insertaron todas las naves en el sistema.");
+        validar(tipos.length == 15, "La prueba debe crear 15 naves.");
+
+        for (int i = 0; i < tipos.length; i++) {
+            Nave nave = naves.get(cantidadInicial + i);
+            System.out.printf("Nave-%02d (%s) agregada: combustible=%d, energía=%d%n",
+                    i + 1,
+                    nave.getClass().getSimpleName(),
                     nave.getCombustible(),
                     nave.getEnergia());
         }
 
-        validar(sistema.getNaves().size() == cantidadInicial + tipos.length,
-                "No se insertaron todas las naves en el sistema.");
-        validar(flota.size() == 15, "La flota de prueba debe contener 15 naves.");
-
-        for (int i = 0; i < flota.size(); i++) {
+        for (int i = 0; i < tipos.length; i++) {
+            Nave nave = naves.get(cantidadInicial + i);
             System.out.printf("%n--- Tripulación de Nave-%02d (%s) ---%n",
                     i + 1,
-                    flota.get(i).getClass().getSimpleName());
-            cargarTripulacion(flota.get(i).getAsistente(), i + 1);
+                    nave.getClass().getSimpleName());
+            cargarTripulacion(nave.getAsistente(), i + 1);
         }
 
         System.out.println("\n=== Misiones y escenarios por nave ===");
-        for (int i = 0; i < flota.size(); i++) {
-            Nave nave = flota.get(i);
+        for (int i = 0; i < tipos.length; i++) {
+            Nave nave = naves.get(cantidadInicial + i);
             Asistente asistente = nave.getAsistente();
             String etiqueta = String.format("Nave-%02d", i + 1);
             prepararEscenario(asistente, nave, etiqueta, i % 5);
@@ -76,8 +79,8 @@ public class MainPruebas {
         }
 
         System.out.println("\n=== Bitácora completa, separada por nave ===");
-        for (int i = 0; i < flota.size(); i++) {
-            Nave nave = flota.get(i);
+        for (int i = 0; i < tipos.length; i++) {
+            Nave nave = naves.get(cantidadInicial + i);
             System.out.printf("%n--- Nave-%02d (%s) --- %n",
                     i + 1,
                     nave.getClass().getSimpleName());
@@ -176,9 +179,9 @@ public class MainPruebas {
         }
     }
 
-    private static void probarLimites(NaveFactory fabrica)
+    private static void probarLimites()
             throws TipoNaveInvalidoException, OperacionRechazadaException {
-        Nave nave = (Nave) fabrica.getNave("carguero");
+        Nave nave = (Nave) NaveFactory.getNave("carguero");
 
         System.out.println("=== Pruebas de límites ===");
         debeRechazar("Combustible por encima de 100", () -> nave.cargaCombustible(1));

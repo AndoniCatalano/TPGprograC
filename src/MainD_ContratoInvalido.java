@@ -4,8 +4,7 @@ public class MainD_ContratoInvalido{
     public static void main(String[] args) throws Exception{
         System.out.println("--- ESCENARIO D: Contrato Inválido ---");
 
-        NaveFactory factory = new NaveFactory();
-        INave combate = factory.getNave("combate");
+        INave combate = NaveFactory.getNave("combate");
 
         int energiaInicial = combate.getEnergia();
         System.out.println("Energía inicial: " + energiaInicial);

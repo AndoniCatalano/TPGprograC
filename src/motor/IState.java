@@ -5,5 +5,4 @@ public interface IState {
     void ejecutarSalto() throws TransicionInvalidaException;
     void enfriar() throws TransicionInvalidaException;
     void terminarEnfriamiento() throws TransicionInvalidaException;
-
 }

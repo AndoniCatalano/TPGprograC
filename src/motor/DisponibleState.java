@@ -34,9 +34,7 @@ public class DisponibleState implements IState{
     }
 
     @Override
-    public void terminarEnfriamiento()  throws TransicionInvalidaException{
-        //arrojar excepcion este metodo lo maneja el estado Enfriamiento
-        //System.out.println("ERROR: el motor no necesita enfriarse");
-        throw new TransicionInvalidaException("ERROR: el motor no necesita enfriarse");
+    public void terminarEnfriamiento() throws TransicionInvalidaException {
+        throw new TransicionInvalidaException("Error: el motor no necesita enfriarse");
     }
 }

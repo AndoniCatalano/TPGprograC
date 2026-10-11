@@ -19,8 +19,7 @@ public class Main {
         verificarSueldo("Capitan vulcano", new Vulcano(capitan), 1630.0);
 
         Consejero consejero = new Consejero("CO-001", 4);
-        consejero.addConsejo("Consejo 1");
-        consejero.addConsejo("Consejo 2");
+        consejero.addConsejos(2);
         verificarSueldo("Consejero terricola", new Terricola(consejero), 744.0);
 
         System.out.println("Todos los tests de sueldos pasaron correctamente.");

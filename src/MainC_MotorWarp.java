@@ -5,8 +5,7 @@ public class MainC_MotorWarp {
     public static void main(String[] args) throws Exception{
         System.out.println("--- ESCENARIO C: Motor Warp ---");
 
-        NaveFactory factory = new NaveFactory();
-        INave exploradora = factory.getNave("exploradora");
+        INave exploradora = NaveFactory.getNave("exploradora");
         MotorWarp motor = exploradora.getMotorWarp();
 
         //Recorrer secuencia válida (por ahora no existe el paso del tiempo)
@@ -16,8 +15,6 @@ public class MainC_MotorWarp {
         exploradora.ejecutarSalto();
         System.out.println("Tras ejecutar: " + motor.getEstado());
         exploradora.finalizarSalto();
-        System.out.println("Enfriando: " + motor.getEstado());
-        exploradora.terminarEnfriamiento();
         System.out.println("Final: " + motor.getEstado());
 
         //Intentar transición inválida y verificar rechazo

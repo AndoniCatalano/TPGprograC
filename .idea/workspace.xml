@@ -4,8 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="factory de tripulantes agregado + contratos y excepciones">
-      <change beforePath="$PROJECT_DIR$/uso-ia.md" beforeDir="false" afterPath="$PROJECT_DIR$/uso-ia.md" afterDir="false" />
+    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Cambio la forma de agregar naves(ahora lo hace el sistema)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainA_EjecucionConcreta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainA_EjecucionConcreta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainB_RecursosInsuficientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainB_RecursosInsuficientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainC_MotorWarp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainC_MotorWarp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainD_ContratoInvalido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainD_ContratoInvalido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainPruebas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPruebas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sistema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asistente/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/asistente/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motor/DisponibleState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/motor/DisponibleState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motor/EnWarpState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/motor/EnWarpState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motor/IState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/motor/IState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nave/NaveFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nave/NaveFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,61 +53,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000371571663982" />
-      <entry key="S2" value="1.0788156237264077" />
-      <entry key="S5" value="1.416544715960993" />
-      <entry key="S10" value="1.838950753667254" />
-      <entry key="S30" value="3.640026405047914" />
-      <entry key="S60" value="9.603219349496582" />
-      <entry key="M2" value="23.092520368909724" />
-      <entry key="M5" value="67.65373988030275" />
-      <entry key="M10" value="141.2053177353462" />
-      <entry key="M15" value="211.2228211020114" />
-      <entry key="M30" value="383.9913713823313" />
-      <entry key="H1" value="576.1809835009877" />
-      <entry key="H2" value="727.9119419601961" />
-      <entry key="H4" value="824.6051907933751" />
-      <entry key="D1" value="918.5591696488021" />
-      <entry key="W1" value="936.0441154615826" />
+      <entry key="MS100" value="1.8251619435080988" />
+      <entry key="MS500" value="6.064126096053212" />
+      <entry key="S2" value="17.903333424064037" />
+      <entry key="S5" value="30.425926999301495" />
+      <entry key="S10" value="39.09254499362138" />
+      <entry key="S30" value="65.45060019406358" />
+      <entry key="S60" value="100.18518046754642" />
+      <entry key="M2" value="153.41520076116154" />
+      <entry key="M5" value="254.40205190699763" />
+      <entry key="M10" value="369.47733126216417" />
+      <entry key="M15" value="462.2535524705356" />
+      <entry key="M30" value="675.7359320568622" />
+      <entry key="H1" value="918.4576704472746" />
+      <entry key="H2" value="1118.732960077216" />
+      <entry key="H4" value="1250.3896038950852" />
+      <entry key="D1" value="1381.1830614692099" />
+      <entry key="W1" value="1405.8250425545116" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="3.6829186181394816E-16" />
-      <entry key="MS500" value="8.189142439349891E-4" />
-      <entry key="S2" value="0.17023588861376382" />
-      <entry key="S5" value="0.556130795938878" />
-      <entry key="S10" value="0.955579823461873" />
-      <entry key="S30" value="1.5481141833038523" />
-      <entry key="S60" value="2.2744602259851066" />
-      <entry key="M2" value="5.318028629591577" />
-      <entry key="M5" value="16.50606717952242" />
-      <entry key="M10" value="31.271076150952425" />
-      <entry key="M15" value="43.65513398126318" />
-      <entry key="M30" value="72.14201505029293" />
-      <entry key="H1" value="103.42529631486556" />
-      <entry key="H2" value="128.46921081089098" />
-      <entry key="H4" value="144.64261053746785" />
-      <entry key="D1" value="160.52337108843523" />
-      <entry key="W1" value="163.49678107384312" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="2.7522097756474544E-110" />
+      <entry key="S5" value="1.4992450141721928E-44" />
+      <entry key="S10" value="1.2244371598318813E-22" />
+      <entry key="S30" value="5.0254133705158794E-8" />
+      <entry key="S60" value="2.675150380355143E-4" />
+      <entry key="M2" value="0.038497423608426506" />
+      <entry key="M5" value="2.075265717858227" />
+      <entry key="M10" value="11.01077600463423" />
+      <entry key="M15" value="21.766625088582547" />
+      <entry key="M30" value="51.023961420494004" />
+      <entry key="H1" value="87.20289563402483" />
+      <entry key="H2" value="118.30736726533804" />
+      <entry key="H4" value="139.22176610591603" />
+      <entry key="D1" value="160.313944984866" />
+      <entry key="W1" value="164.32025349996516" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="3.966076154083189E-4" />
-      <entry key="MS500" value="0.2090488669081111" />
-      <entry key="S2" value="0.8789867295858402" />
-      <entry key="S5" value="1.7558127764133076" />
-      <entry key="S10" value="2.6477290272221734" />
-      <entry key="S30" value="5.116037940900669" />
-      <entry key="S60" value="11.820951847105611" />
-      <entry key="M2" value="28.34716937447735" />
-      <entry key="M5" value="84.08720935029545" />
-      <entry key="M10" value="172.40230667651252" />
-      <entry key="M15" value="254.8043440585944" />
-      <entry key="M30" value="456.0680541754387" />
-      <entry key="H1" value="679.5583629470174" />
-      <entry key="H2" value="856.3512493401291" />
-      <entry key="H4" value="969.2309596457937" />
-      <entry key="D1" value="1079.0794276157574" />
-      <entry key="W1" value="1099.540443658301" />
+      <entry key="MS100" value="1.7562957211134214" />
+      <entry key="MS500" value="6.019287432360468" />
+      <entry key="S2" value="17.870320637132455" />
+      <entry key="S5" value="30.40368178963952" />
+      <entry key="S10" value="39.07829422873622" />
+      <entry key="S30" value="65.44264078005908" />
+      <entry key="S60" value="100.17931249057239" />
+      <entry key="M2" value="153.44809133039536" />
+      <entry key="M5" value="256.4634953651476" />
+      <entry key="M10" value="380.4583327417237" />
+      <entry key="M15" value="483.98058534529207" />
+      <entry key="M30" value="726.7119787301701" />
+      <entry key="H1" value="1005.6192297693243" />
+      <entry key="H2" value="1237.0122978721429" />
+      <entry key="H4" value="1389.5949073553813" />
+      <entry key="D1" value="1541.493854425637" />
+      <entry key="W1" value="1570.1448347342473" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -117,12 +129,16 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Application.MainA_EjecucionConcreta.executor": "Run",
+    "Application.MainB_RecursosInsuficientes.executor": "Run",
+    "Application.MainC_MotorWarp.executor": "Run",
+    "Application.MainD_ContratoInvalido.executor": "Run",
+    "Application.MainPruebas.executor": "Run",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
@@ -140,6 +156,15 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -177,21 +202,12 @@
       <option name="RUN_TOOL" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-34e2839f716b-intellij.indexing.shared.core-IU-262.9437.185" />
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.9437.185" />
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
       </set>
     </attachedChunks>
   </component>

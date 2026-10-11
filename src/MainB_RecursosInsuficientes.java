@@ -6,8 +6,7 @@ public class MainB_RecursosInsuficientes{
 
     public static void main(String[] args) throws Exception {
         System.out.println("--- ESCENARIO B: Recursos Insuficientes ---");
-        NaveFactory factory = new NaveFactory();
-        INave carguero = factory.getNave("carguero"); // Inicia con 100 de combustible y 0 desgaste
+        INave carguero = NaveFactory.getNave("carguero"); // Inicia con 100 de combustible y 0 desgaste
 
         // Consumimos el combustible para que no pueda afrontar los 4 que exige la misión
         carguero.consumeCombustible(98);
