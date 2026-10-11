@@ -38,10 +38,7 @@ public class MainPruebas {
         System.out.println("\n=== Creación e inserción de flota de prueba ===");
         for (int i = 0; i < tipos.length; i++) {
             String tipo = tipos[i];
-            INave naveCreada = fabrica.getNave(tipo);
-            Nave nave = (Nave) naveCreada;
-            sistema.addNave(nave);
-            flota.add(nave);
+            sistema.addNave(tipo);
             System.out.printf("%s agregado: combustible=%d, energía=%d%n",
                     String.format("Nave-%02d (%s)", i + 1, nave.getClass().getSimpleName()),
                     nave.getCombustible(),
@@ -94,8 +91,7 @@ public class MainPruebas {
         Tripulante teniente = new Marciano(new Teniente("T-" + sufijo, 10));
         Tripulante capitan = new Vulcano(new Capitan("C-" + sufijo, 3));
         Consejero consejero = new Consejero("CO-" + sufijo, 4);
-        consejero.addConsejo("Consejo de navegación");
-        consejero.addConsejo("Consejo de seguridad");
+        consejero.addConsejos(2);;
         Tripulante consejeroTerricola = new Terricola(consejero);
 
         asistente.addTripulante(alferez);

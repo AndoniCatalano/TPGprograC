@@ -2,13 +2,11 @@ package misiones;
 import asistente.Asistente;
 
 /**
- * Ejecuta el ciclo de vida completo de una misión (preparación, ejecución, evaluación y cierre).
- *
- * PRECONDICIONES:
+ * <b>precondiciones</b>
  * - El objeto 'asistente' pasado por parámetro no debe ser null.
  * - La nave gestionada por el asistente debe estar inicializada.
  *
- * POSTCONDICIONES:
+ * <b>postcondiciones</b>
  * - Si la nave no tiene recursos suficientes, el estado de la misión y los recursos del asistente quedan intactos.
  * - Si la misión se ejecuta, los recursos de la nave (combustible, desgaste, energía) serán actualizados según los costos de la misión concreta.
  * - Se registrarán todos los eventos en la bitácora del asistente.
