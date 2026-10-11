@@ -1,6 +1,23 @@
 package misiones;
 import asistente.Asistente;
 
+/**
+ * Ejecuta el ciclo de vida completo de una misión (preparación, ejecución, evaluación y cierre).
+ *
+ * PRECONDICIONES:
+ * - El objeto 'asistente' pasado por parámetro no debe ser null.
+ * - La nave gestionada por el asistente debe estar inicializada.
+ *
+ * POSTCONDICIONES:
+ * - Si la nave no tiene recursos suficientes, el estado de la misión y los recursos del asistente quedan intactos.
+ * - Si la misión se ejecuta, los recursos de la nave (combustible, desgaste, energía) serán actualizados según los costos de la misión concreta.
+ * - Se registrarán todos los eventos en la bitácora del asistente.
+ *
+ * @param asistente El asistente que coordina la nave y provee los recursos.
+ * @return true si la misión se completó con EXITO, false si fue un FRACASO o si no superó la fase de preparación por falta de recursos.
+ * @throws ContratoMisionException Si ocurre un error interno grave de lógica donde la evaluación no genera un estado válido.
+ */
+
 public abstract class Mision {
 
     protected boolean preparada = false;
@@ -9,7 +26,7 @@ public abstract class Mision {
     protected int desgasteAcumulado;
     protected int energia;
 
-    public final boolean ejecutarCicloMision(Asistente asistente){
+    public final boolean ejecutarCicloMision (Asistente asistente) throws ContratoMisionException {
         preparar(asistente);
         if(!this.preparada){
             return false;
@@ -20,12 +37,12 @@ public abstract class Mision {
                 cerrar(asistente);
                 return this.resultado.equals("EXITO");
             } else{
-                throw new IllegalStateException("No se dieron las condiciones de exito");
+                throw new ContratoMisionException("La evaluación de la misión falló y no generó un estado");
             }
         }
     }
 
-    public void preparar(Asistente asistente){
+    protected void preparar(Asistente asistente){
         if (asistente.consultarCombustible() >= this.combustibleGastado && (asistente.consultarDesgaste() + this.desgasteAcumulado) <= 100){
             this.preparada = true;
             asistente.registrarEventoBitacora("Mision preparada con exito");
@@ -35,7 +52,7 @@ public abstract class Mision {
 
     protected abstract void ejecutarObjetivo(Asistente asistente);
 
-    public void evaluar(){
+    protected void evaluar(){
         double exito = Math.random();
         if (exito > 0.5){
             this.resultado = "EXITO";
@@ -44,15 +61,18 @@ public abstract class Mision {
         }
     }
 
-    public void cerrar(Asistente asistente){
+    protected void cerrar(Asistente asistente){
+        assert this.resultado.equals("EXITO") || this.resultado.equals("FRACASO") : "El resultado de la misión tomó un valor no reconocido";
         asistente.registrarEventoBitacora("Mision ejecutada: " + this.getClass().getSimpleName());
         asistente.registrarEventoBitacora("Resultado de la mision: " + this.resultado);
-        asistente.cargaEnergia(this.energia);
+        if (this.energia > 0){
+            asistente.cargaEnergia(this.energia);
+            asistente.registrarEventoBitacora("Energia agregada: " + this.energia);
+        }
         asistente.consumeCombustible(this.combustibleGastado);
         asistente.incrementaDesgaste(this.desgasteAcumulado);
-        asistente.registrarEventoBitacora("Energia agregada: " + energia);
-        asistente.registrarEventoBitacora("Combustible gastado: " + combustibleGastado);
-        asistente.registrarEventoBitacora("Desgaste consumado: " + desgasteAcumulado);
+        asistente.registrarEventoBitacora("Combustible gastado: " + this.combustibleGastado);
+        asistente.registrarEventoBitacora("Desgaste consumado: " + this.desgasteAcumulado);
         asistente.registrarEventoBitacora("Mision cerrada");
     }
 

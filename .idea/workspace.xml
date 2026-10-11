@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="factory de tripulantes agregado + contratos y excepciones">
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Tripulante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tripulantes/Tripulante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/TripulanteFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tripulantes/TripulanteFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/misiones/ContratoMisionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misiones/M03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/misiones/M03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misiones/Mision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/misiones/Mision.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Exception" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -30,12 +33,12 @@
     &quot;assignee&quot;: &quot;AndoniCatalano&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/AndoniCatalano/TPGprograC.git",
-    "accountId": "8ff3952b-34ec-467f-bba1-21e989d8872b"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AndoniCatalano/TPGprograC.git&quot;,
+    &quot;accountId&quot;: &quot;8ff3952b-34ec-467f-bba1-21e989d8872b&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -140,15 +143,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -184,6 +178,15 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
       <method v="2" />
     </configuration>
   </component>
