@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="factory de tripulantes agregado + contratos y excepciones">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPruebas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPruebas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/misiones/Mision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/misiones/Mision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uso-ia.md" beforeDir="false" afterPath="$PROJECT_DIR$/uso-ia.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +122,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
