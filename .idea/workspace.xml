@@ -5,19 +5,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Cambio la forma de agregar naves(ahora lo hace el sistema)">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainA_EjecucionConcreta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainA_EjecucionConcreta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainB_RecursosInsuficientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainB_RecursosInsuficientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainC_MotorWarp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainC_MotorWarp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainD_ContratoInvalido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainD_ContratoInvalido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPruebas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPruebas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sistema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/asistente/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/asistente/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/motor/DisponibleState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/motor/DisponibleState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/motor/EnWarpState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/motor/EnWarpState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/motor/IState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/motor/IState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nave/NaveFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nave/NaveFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AsistenteUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AsistenteUML.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MisionesUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MisionesUML.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MotorUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MotorUML.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NaveFactoryPrueba.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/NaveFactoryPrueba.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NaveUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/NaveUML.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TPG.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPGprograC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TPGprograC.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TripulanteUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TripulanteUML.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uml nave/tripulantes/sistema.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sistema.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Diagrama.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Diagrama.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainA_EjecucionConcreta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainA_EjecucionConcreta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainB_RecursosInsuficientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainB_RecursosInsuficientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainC_MotorWarp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainC_MotorWarp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainD_ContratoInvalido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainD_ContratoInvalido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainPruebas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainPruebas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sistema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Alferez.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Alferez.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/AntiguedadInvalidaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/AntiguedadInvalidaException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/CantidadConsejosInvalidaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/CantidadConsejosInvalidaException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Capitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Capitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Consejero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Consejero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Marciano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Marciano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/OrigenTripulanteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/OrigenTripulanteException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/RolTripulanteInvalidoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/RolTripulanteInvalidoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Teniente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Teniente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Terricola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Terricola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Tripulante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Tripulante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/TripulanteDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/TripulanteDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/TripulanteFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/TripulanteFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Tripulantes.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Tripulantes.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Vulcano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Vulcano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asistente/Asistente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/Asistente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/asistente/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misiones/ContratoMisionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/ContratoMisionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misiones/M01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/M01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misiones/M02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/M02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misiones/M03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/M03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misiones/Mision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/Mision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motor/DisponibleState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/DisponibleState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motor/EnWarpState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/EnWarpState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motor/EnfriamientoState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/EnfriamientoState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motor/IState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/IState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motor/MotorWarp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/MotorWarp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motor/PreparandoState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/PreparandoState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motor/Prueba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/Prueba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motor/TransicionInvalidaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/TransicionInvalidaException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nave/Carguero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Carguero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nave/Combate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Combate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nave/Exploradora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Exploradora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nave/INave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/INave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nave/Nave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Nave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nave/NaveFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/NaveFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nave/OperacionRechazadaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/OperacionRechazadaException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nave/TipoNaveInvalidoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/TipoNaveInvalidoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uso-ia.md" beforeDir="false" afterPath="$PROJECT_DIR$/uso-ia.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,24 +195,22 @@
     "node.js.selected.package.jshint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Euge\proyectos\TPGprograC\src\main\resources" />
+      <recent name="C:\Users\Euge\proyectos\TPGprograC" />
+      <recent name="C:\Users\Euge\proyectos\TPGprograC\src" />
+      <recent name="C:\Users\Euge\proyectos\TPGprograC\src\main\java" />
       <recent name="C:\Users\andoni\IdeaProjects\TPG\src\Nave" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -202,12 +248,21 @@
       <option name="RUN_TOOL" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
+        <option value="bundled-jdk-30f59d01ecdd-34e2839f716b-intellij.indexing.shared.core-IU-262.9437.185" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.9437.185" />
       </set>
     </attachedChunks>
   </component>
