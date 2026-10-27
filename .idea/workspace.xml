@@ -4,68 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Cambio la forma de agregar naves(ahora lo hace el sistema)">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Nueva branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AsistenteUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AsistenteUML.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MisionesUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MisionesUML.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MotorUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MotorUML.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaveFactoryPrueba.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/NaveFactoryPrueba.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaveUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/NaveUML.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TPG.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPGprograC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TPGprograC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TripulanteUML.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TripulanteUML.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Uml nave/tripulantes/sistema.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sistema.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Diagrama.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Diagrama.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainA_EjecucionConcreta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainA_EjecucionConcreta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainB_RecursosInsuficientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainB_RecursosInsuficientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainC_MotorWarp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainC_MotorWarp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainD_ContratoInvalido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainD_ContratoInvalido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainPruebas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainPruebas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sistema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Alferez.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Alferez.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/AntiguedadInvalidaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/AntiguedadInvalidaException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/CantidadConsejosInvalidaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/CantidadConsejosInvalidaException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Capitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Capitan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Consejero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Consejero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Marciano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Marciano.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/OrigenTripulanteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/OrigenTripulanteException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/RolTripulanteInvalidoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/RolTripulanteInvalidoException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Teniente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Teniente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Terricola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Terricola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Tripulante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Tripulante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/TripulanteDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/TripulanteDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/TripulanteFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/TripulanteFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Tripulantes.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Tripulantes.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tripulantes/Vulcano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tripulantes/Vulcano.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/asistente/Asistente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/Asistente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/asistente/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/misiones/ContratoMisionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/ContratoMisionException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/misiones/M01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/M01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/misiones/M02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/M02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/misiones/M03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/M03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/misiones/Mision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/Mision.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/motor/DisponibleState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/DisponibleState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/motor/EnWarpState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/EnWarpState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/motor/EnfriamientoState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/EnfriamientoState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/motor/IState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/IState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/motor/MotorWarp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/MotorWarp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/motor/PreparandoState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/PreparandoState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/motor/Prueba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/Prueba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/motor/TransicionInvalidaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/TransicionInvalidaException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nave/Carguero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Carguero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nave/Combate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Combate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nave/Exploradora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Exploradora.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nave/INave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/INave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nave/Nave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Nave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nave/NaveFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/NaveFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nave/OperacionRechazadaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/OperacionRechazadaException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nave/TipoNaveInvalidoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/TipoNaveInvalidoException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uso-ia.md" beforeDir="false" afterPath="$PROJECT_DIR$/uso-ia.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Exception" />
+        <option value="package-info" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -101,61 +43,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.8251619435080988" />
-      <entry key="MS500" value="6.064126096053212" />
-      <entry key="S2" value="17.903333424064037" />
-      <entry key="S5" value="30.425926999301495" />
-      <entry key="S10" value="39.09254499362138" />
-      <entry key="S30" value="65.45060019406358" />
-      <entry key="S60" value="100.18518046754642" />
-      <entry key="M2" value="153.41520076116154" />
-      <entry key="M5" value="254.40205190699763" />
-      <entry key="M10" value="369.47733126216417" />
-      <entry key="M15" value="462.2535524705356" />
-      <entry key="M30" value="675.7359320568622" />
-      <entry key="H1" value="918.4576704472746" />
-      <entry key="H2" value="1118.732960077216" />
-      <entry key="H4" value="1250.3896038950852" />
-      <entry key="D1" value="1381.1830614692099" />
-      <entry key="W1" value="1405.8250425545116" />
+      <entry key="MS100" value="3.16136627765804E-268" />
+      <entry key="MS500" value="5.50168500905288E-54" />
+      <entry key="S2" value="9.005585818925285E-14" />
+      <entry key="S5" value="1.1825670313007275E-5" />
+      <entry key="S10" value="0.006555875604147974" />
+      <entry key="S30" value="0.48097688734806915" />
+      <entry key="S60" value="1.6397282350712696" />
+      <entry key="M2" value="4.1145682745855625" />
+      <entry key="M5" value="12.590280144864886" />
+      <entry key="M10" value="35.32568091739722" />
+      <entry key="M15" value="76.27673077666121" />
+      <entry key="M30" value="256.50426167720696" />
+      <entry key="H1" value="583.751856631903" />
+      <entry key="H2" value="939.478454469438" />
+      <entry key="H4" value="1212.700122004485" />
+      <entry key="D1" value="1513.7822188947348" />
+      <entry key="W1" value="1573.741110691822" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="2.7522097756474544E-110" />
-      <entry key="S5" value="1.4992450141721928E-44" />
-      <entry key="S10" value="1.2244371598318813E-22" />
-      <entry key="S30" value="5.0254133705158794E-8" />
-      <entry key="S60" value="2.675150380355143E-4" />
-      <entry key="M2" value="0.038497423608426506" />
-      <entry key="M5" value="2.075265717858227" />
-      <entry key="M10" value="11.01077600463423" />
-      <entry key="M15" value="21.766625088582547" />
-      <entry key="M30" value="51.023961420494004" />
-      <entry key="H1" value="87.20289563402483" />
-      <entry key="H2" value="118.30736726533804" />
-      <entry key="H4" value="139.22176610591603" />
-      <entry key="D1" value="160.313944984866" />
-      <entry key="W1" value="164.32025349996516" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000000000000604" />
+      <entry key="S5" value="1.0000059784452129" />
+      <entry key="S10" value="1.00319424945021" />
+      <entry key="S30" value="1.2710558659852997" />
+      <entry key="S60" value="2.1435381741026527" />
+      <entry key="M2" value="4.617425821686323" />
+      <entry key="M5" value="14.30986534576806" />
+      <entry key="M10" value="30.877642275148613" />
+      <entry key="M15" value="45.38936176338516" />
+      <entry key="M30" value="80.9642838689022" />
+      <entry key="H1" value="131.23828222882176" />
+      <entry key="H2" value="183.60084030278557" />
+      <entry key="H4" value="223.8485226103747" />
+      <entry key="D1" value="268.5236845719111" />
+      <entry key="W1" value="277.46800696182925" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.7562957211134214" />
-      <entry key="MS500" value="6.019287432360468" />
-      <entry key="S2" value="17.870320637132455" />
-      <entry key="S5" value="30.40368178963952" />
-      <entry key="S10" value="39.07829422873622" />
-      <entry key="S30" value="65.44264078005908" />
-      <entry key="S60" value="100.17931249057239" />
-      <entry key="M2" value="153.44809133039536" />
-      <entry key="M5" value="256.4634953651476" />
-      <entry key="M10" value="380.4583327417237" />
-      <entry key="M15" value="483.98058534529207" />
-      <entry key="M30" value="726.7119787301701" />
-      <entry key="H1" value="1005.6192297693243" />
-      <entry key="H2" value="1237.0122978721429" />
-      <entry key="H4" value="1389.5949073553813" />
-      <entry key="D1" value="1541.493854425637" />
-      <entry key="W1" value="1570.1448347342473" />
+      <entry key="MS100" value="3.938680464951787E-4" />
+      <entry key="MS500" value="0.20848276095624102" />
+      <entry key="S2" value="0.6757211888095324" />
+      <entry key="S5" value="0.8548997879656883" />
+      <entry key="S10" value="0.9337911116639084" />
+      <entry key="S30" value="1.7097973299428657" />
+      <entry key="S60" value="3.737508929112474" />
+      <entry key="M2" value="8.67568244608261" />
+      <entry key="M5" value="26.82928881022683" />
+      <entry key="M10" value="66.12839657608494" />
+      <entry key="M15" value="121.5929589649564" />
+      <entry key="M30" value="337.40208286405016" />
+      <entry key="H1" value="714.9344942901193" />
+      <entry key="H2" value="1123.0395377705222" />
+      <entry key="H4" value="1436.5241552188334" />
+      <entry key="D1" value="1782.30096819093" />
+      <entry key="W1" value="1851.208388203195" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -181,12 +123,13 @@
     &quot;Application.MainC_MotorWarp.executor&quot;: &quot;Run&quot;,
     &quot;Application.MainD_ContratoInvalido.executor&quot;: &quot;Run&quot;,
     &quot;Application.MainPruebas.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainUsuarios.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Usuarios&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
@@ -202,6 +145,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Exceptions" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Euge\proyectos\TPGprograC\src\main\resources" />
       <recent name="C:\Users\Euge\proyectos\TPGprograC" />
@@ -261,8 +207,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-34e2839f716b-intellij.indexing.shared.core-IU-262.9437.185" />
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.9437.185" />
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
       </set>
     </attachedChunks>
   </component>
@@ -295,6 +241,7 @@
     <MESSAGE value="Sistema agregado y algunas correcciones de paquetes" />
     <MESSAGE value="correccion de errores varios y MainPrueba agregado&#10;junto a limit testing" />
     <MESSAGE value="factory de tripulantes agregado + contratos y excepciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="factory de tripulantes agregado + contratos y excepciones" />
+    <MESSAGE value="Nueva branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nueva branch" />
   </component>
 </project>
