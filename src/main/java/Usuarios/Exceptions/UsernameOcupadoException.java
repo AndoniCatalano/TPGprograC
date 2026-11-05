@@ -1,4 +1,4 @@
-package Exceptions;
+package Usuarios.Exceptions;
 
 public class UsernameOcupadoException extends Exception {
     public  UsernameOcupadoException(){

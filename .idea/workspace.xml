@@ -4,13 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Nueva branch">
+    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Logica de usuarios agregada">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Controlador/UsuarioControlador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Usuarios/DAO/UsuarioDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controlador/CUsuarios.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/DatosIncorrectosException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Exceptions/DatosIncorrectosException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/UsernameOcupadoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Exceptions/UsernameOcupadoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/IVUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Vista/IUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/MainUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Vista/MainUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vista/VUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Vista/UsuarioVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UsuarioDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/UsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/DTO/UsuarioDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="2d2e052e-e342-4570-a5af-afc8d48e58ab" value="" />
+    </colors>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -43,61 +59,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="3.16136627765804E-268" />
-      <entry key="MS500" value="5.50168500905288E-54" />
-      <entry key="S2" value="9.005585818925285E-14" />
-      <entry key="S5" value="1.1825670313007275E-5" />
-      <entry key="S10" value="0.006555875604147974" />
-      <entry key="S30" value="0.48097688734806915" />
-      <entry key="S60" value="1.6397282350712696" />
-      <entry key="M2" value="4.1145682745855625" />
-      <entry key="M5" value="12.590280144864886" />
-      <entry key="M10" value="35.32568091739722" />
-      <entry key="M15" value="76.27673077666121" />
-      <entry key="M30" value="256.50426167720696" />
-      <entry key="H1" value="583.751856631903" />
-      <entry key="H2" value="939.478454469438" />
-      <entry key="H4" value="1212.700122004485" />
-      <entry key="D1" value="1513.7822188947348" />
-      <entry key="W1" value="1573.741110691822" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000004285598405" />
+      <entry key="S2" value="1.0255863860875953" />
+      <entry key="S5" value="1.2334331708632347" />
+      <entry key="S10" value="1.5358624295600123" />
+      <entry key="S30" value="2.4416453425832385" />
+      <entry key="S60" value="4.944069269770894" />
+      <entry key="M2" value="18.427300079522166" />
+      <entry key="M5" value="76.90214998435466" />
+      <entry key="M10" value="149.2821804844038" />
+      <entry key="M15" value="200.17115176585173" />
+      <entry key="M30" value="328.95977744602845" />
+      <entry key="H1" value="602.0733693769023" />
+      <entry key="H2" value="1018.3235596983191" />
+      <entry key="H4" value="1419.8417495310066" />
+      <entry key="D1" value="1938.9327610322553" />
+      <entry key="W1" value="2051.4518336847786" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000000000000604" />
-      <entry key="S5" value="1.0000059784452129" />
-      <entry key="S10" value="1.00319424945021" />
-      <entry key="S30" value="1.2710558659852997" />
-      <entry key="S60" value="2.1435381741026527" />
-      <entry key="M2" value="4.617425821686323" />
-      <entry key="M5" value="14.30986534576806" />
-      <entry key="M10" value="30.877642275148613" />
-      <entry key="M15" value="45.38936176338516" />
-      <entry key="M30" value="80.9642838689022" />
-      <entry key="H1" value="131.23828222882176" />
-      <entry key="H2" value="183.60084030278557" />
-      <entry key="H4" value="223.8485226103747" />
-      <entry key="D1" value="268.5236845719111" />
-      <entry key="W1" value="277.46800696182925" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="2.9558053188411263E-198" />
+      <entry key="S2" value="5.884763433939321E-50" />
+      <entry key="S5" value="3.2627409109644036E-20" />
+      <entry key="S10" value="3.150825968465442E-10" />
+      <entry key="S30" value="0.001675962029740895" />
+      <entry key="S60" value="0.08626108029460601" />
+      <entry key="M2" value="0.6892381899911814" />
+      <entry key="M5" value="4.863463827324663" />
+      <entry key="M10" value="19.046022360683022" />
+      <entry key="M15" value="36.93932322792111" />
+      <entry key="M30" value="89.98344578500347" />
+      <entry key="H1" value="171.86793064293715" />
+      <entry key="H2" value="266.54128607568356" />
+      <entry key="H4" value="347.13370279050343" />
+      <entry key="D1" value="444.8386260151101" />
+      <entry key="W1" value="465.4373840880613" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="3.938680464951787E-4" />
-      <entry key="MS500" value="0.20848276095624102" />
-      <entry key="S2" value="0.6757211888095324" />
-      <entry key="S5" value="0.8548997879656883" />
-      <entry key="S10" value="0.9337911116639084" />
-      <entry key="S30" value="1.7097973299428657" />
-      <entry key="S60" value="3.737508929112474" />
-      <entry key="M2" value="8.67568244608261" />
-      <entry key="M5" value="26.82928881022683" />
-      <entry key="M10" value="66.12839657608494" />
-      <entry key="M15" value="121.5929589649564" />
-      <entry key="M30" value="337.40208286405016" />
-      <entry key="H1" value="714.9344942901193" />
-      <entry key="H2" value="1123.0395377705222" />
-      <entry key="H4" value="1436.5241552188334" />
-      <entry key="D1" value="1782.30096819093" />
-      <entry key="W1" value="1851.208388203195" />
+      <entry key="MS100" value="0.9659363289248456" />
+      <entry key="MS500" value="0.9930929216270127" />
+      <entry key="S2" value="1.023819572873019" />
+      <entry key="S5" value="1.2326104871924097" />
+      <entry key="S10" value="1.535362765337266" />
+      <entry key="S30" value="2.4429989146875344" />
+      <entry key="S60" value="5.029134244553364" />
+      <entry key="M2" value="19.112266891404264" />
+      <entry key="M5" value="81.74902662373682" />
+      <entry key="M10" value="168.2898614303083" />
+      <entry key="M15" value="237.05836265176697" />
+      <entry key="M30" value="418.8760457914103" />
+      <entry key="H1" value="773.8742231440137" />
+      <entry key="H2" value="1284.8111392594612" />
+      <entry key="H4" value="1766.939833075608" />
+      <entry key="D1" value="2383.7636588627574" />
+      <entry key="W1" value="2516.8880595113847" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -124,6 +140,8 @@
     &quot;Application.MainD_ContratoInvalido.executor&quot;: &quot;Run&quot;,
     &quot;Application.MainPruebas.executor&quot;: &quot;Run&quot;,
     &quot;Application.MainUsuarios.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TPGprograC [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TPGprograC [install].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -157,6 +175,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="MainUsuarios" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Usuarios.Vista.MainUsuarios" />
+      <module name="TPGprograC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Usuarios.Vista.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -203,6 +234,11 @@
       <option name="RUN_TOOL" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainUsuarios" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -242,6 +278,7 @@
     <MESSAGE value="correccion de errores varios y MainPrueba agregado&#10;junto a limit testing" />
     <MESSAGE value="factory de tripulantes agregado + contratos y excepciones" />
     <MESSAGE value="Nueva branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nueva branch" />
+    <MESSAGE value="Logica de usuarios agregada" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logica de usuarios agregada" />
   </component>
 </project>
