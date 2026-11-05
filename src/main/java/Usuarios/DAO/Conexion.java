@@ -23,7 +23,7 @@ public class Conexion {
 
     private static void crearTablaSiNoExiste(Connection conn) {
         String sql = "CREATE TABLE IF NOT EXISTS usuarios (" +
-                "usuario TEXT PRIMARY KEY, " +
+                "username TEXT PRIMARY KEY, " +
                 "password TEXT NOT NULL)";
 
         try (Statement stmt = conn.createStatement()) {
