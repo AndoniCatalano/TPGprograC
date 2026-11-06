@@ -32,7 +32,7 @@ public abstract class Observable {
      */
     public void notificarObservadores() {
         for (Observador observador : observadores) {
-            observador.actualizar();
+            observador.actualizarTablero();
         }
     }
 }
