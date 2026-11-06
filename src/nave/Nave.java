@@ -3,10 +3,13 @@ package nave;
 import asistente.Asistente;
 import Tripulantes.Tripulante;
 import java.util.ArrayList;
+import java.util.List;
+
 import motor.MotorWarp;
 import motor.TransicionInvalidaException;
+import nave.Observer.IObserver;
 
-public abstract class Nave implements INave {
+public abstract class Nave implements INave, IElementosUniverso {
     protected int combustible;
     protected int energia;
     protected int desgaste;
@@ -14,6 +17,8 @@ public abstract class Nave implements INave {
     protected MotorWarp motorWarp;
     protected Asistente asistente;
     protected ArrayList<Tripulante> tripulantes;
+    private final List<IObserver> observadores = new ArrayList<>();
+
 
     /**
      * Constructor para la inicialización de los distintos tipos de naves.
@@ -93,6 +98,8 @@ public abstract class Nave implements INave {
 
             assert this.combustible == (combustibleAnt + cantCombustible) : "Postcondición fallida: el combustible no se sumó";
             assert invariante() : "Fallo invariante durante la carga de combustible";
+
+            this.notifyObservadores();
         }
     }
 
@@ -115,6 +122,8 @@ public abstract class Nave implements INave {
 
             assert this.energia == (energiaAnt + cantEnergia) : "Postcondición fallida: la energía no se sumó correctamente";
             assert invariante() : "Fallo invariante durante la carga de energía";
+
+            this.notifyObservadores();
         }
     }
 
@@ -140,6 +149,8 @@ public abstract class Nave implements INave {
 
             assert this.combustible == (combustibleAnt - cantCombustible) : "Postcondición fallida: el combustible no se restó correctamente";
             assert invariante() : "Fallo invariante al consumir combustible";
+
+            this.notifyObservadores();
         }
     }
 
@@ -165,6 +176,8 @@ public abstract class Nave implements INave {
 
             assert this.energia == (energiaAnt - cantEnergia) : "Postcondición fallida: la energía no se restó correctamente";
             assert invariante() : "Fallo invariante al consumir energía";
+
+            this.notifyObservadores();
         }
     }
 
@@ -187,6 +200,8 @@ public abstract class Nave implements INave {
             assert this.desgaste == 0 : "Postcondición fallida: el desgaste no quedó en 0";
             assert !this.necesitaMantenimiento : "Postcondición fallida: necesitaMantenimiento no cambió a false";
             assert invariante() : "Fallo invariante al realizar mantenimiento";
+
+            this.notifyObservadores();
         }
     }
 
@@ -224,6 +239,8 @@ public abstract class Nave implements INave {
             if (this.desgaste >= 80)
                 assert this.necesitaMantenimiento : "Postcondición fallida: el desgaste llegó a 80 pero necesitaMantenimiento es false";
             assert invariante() : "Fallo invariante al incrementar el desgaste";
+
+            this.notifyObservadores();
         }
     }
 
@@ -312,7 +329,6 @@ public abstract class Nave implements INave {
 
     /**
      * Delega la preparación del salto al motor.
-     *
      * @throws TransicionInvalidaException Si el estado del motor no permite preparar un salto.
      */
     @Override
@@ -322,7 +338,6 @@ public abstract class Nave implements INave {
 
     /**
      * Delega la ejecución del salto warp al motor.
-     *
      * @throws TransicionInvalidaException Si el motor no está preparado para ejecutar el salto.
      */
     @Override
@@ -337,11 +352,29 @@ public abstract class Nave implements INave {
 
     /**
      * Delega la finalización del enfriamiento al motor.
-     *
      * @throws TransicionInvalidaException Si el motor no se encuentra en estado de enfriamiento.
      */
     @Override
     public void terminarEnfriamiento() throws TransicionInvalidaException {
         this.motorWarp.terminarEnfriamiento();
+    }
+
+    //Observer
+
+    @Override
+    public void addObservador(IObserver observador) {
+        this.observadores.add(observador);
+    }
+
+    @Override
+    public void removeObservador(IObserver observador) {
+        this.observadores.remove(observador);
+    }
+
+    @Override
+    public void notifyObservadores() {
+        for (IObserver observador : this.observadores) {
+            observador.actualizarRecursosNave(this); // Estilo "pull": le pasamos la nave a la vista
+        }
     }
 }

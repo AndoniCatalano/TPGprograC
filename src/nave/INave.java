@@ -4,6 +4,7 @@ import asistente.Asistente;
 import Tripulantes.Tripulante;
 import motor.MotorWarp;
 import motor.TransicionInvalidaException;
+import nave.Observer.IObserver;
 
 public interface INave {
     public void cargaCombustible(int cantCombustible) throws OperacionRechazadaException;
@@ -33,4 +34,11 @@ public interface INave {
     public void finalizarSalto() throws TransicionInvalidaException;
     public void ejecutarSalto() throws TransicionInvalidaException;
 
+    void defenderContraExploradora(INave naveEnemiga);
+    void defenderContraCarguero(INave naveEnemiga);
+    void defenderContraCombate(INave naveEnemiga);
+
+    public void addObservador(IObserver observador);
+    public void removeObservador(IObserver observador);
+    public void notifyObservadores();
 }
