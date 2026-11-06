@@ -8,6 +8,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import Creacion.Modelo.ModeloCreacion;
+import Creacion.Vista.VistaCreacion;
+import Creacion.Controlador.ControladorCreacion;
+
 public class UsuarioControlador implements ActionListener {
     UsuarioVista vista;
     public UsuarioControlador(UsuarioVista vista) {
@@ -28,6 +32,7 @@ public class UsuarioControlador implements ActionListener {
                     case "LOGIN":
                         usuario.login();
                         vista.setMensaje("Usuario Logueado");
+                        abrirPantallaCreacion();
                         break;
 
                     case  "REGISTRAR":
@@ -49,5 +54,17 @@ public class UsuarioControlador implements ActionListener {
             vista.setMensaje("Error en la base de datos: " + ex.getMessage());
         }
 
+    }
+
+    private void abrirPantallaCreacion() {
+        ModeloCreacion modelo = new ModeloCreacion();
+
+        VistaCreacion vistaCreacion = new VistaCreacion(modelo);
+        ControladorCreacion controlador = new ControladorCreacion(vistaCreacion, modelo);
+
+        vistaCreacion.setControlador(controlador);
+        vistaCreacion.arrancar();
+
+        this.vista.dispose();
     }
 }
