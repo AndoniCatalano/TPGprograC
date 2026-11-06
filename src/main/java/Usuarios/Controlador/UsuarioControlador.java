@@ -46,7 +46,7 @@ public class UsuarioControlador implements ActionListener {
             vista.setMensaje("Usuario ocupado!");
         }
         catch (SQLException ex){
-            vista.setMensaje("Error en la base de datos!");
+            vista.setMensaje("Error en la base de datos: " + ex.getMessage());
         }
 
     }
