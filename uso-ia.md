@@ -1,6 +1,6 @@
 ## Usos de IA
-- Explicación de conceptos teoricos aplicados 
-- Usado para comprensión de la consigna
+- Explicación de conceptos teóricos aplicados 
+- Utilizado para la comprensión de la consigna
 - Mains de prueba
-- Ayudas para resolucion de problemas o fallas puntuales en el codigo
+- Ayudas para resolución de problemas o fallas puntuales en el código
 - Elaboración de vistas
