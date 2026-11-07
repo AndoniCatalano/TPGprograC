@@ -11,9 +11,17 @@ public class M03 extends Mision {
 
     @Override
     protected void ejecutarObjetivo(Asistente asistente) {
-        asistente.registrarEventoBitacora("[M-03] Ejecutando objetivo");
-        asistente.registrarEventoBitacora("[M-03] Completando regreso");
-        asistente.registrarEventoBitacora("[M-03] Mision ejecutada");
+        asistente.consumeCombustible(this.combustibleGastado);
+        asistente.incrementaDesgaste(this.desgasteAcumulado);
+
+
+        for(Coordenada posicionActual : this.ruta){
+
+        }
+
+        //asistente.registrarEventoBitacora("[M-03] Ejecutando objetivo");
+        //asistente.registrarEventoBitacora("[M-03] Completando regreso");
+        //asistente.registrarEventoBitacora("[M-03] Mision ejecutada");
     }
 
 }

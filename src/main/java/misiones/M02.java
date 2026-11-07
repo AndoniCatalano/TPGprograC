@@ -11,6 +11,8 @@ public class M02 extends Mision {
 
     @Override
     protected void ejecutarObjetivo(Asistente asistente){
+        asistente.consumeCombustible(this.combustibleGastado);
+        asistente.incrementaDesgaste(this.desgasteAcumulado);
         asistente.registrarEventoBitacora("[M-02] Ejecutando objetivo");
         asistente.registrarEventoBitacora("[M-02] Recolectando recursos");
         asistente.registrarEventoBitacora("[M-02] Mision ejecutada");

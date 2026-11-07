@@ -1,5 +1,6 @@
 package misiones;
 import asistente.Asistente;
+import java.util.List;
 
 /**
  * <b>precondiciones</b>
@@ -23,6 +24,8 @@ public abstract class Mision {
     protected int combustibleGastado;
     protected int desgasteAcumulado;
     protected int energia;
+    protected Coordenada destino;
+    protected List<Coordenada> ruta;
 
     public final boolean ejecutarCicloMision (Asistente asistente) throws ContratoMisionException {
         preparar(asistente);
@@ -44,8 +47,14 @@ public abstract class Mision {
         if (asistente.consultarCombustible() >= this.combustibleGastado && (asistente.consultarDesgaste() + this.desgasteAcumulado) <= 100){
             this.preparada = true;
             asistente.registrarEventoBitacora("Mision preparada con exito");
-        }
 
+
+            Coordenada destino = asistente.getDestino();
+            this.ruta = asistente.calcularRuta(destino);
+        }
+        else{
+            asistente.registrarEventoBitacora("Fallo en la preparacion de la mision");
+        }
     }
 
     protected abstract void ejecutarObjetivo(Asistente asistente);
@@ -67,8 +76,7 @@ public abstract class Mision {
             asistente.cargaEnergia(this.energia);
             asistente.registrarEventoBitacora("Energia agregada: " + this.energia);
         }
-        asistente.consumeCombustible(this.combustibleGastado);
-        asistente.incrementaDesgaste(this.desgasteAcumulado);
+
         asistente.registrarEventoBitacora("Combustible gastado: " + this.combustibleGastado);
         asistente.registrarEventoBitacora("Desgaste consumado: " + this.desgasteAcumulado);
         asistente.registrarEventoBitacora("Mision cerrada");
