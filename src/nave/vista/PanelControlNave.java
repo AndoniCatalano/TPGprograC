@@ -10,6 +10,9 @@ import nave.tablero.Posicion;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.border.Border;
 
 public class PanelControlNave extends JPanel implements IVistaPanelControlNave, IObserver, Observador {
 
@@ -23,22 +26,39 @@ public class PanelControlNave extends JPanel implements IVistaPanelControlNave, 
     private final Tablero tablero;
     private final JPanel panelRadar;
 
+    private Image imgFondo;
+    private Image imgNaveJugador;
+    private Image imgAsteroide;
+    private Image imgEstacion;
+    private Image imgNaveEnemiga;
+    private Image imgDestino;
+
     public PanelControlNave(Tablero tablero) {
         this.tablero = tablero;
 
-        // 1. Suscripción automática al Tablero de la cátedra
         if (this.tablero != null) {
             this.tablero.agregarObservador(this);
         }
 
-        this.setLayout(new BorderLayout(10, 10));
-        this.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        this.setLayout(new BorderLayout(30, 30));
+        this.setBorder(BorderFactory.createEmptyBorder(10, 50, 10, 50));
+
+        try {
+            imgFondo = new ImageIcon("RecursosTablero/fondo.png").getImage();
+            imgNaveJugador = new ImageIcon("RecursosTablero/nave.png").getImage();
+            imgAsteroide = new ImageIcon("RecursosTablero/asteroides.png").getImage();
+            imgEstacion = new ImageIcon("RecursosTablero/estaciondecarga.png").getImage();
+            imgNaveEnemiga = new ImageIcon("RecursosTablero/naveenemiga.png").getImage();
+            imgDestino = new ImageIcon("RecursosTablero/destino.png").getImage();
+        } catch (Exception e) {
+            System.err.println("Error al cargar las imágenes: " + e.getMessage());
+        }
 
         // --- PANEL SUPERIOR: Estado de la Nave ---
         JPanel panelRecursos = new JPanel(new GridLayout(1, 4, 10, 0));
         panelRecursos.setBorder(BorderFactory.createTitledBorder("Estado Actual de la Nave"));
 
-        Font fuenteRecursos = new Font("Arial", Font.BOLD, 14);
+        Font fuenteRecursos = new Font("Arial", Font.BOLD, 20);
 
         lblCombustible = new JLabel("Combustible: --");
         lblEnergia = new JLabel("Energía: --");
@@ -57,6 +77,11 @@ public class PanelControlNave extends JPanel implements IVistaPanelControlNave, 
 
         // --- PANEL CENTRAL: Radar Dinámico ---
         // Sobrescribimos paintComponent para dibujar la grilla y los elementos
+        JPanel panelContenedor = new JPanel(new BorderLayout());
+        Border bordeExterior = BorderFactory.createLineBorder(Color.WHITE, 2);
+        panelContenedor.setBorder(BorderFactory.createTitledBorder(bordeExterior, "Panel de Operaciones en Vivo"));
+
+        // 2. Tu panelRadar se mantiene igual, pero le QUITAMOS el setBorder
         panelRadar = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -64,12 +89,16 @@ public class PanelControlNave extends JPanel implements IVistaPanelControlNave, 
                 dibujarUniverso(g);
             }
         };
-        panelRadar.setBorder(BorderFactory.createTitledBorder("Radar del Universo (En vivo)"));
-        panelRadar.setBackground(Color.BLACK); // Fondo espacial
-        panelRadar.setPreferredSize(new Dimension(800, 600));
+        // Ya no le ponemos borde al panelRadar, solo el color de fondo y tamaño
+        panelRadar.setBackground(Color.BLACK);
+        panelRadar.setPreferredSize(new Dimension(1000, 600));
 
+        // 3. Metemos el radar adentro del contenedor
+        panelContenedor.add(panelRadar, BorderLayout.CENTER);
+
+        // 4. Agregamos el contenedor al panel principal (en vez del radar suelto)
         this.add(panelRecursos, BorderLayout.NORTH);
-        this.add(panelRadar, BorderLayout.CENTER);
+        this.add(panelContenedor, BorderLayout.CENTER);
     }
 
     //Implementación del IObserver de la nave
@@ -88,7 +117,7 @@ public class PanelControlNave extends JPanel implements IVistaPanelControlNave, 
     }
 
     // =========================================================
-    // MOTOR DE DIBUJO DEL RADAR
+    // MOTOR DE DIBUJO DEL RADAR (Versión con Imágenes)
     // =========================================================
     private void dibujarUniverso(Graphics g) {
         if (tablero == null) return;
@@ -99,6 +128,15 @@ public class PanelControlNave extends JPanel implements IVistaPanelControlNave, 
         int anchoCasilla = panelRadar.getWidth() / columnas;
         int altoCasilla = panelRadar.getHeight() / filas;
 
+        // 1. Dibujar imagen de fondo (Cubre todo el panelRadar)
+        if (imgFondo != null) {
+            g.drawImage(imgFondo, 0, 0, panelRadar.getWidth(), panelRadar.getHeight(), this);
+        } else {
+            // Fallback: Si falla la imagen, pintamos de negro
+            g.setColor(Color.BLACK);
+            g.fillRect(0, 0, panelRadar.getWidth(), panelRadar.getHeight());
+        }
+
         IElementosUniverso[][] matriz = tablero.verTablero();
         Posicion posNave = tablero.getPosicionNave();
 
@@ -107,43 +145,42 @@ public class PanelControlNave extends JPanel implements IVistaPanelControlNave, 
                 int px = j * anchoCasilla;
                 int py = i * altoCasilla;
 
-                // 1. Dibujar la cuadrícula de fondo
-                g.setColor(Color.DARK_GRAY);
+                // Dibujar la cuadrícula (Opcional, podrías quitarla si el fondo ya es bueno)
+                g.setColor(new Color(84, 191, 240, 30)); // Celeste muy transparente
                 g.drawRect(px, py, anchoCasilla, altoCasilla);
 
                 // 2. Extraer el elemento actual
                 IElementosUniverso elemento = matriz[i][j];
 
                 if (elemento != null) {
-                    // Diferenciación visual usando 'instanceof'
-                    if (elemento instanceof nave.Asteroide) {
-                        // Asteroides: Círculo gris
-                        g.setColor(Color.GRAY);
-                        g.fillOval(px + 5, py + 5, anchoCasilla - 10, altoCasilla - 10);
+                    if (elemento instanceof nave.Asteroide && imgAsteroide != null) {
+                        // Dibujar Asteroide
+                        g.drawImage(imgAsteroide, px, py, anchoCasilla, altoCasilla, this);
 
-                    } else if (elemento instanceof nave.EstacionDeCarga) {
-                        // Estación de Carga: Cuadrado verde claro
-                        g.setColor(new Color(144, 238, 144)); // Verde claro (LightGreen)
-                        g.fillRect(px + 8, py + 8, anchoCasilla - 16, altoCasilla - 16);
+                    } else if (elemento instanceof nave.EstacionDeCarga && imgEstacion != null) {
+                        // Dibujar Estación
+                        g.drawImage(imgEstacion, px, py, anchoCasilla, altoCasilla, this);
 
-                    } else if (elemento instanceof nave.INave) {
-                        // Naves enemigas (Combate, Carguero, Exploradora): Triángulo rojo
-                        g.setColor(Color.RED);
-                        int[] xPoints = {px + anchoCasilla / 2, px + 5, px + anchoCasilla - 5};
-                        int[] yPoints = {py + 5, py + altoCasilla - 5, py + altoCasilla - 5};
-                        g.fillPolygon(xPoints, yPoints, 3);
+                    } else if (elemento instanceof nave.INave && imgNaveEnemiga != null) {
+                        // Dibujar Naves enemigas
+                        g.drawImage(imgNaveEnemiga, px, py, anchoCasilla, altoCasilla, this);
+
                     } else {
-                        // Fallback (cualquier otro elemento no clasificado): Círculo naranja
+                        // Fallback de seguridad (si falta la imagen, dibuja un círculo naranja)
                         g.setColor(Color.ORANGE);
                         g.fillOval(px + 5, py + 5, anchoCasilla - 10, altoCasilla - 10);
                     }
                 }
 
-                // 3. Dibujar TU NAVE (Jugador) si la posición coincide
+                // 3. Dibujar TU NAVE (Jugador)
                 if (posNave != null && posNave.getX() == i && posNave.getY() == j) {
-                    g.setColor(Color.CYAN);
-                    // Tu nave se dibuja más grande que las estaciones
-                    g.fillRect(px + 2, py + 2, anchoCasilla - 4, altoCasilla - 4);
+                    if (imgNaveJugador != null) {
+                        g.drawImage(imgNaveJugador, px, py, anchoCasilla, altoCasilla, this);
+                    } else {
+                        // Fallback de seguridad
+                        g.setColor(Color.CYAN);
+                        g.fillRect(px + 5, py + 5, anchoCasilla - 10, altoCasilla - 10);
+                    }
                 }
             }
         }
