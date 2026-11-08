@@ -23,16 +23,18 @@ public abstract class Mision {
     protected String resultado = null;
     protected int combustibleGastado;
     protected int desgasteAcumulado;
+    protected int consumeCombustible;
+    protected int generaDesgaste;
     protected int energia;
     protected Coordenada destino;
     protected List<Coordenada> ruta;
 
-    public final boolean ejecutarCicloMision (Asistente asistente) throws ContratoMisionException {
+    public final boolean ejecutarCicloMision (Asistente asistente, Tablero tablero) throws ContratoMisionException {
         preparar(asistente);
         if(!this.preparada){
             return false;
         } else {
-            ejecutarObjetivo(asistente);
+            ejecutarObjetivo(asistente, tablero);
             evaluar();
             if(this.resultado != null){
                 cerrar(asistente);
@@ -57,30 +59,88 @@ public abstract class Mision {
         }
     }
 
-    protected abstract void ejecutarObjetivo(Asistente asistente);
+    protected void ejecutarObjetivo(Asistente asistente, Tablero tablero) {
+        asistente.consumeCombustible(this.combustibleGastado);
+        asistente.registrarEventoBitacora("Consumo de despegue: " + this.combustibleGastado);
 
-    protected void evaluar(){
-        double exito = Math.random();
-        if (exito > 0.5){
+        asistente.incrementaDesgaste(this.desgasteAcumulado);
+        asistente.registrarEventoBitacora("Desgaste de arranque: " + this.desgasteAcumulado);
+
+
+        while (asistente.laNaveEstaViva() && !asistente.getPosicion().equals(this.destino)) {
+
+            //TURNO Nave
+            ElementoDelUniverso elemento = tablero.getElemento(asistente.getPosicion());
+            if (elemento != null) {
+                elemento.intercactuar(asistente);
+            }
+
+            if (!asistente.laNaveEstaViva()) {
+                this.resultado = "FRACASO";
+                break;
+            }
+
+            if (!this.ruta.isEmpty()) {
+                Coordenada coordenadaFutura = this.ruta.get(0);
+                ElementoDelUniverso futuroEncuentro = tablero.getElemento(coordenadaFutura);
+
+                if (futuroEncuentro != null && futuroEncuentro.esAmenaza(asistente)) {
+                    asistente.registrarEventoBitacora("Amenaza detectada. Recalculando la ruta");
+                    this.ruta = asistente.calcularRuta(this.destino);
+                }
+
+                Coordenada proximoPaso = this.ruta.remove(0);
+                asistente.moverA(proximoPaso);
+            }
+
+            //TURNO Tablero
+
+            tablero.moverElementos();
+
+        }
+
+        if (!asistente.laNaveEstaViva()) {
+            this.resultado = "FRACASO";
+            asistente.registrarEventoBitacora("Misión fallida: La nave fue destruida.");
+            return;
+        }
+
+        boolean objetivoCumplido = verificarObjetivo(asistente);
+
+        if(objetivoCumplido){
             this.resultado = "EXITO";
-        }else {
+        }else{
             this.resultado = "FRACASO";
         }
+
     }
 
-    protected void cerrar(Asistente asistente){
-        assert this.resultado.equals("EXITO") || this.resultado.equals("FRACASO") : "El resultado de la misión tomó un valor no reconocido";
+    protected abstract boolean verificarObjetivo(Asistente asistente);
+
+    protected void evaluar(Asistente asistente){
         asistente.registrarEventoBitacora("Mision ejecutada: " + this.getClass().getSimpleName());
         asistente.registrarEventoBitacora("Resultado de la mision: " + this.resultado);
-        if (this.energia > 0){
-            asistente.cargaEnergia(this.energia);
-            asistente.registrarEventoBitacora("Energia agregada: " + this.energia);
-        }
-
         asistente.registrarEventoBitacora("Combustible gastado: " + this.combustibleGastado);
         asistente.registrarEventoBitacora("Desgaste consumado: " + this.desgasteAcumulado);
         asistente.registrarEventoBitacora("Mision cerrada");
     }
+
+    protected void cerrar(Asistente asistente){
+
+
+
+        if(this.resultado.equals("EXITO")){
+            impactaRecursosFinales(asistente);
+            asistente.registrarEventoBitacora("Cierre de mision: Impacto de recursos finales aplicado");
+        }
+        else{
+            asistente.registrarEventoBitacora("Cierre de mision: Mision fallida, no hay recompensas");
+        }
+
+
+    }
+
+    protected abstract void impactaRecursosFinales(Asistente asistente);
 
 }
 

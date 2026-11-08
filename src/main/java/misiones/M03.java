@@ -9,19 +9,17 @@ public class M03 extends Mision {
         this.energia = 0;
     }
 
+
     @Override
-    protected void ejecutarObjetivo(Asistente asistente) {
-        asistente.consumeCombustible(this.combustibleGastado);
-        asistente.incrementaDesgaste(this.desgasteAcumulado);
-
-
-        for(Coordenada posicionActual : this.ruta){
-
-        }
-
-        //asistente.registrarEventoBitacora("[M-03] Ejecutando objetivo");
-        //asistente.registrarEventoBitacora("[M-03] Completando regreso");
-        //asistente.registrarEventoBitacora("[M-03] Mision ejecutada");
+    protected boolean verificarObjetivo(Asistente asistente){
+        //retorna siempre verdadero ya que si llego hasta este punto significa que la nave esta con vida
+        return true;
     }
+
+    @Override
+    protected void impactaRecursosFinales(Asistente asistente){
+
+    }
+
 
 }
