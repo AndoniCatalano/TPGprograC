@@ -33,7 +33,7 @@ public class ControladorCreacion implements ActionListener {
                 agregarTripulante();
                 break;
             case "INICIAR_TRAVESIA":
-                iniciarTravesia();
+                vista.dispose();
                 break;
             default:
                 System.out.println("Comando desconocido: " + comando);
@@ -89,13 +89,5 @@ public class ControladorCreacion implements ActionListener {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
-
-    private void iniciarTravesia() {
-        JOptionPane.showMessageDialog(vista,
-                "Configuración finalizada. Iniciando transición al Tablero...",
-                "Despegue",
-                JOptionPane.INFORMATION_MESSAGE);
-
-        vista.dispose();
-    }
+    
 }

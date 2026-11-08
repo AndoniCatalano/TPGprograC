@@ -18,6 +18,8 @@ public class ModeloCreacion {
     private boolean configuracionCompleta;
     private final List<ObservadorCreacion> observadores;
 
+    private boolean tieneCapitan;
+
     public ModeloCreacion() {
         this.naveConfigurada = null;
         this.tripulantesAgregados = new ArrayList<>();
@@ -46,6 +48,10 @@ public class ModeloCreacion {
         this.naveConfigurada.addTripulante(nuevoTripulante);
         this.tripulantesAgregados.add(nuevoTripulante);
 
+        if (rol.equalsIgnoreCase("Capitan")) {
+            this.tieneCapitan = true;
+        }
+
         evaluarEstadoTravesia();
         notificarObservadores();
     }
@@ -59,7 +65,7 @@ public class ModeloCreacion {
     }
 
     private void evaluarEstadoTravesia() {
-        if (this.naveConfigurada != null && !this.tripulantesAgregados.isEmpty()) {
+        if (this.naveConfigurada != null && this.tieneCapitan && this.tripulantesAgregados.size() >= 5) {
             this.configuracionCompleta = true;
         } else {
             this.configuracionCompleta = false;

@@ -43,7 +43,7 @@ public class VistaCreacion extends JFrame implements ObservadorCreacion {
         JPanel panelNave = new JPanel(new FlowLayout());
         panelNave.setBorder(BorderFactory.createTitledBorder("1. Ensamblaje de Nave"));
         comboTiposNave = new JComboBox<>(new String[]{"Exploradora", "Carguero", "Combate"});
-        btnCrearNave = new JButton("Instanciar Nave");
+        btnCrearNave = new JButton("Crear Nave");
         btnCrearNave.setActionCommand("CREAR_NAVE");
 
         panelNave.add(new JLabel("Tipo de Nave:"));
@@ -87,7 +87,7 @@ public class VistaCreacion extends JFrame implements ObservadorCreacion {
 
         // Panel Sur: Transición
         JPanel panelSur = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        btnIniciarTravesia = new JButton("Ir al Centro de Control (Tablero)");
+        btnIniciarTravesia = new JButton("Terminar la creacion");
         btnIniciarTravesia.setActionCommand("INICIAR_TRAVESIA");
         btnIniciarTravesia.setEnabled(false);
         panelSur.add(btnIniciarTravesia);
