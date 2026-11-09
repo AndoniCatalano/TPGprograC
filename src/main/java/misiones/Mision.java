@@ -49,8 +49,8 @@ public abstract class Mision {
             asistente.registrarEventoBitacora("Mision preparada con exito");
 
 
-            Coordenada destino = asistente.getDestino();
-            this.ruta = asistente.calcularRuta(destino);
+            //Coordenada destino = asistente.getDestino();
+            //this.ruta = asistente.calcularRuta(destino);
         }
         else{
             asistente.registrarEventoBitacora("Fallo en la preparacion de la mision");
