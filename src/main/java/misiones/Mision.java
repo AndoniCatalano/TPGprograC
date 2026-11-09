@@ -21,21 +21,21 @@ public abstract class Mision {
 
     protected boolean preparada = false;
     protected String resultado = null;
-    protected int combustibleGastado;
-    protected int desgasteAcumulado;
+    protected int combustibleGastado = 0;
+    protected int desgasteAcumulado = 0;
     protected int consumeCombustible;
     protected int generaDesgaste;
     protected int energia;
-    protected Coordenada destino;
-    protected List<Coordenada> ruta;
+    protected Posicion destino;
+    protected List<Posicion> ruta;
 
     public final boolean ejecutarCicloMision (Asistente asistente, Tablero tablero) throws ContratoMisionException {
-        preparar(asistente);
+        preparar(asistente, tablero);
         if(!this.preparada){
             return false;
         } else {
             ejecutarObjetivo(asistente, tablero);
-            evaluar();
+            evaluar(asistente);
             if(this.resultado != null){
                 cerrar(asistente);
                 return this.resultado.equals("EXITO");
@@ -45,13 +45,13 @@ public abstract class Mision {
         }
     }
 
-    protected void preparar(Asistente asistente){
-        if (asistente.consultarCombustible() >= this.combustibleGastado && (asistente.consultarDesgaste() + this.desgasteAcumulado) <= 100){
+    protected void preparar(Asistente asistente, Tablero tablero){
+        if (asistente.consultarCombustible() >= this.consumeCombustible && (asistente.consultarDesgaste() + this.generaDesgaste) <= 100){
             this.preparada = true;
             asistente.registrarEventoBitacora("Mision preparada con exito");
 
+            this.destino = tablero.obtenerObjetivo();
 
-            Coordenada destino = asistente.getDestino();
             this.ruta = asistente.calcularRuta(destino);
         }
         else{
@@ -60,19 +60,21 @@ public abstract class Mision {
     }
 
     protected void ejecutarObjetivo(Asistente asistente, Tablero tablero) {
-        asistente.consumeCombustible(this.combustibleGastado);
+        asistente.consumeCombustible(this.consumeCombustible);
+        this.combustibleGastado += consumeCombustible;
         asistente.registrarEventoBitacora("Consumo de despegue: " + this.combustibleGastado);
 
-        asistente.incrementaDesgaste(this.desgasteAcumulado);
+        asistente.incrementaDesgaste(this.generaDesgaste);
+        this.desgasteAcumulado += generaDesgaste;
         asistente.registrarEventoBitacora("Desgaste de arranque: " + this.desgasteAcumulado);
 
 
-        while (asistente.laNaveEstaViva() && !asistente.getPosicion().equals(this.destino)) {
+        while (asistente.laNaveEstaViva() && !tablero.getPosicionNave().equals(this.destino)) {
 
             //TURNO Nave
-            ElementoDelUniverso elemento = tablero.getElemento(asistente.getPosicion());
+            ElementoDelUniverso elemento = tablero.inspeccionarPosicion();
             if (elemento != null) {
-                elemento.intercactuar(asistente);
+                elemento.interactuar(asistente);
             }
 
             if (!asistente.laNaveEstaViva()) {
@@ -81,21 +83,30 @@ public abstract class Mision {
             }
 
             if (!this.ruta.isEmpty()) {
-                Coordenada coordenadaFutura = this.ruta.get(0);
-                ElementoDelUniverso futuroEncuentro = tablero.getElemento(coordenadaFutura);
+                Posicion coordenadaFutura = this.ruta.get(0);
+                ElementoDelUniverso[][] matrizTablero = tablero.verTablero();
+                ElementoDelUniverso futuroEncuentro = matrizTablero[coordenadaFutura.getX()][coordenadaFutura.getY()];
 
                 if (futuroEncuentro != null && futuroEncuentro.esAmenaza(asistente)) {
                     asistente.registrarEventoBitacora("Amenaza detectada. Recalculando la ruta");
                     this.ruta = asistente.calcularRuta(this.destino);
                 }
 
-                Coordenada proximoPaso = this.ruta.remove(0);
+                Posicion proximoPaso = this.ruta.remove(0);
                 asistente.moverA(proximoPaso);
+
+                asistente.consumeCombustible(this.consumeCombustible);
+                this.combustibleGastado += consumeCombustible;
+                asistente.incrementaDesgaste(this.generaDesgaste);
+                this.desgasteAcumulado += generaDesgaste;
+
+                asistente.registrarEventoBitacora("Combustible gastado: " + this.consumeCombustible);
             }
 
             //TURNO Tablero
 
-            tablero.moverElementos();
+            Destino coordinador = new Destino(tablero);
+            coordinador.turnoDestino();
 
         }
 
@@ -118,11 +129,11 @@ public abstract class Mision {
     protected abstract boolean verificarObjetivo(Asistente asistente);
 
     protected void evaluar(Asistente asistente){
-        asistente.registrarEventoBitacora("Mision ejecutada: " + this.getClass().getSimpleName());
-        asistente.registrarEventoBitacora("Resultado de la mision: " + this.resultado);
-        asistente.registrarEventoBitacora("Combustible gastado: " + this.combustibleGastado);
-        asistente.registrarEventoBitacora("Desgaste consumado: " + this.desgasteAcumulado);
-        asistente.registrarEventoBitacora("Mision cerrada");
+        asistente.registrarInforme("Mision ejecutada: " + this.getClass().getSimpleName());
+        asistente.registrarInforme("Resultado de la mision: " + this.resultado);
+        asistente.registrarInforme("Combustible gastado: " + this.combustibleGastado);
+        asistente.registrarInforme("Desgaste generado: " + this.desgasteAcumulado);
+        asistente.registrarInforme("Mision cerrada");
     }
 
     protected void cerrar(Asistente asistente){
