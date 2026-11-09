@@ -15,13 +15,11 @@ public class M03 extends Mision {
         asistente.incrementaDesgaste(this.desgasteAcumulado);
 
 
-        for(Coordenada posicionActual : this.ruta){
 
-        }
 
-        //asistente.registrarEventoBitacora("[M-03] Ejecutando objetivo");
-        //asistente.registrarEventoBitacora("[M-03] Completando regreso");
-        //asistente.registrarEventoBitacora("[M-03] Mision ejecutada");
+        asistente.registrarInforme("[M-03] Ejecutando objetivo");
+        asistente.registrarInforme("[M-03] Completando regreso");
+        asistente.registrarInforme("[M-03] Mision ejecutada");
     }
 
 }

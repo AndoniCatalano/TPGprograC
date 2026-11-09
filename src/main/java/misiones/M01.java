@@ -13,9 +13,9 @@ public class M01 extends Mision {
     protected void ejecutarObjetivo(Asistente asistente) {
         asistente.consumeCombustible(this.combustibleGastado);
         asistente.incrementaDesgaste(this.desgasteAcumulado);
-        asistente.registrarEventoBitacora("[M-01] Ejecutando objetivo");
-        asistente.registrarEventoBitacora("[M-01] Recolectando datos");
-        asistente.registrarEventoBitacora("[M-01] Mision ejecutada");
+        asistente.registrarInforme("[M-01] Ejecutando objetivo");
+        asistente.registrarInforme("[M-01] Recolectando datos");
+        asistente.registrarInforme("[M-01] Mision ejecutada");
     }
 
 }

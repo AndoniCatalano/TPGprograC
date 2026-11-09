@@ -24,6 +24,7 @@ public class Asistente{
     evaluarResultado()
     cerrar()
     * */
+    private ArrayList<String> informe;
     private ArrayList<Evento> bitacora;
     private INave nave;
     private ArrayList<AsistenteObserver> observadores = new ArrayList<>();
@@ -36,6 +37,7 @@ public class Asistente{
     public Asistente(INave nave){
         assert nave != null : "Error la nave no puede ser  null";
         this.bitacora = new ArrayList<>();
+        this.informe = new ArrayList<>();
         this.nave = nave;
     }
 
@@ -100,6 +102,15 @@ public class Asistente{
         for (AsistenteObserver obs : observadores) {
             obs.onEventoBitacora(mensaje);
         }
+    }
+
+    public void registrarInforme(String mensaje){
+        assert mensaje != null : "Erroe el mensaje no puede ser null";
+        this.informe.add(mensaje);
+        for (AsistenteObserver obs : observadores) {
+            obs.onInformeGenerado(mensaje);
+        }
+
     }
 
     /*

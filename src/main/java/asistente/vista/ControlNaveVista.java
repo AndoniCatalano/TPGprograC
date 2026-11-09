@@ -63,4 +63,10 @@ public class ControlNaveVista extends JPanel implements AsistenteObserver{
         areaBitacora.append(evento + "\n");
         areaBitacora.setCaretPosition(areaBitacora.getDocument().getLength());
     }
+
+    @Override
+    public void onInformeGenerado(String informe) {
+        areaInformes.append(informe + "\n\n");
+        areaInformes.setCaretPosition(areaInformes.getDocument().getLength());
+    }
 }

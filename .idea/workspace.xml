@@ -7,7 +7,11 @@
     <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="password hash">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asistente/Asistente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/Asistente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/misiones/Mision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/Mision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asistente/vista/AsistenteObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/vista/AsistenteObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asistente/vista/ControlNaveVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/vista/ControlNaveVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/misiones/M01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/M01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/misiones/M02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/M02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/misiones/M03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/M03.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,61 +54,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.7579071550930523" />
-      <entry key="MS500" value="2.369053185570011" />
-      <entry key="S2" value="8.19320637880567" />
-      <entry key="S5" value="20.093814892882552" />
-      <entry key="S10" value="31.40097670874251" />
-      <entry key="S30" value="48.98297919689848" />
-      <entry key="S60" value="66.08571932340965" />
-      <entry key="M2" value="91.20261104537393" />
-      <entry key="M5" value="156.54517841381428" />
-      <entry key="M10" value="235.1082432361899" />
-      <entry key="M15" value="290.1464533432889" />
-      <entry key="M30" value="424.3539673877573" />
-      <entry key="H1" value="699.91310304253" />
-      <entry key="H2" value="1118.9041259815308" />
-      <entry key="H4" value="1524.294409856176" />
-      <entry key="D1" value="2050.003735623641" />
-      <entry key="W1" value="2164.160623245766" />
+      <entry key="MS100" value="2.3236692718292322E-50" />
+      <entry key="MS500" value="1.183681508167596E-10" />
+      <entry key="S2" value="0.0032984409762360028" />
+      <entry key="S5" value="0.1017443970164139" />
+      <entry key="S10" value="0.328146589510944" />
+      <entry key="S30" value="1.0974653905692637" />
+      <entry key="S60" value="2.0814615790205835" />
+      <entry key="M2" value="5.047869904007829" />
+      <entry key="M5" value="34.18595351844222" />
+      <entry key="M10" value="107.05991852394955" />
+      <entry key="M15" value="172.3388657015255" />
+      <entry key="M30" value="329.6742176308643" />
+      <entry key="H1" value="619.0453779387593" />
+      <entry key="H2" value="1055.6174783595898" />
+      <entry key="H4" value="1486.605164978858" />
+      <entry key="D1" value="2056.8859696957256" />
+      <entry key="W1" value="2182.1773543971417" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="9.974898614222173E-271" />
-      <entry key="S2" value="4.485255371392554E-68" />
-      <entry key="S5" value="1.846740420539131E-27" />
-      <entry key="S10" value="7.496111699950154E-14" />
-      <entry key="S30" value="1.038487769649902E-4" />
-      <entry key="S60" value="0.021472543848897248" />
-      <entry key="M2" value="0.3438774012485913" />
-      <entry key="M5" value="3.682641230801644" />
-      <entry key="M10" value="16.57338237759807" />
-      <entry key="M15" value="33.66873825758743" />
-      <entry key="M30" value="85.90759743187785" />
-      <entry key="H1" value="167.93040086535692" />
-      <entry key="H2" value="263.4703371954939" />
-      <entry key="H4" value="345.12816314616094" />
-      <entry key="D1" value="444.40925412182384" />
-      <entry key="W1" value="465.3731783164817" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0004248551544195" />
+      <entry key="S2" value="1.1682092233922872" />
+      <entry key="S5" value="1.687481867603934" />
+      <entry key="S10" value="2.158375441853195" />
+      <entry key="S30" value="2.894442163767553" />
+      <entry key="S60" value="3.5541366758943003" />
+      <entry key="M2" value="4.545259927913754" />
+      <entry key="M5" value="7.057126115271115" />
+      <entry key="M10" value="14.449559951200468" />
+      <entry key="M15" value="26.687395650926298" />
+      <entry key="M30" value="72.38242110223314" />
+      <entry key="H1" value="153.61968203869787" />
+      <entry key="H2" value="253.8000406230665" />
+      <entry key="H4" value="342.03357722218993" />
+      <entry key="D1" value="451.55947949996954" />
+      <entry key="W1" value="474.9458243042646" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.6847281011603084" />
-      <entry key="MS500" value="2.349952783120652" />
-      <entry key="S2" value="8.178179557756108" />
-      <entry key="S5" value="20.0788257518461" />
-      <entry key="S10" value="31.389032165520007" />
-      <entry key="S30" value="48.97645722910341" />
-      <entry key="S60" value="66.10207801864472" />
-      <entry key="M2" value="91.54108458495453" />
-      <entry key="M5" value="160.21361315987673" />
-      <entry key="M10" value="251.647366465446" />
-      <entry key="M15" value="323.7670788905933" />
-      <entry key="M30" value="510.1971139368555" />
-      <entry key="H1" value="867.7778032874711" />
-      <entry key="H2" value="1382.3212945991743" />
-      <entry key="H4" value="1869.3871189728386" />
-      <entry key="D1" value="2494.40526223748" />
-      <entry key="W1" value="2629.532642491074" />
+      <entry key="MS100" value="0.0010322441802357225" />
+      <entry key="MS500" value="0.25285990166157757" />
+      <entry key="S2" value="0.8218501700244559" />
+      <entry key="S5" value="1.5540836991381226" />
+      <entry key="S10" value="2.3256698021011184" />
+      <entry key="S30" value="3.911861562745444" />
+      <entry key="S60" value="5.581751661525244" />
+      <entry key="M2" value="9.553239943609888" />
+      <entry key="M5" value="41.21303096558756" />
+      <entry key="M10" value="121.47749861566184" />
+      <entry key="M15" value="198.98665923747137" />
+      <entry key="M30" value="402.001658656337" />
+      <entry key="H1" value="772.604704648071" />
+      <entry key="H2" value="1309.36621867638" />
+      <entry key="H4" value="1828.6035785116514" />
+      <entry key="D1" value="2508.4375948891407" />
+      <entry key="W1" value="2657.1219954887733" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -122,38 +126,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.MainA_EjecucionConcreta.executor": "Run",
-    "Application.MainB_RecursosInsuficientes.executor": "Run",
-    "Application.MainC_MotorWarp.executor": "Run",
-    "Application.MainD_ContratoInvalido.executor": "Run",
-    "Application.MainPruebaVistaAsistente.executor": "Run",
-    "Application.MainPruebas.executor": "Run",
-    "Application.MainUsuarios.executor": "Run",
-    "Maven.TPGprograC [clean].executor": "Run",
-    "Maven.TPGprograC [install].executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "vista__control__nave",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainA_EjecucionConcreta.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainB_RecursosInsuficientes.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainC_MotorWarp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainD_ContratoInvalido.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainPruebaVistaAsistente.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainPruebas.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainUsuarios.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TPGprograC [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.TPGprograC [install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;vista__control__nave&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Exceptions" />
