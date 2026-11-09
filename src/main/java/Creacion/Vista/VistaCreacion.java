@@ -106,9 +106,10 @@ public class VistaCreacion extends JFrame implements ObservadorCreacion {
         List<Tripulante> lista = modelo.getTripulacion();
 
         for (Tripulante t : lista) {
-            String info = String.format("ID: %s | Rol/Origen: %s | Sueldo: $%.2f\n",
+            String info = String.format("ID: %s | Rol/Origen: %s | Antiguedad: %d años | Sueldo: $%.2f\n",
                     t.getIdentidad(),
                     t.getClass().getSimpleName(),
+                    t.getAntiguedad(),
                     t.getSueldo());
             areaTripulantes.append(info);
         }
@@ -116,11 +117,21 @@ public class VistaCreacion extends JFrame implements ObservadorCreacion {
         btnIniciarTravesia.setEnabled(modelo.puedeIniciarTravesia());
     }
 
-    public String getTipoNaveSeleccionado() { return (String) comboTiposNave.getSelectedItem(); }
-    public String getIdentidad() { return txtIdentidad.getText(); }
-    public String getAntiguedad() { return txtAntiguedad.getText(); }
-    public String getRolSeleccionado() { return (String) comboRol.getSelectedItem(); }
-    public String getOrigenSeleccionado() { return (String) comboOrigen.getSelectedItem(); }
+    public String getTipoNaveSeleccionado() {
+        return (String) comboTiposNave.getSelectedItem();
+    }
+    public String getIdentidad() {
+        return txtIdentidad.getText(); }
+
+    public String getAntiguedad() {
+        return txtAntiguedad.getText();
+    }
+    public String getRolSeleccionado() {
+        return (String) comboRol.getSelectedItem();
+    }
+    public String getOrigenSeleccionado() {
+        return (String) comboOrigen.getSelectedItem();
+    }
 
     public void setControlador(ActionListener c) {
         btnCrearNave.addActionListener(c);
