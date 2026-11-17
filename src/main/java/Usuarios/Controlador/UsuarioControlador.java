@@ -3,6 +3,7 @@ package Usuarios.Controlador;
 import Usuarios.Exceptions.DatosIncorrectosException;
 import Usuarios.Exceptions.UsernameOcupadoException;
 import Usuarios.Vista.UsuarioVista;
+import Usuarios.Modelo.Usuario;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +24,7 @@ public class UsuarioControlador implements ActionListener {
             if (username.isEmpty() || password.isEmpty())
                 throw new DatosIncorrectosException();
             else {
-                Usuarios.Modelo.Usuario usuario = new Usuarios.Modelo.Usuario(username, password);
+                Usuario usuario = new Usuario(username, password);
                 switch (e.getActionCommand()) {
                     case "LOGIN":
                         usuario.login();
@@ -31,7 +32,7 @@ public class UsuarioControlador implements ActionListener {
                         break;
 
                     case  "REGISTRAR":
-                        usuario.register();
+                        usuario.registrar();
                         vista.setMensaje("Usuario registrado exitosamente");
                         break;
                     default:

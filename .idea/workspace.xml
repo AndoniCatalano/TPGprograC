@@ -8,7 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Usuarios/Controlador/UsuarioControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Controlador/UsuarioControlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Usuarios/DAO/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/DAO/Conexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Usuarios/DAO/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/DAO/UsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Usuarios/Modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Modelo/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios.db" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,61 +53,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="2.370062544099035" />
-      <entry key="MS500" value="6.969488472332475" />
-      <entry key="S2" value="22.79356300305331" />
-      <entry key="S5" value="48.76742513929052" />
-      <entry key="S10" value="73.05075963289286" />
-      <entry key="S30" value="103.15885163783305" />
-      <entry key="S60" value="116.10765274517034" />
-      <entry key="M2" value="127.60595477211284" />
-      <entry key="M5" value="164.78082269637923" />
-      <entry key="M10" value="232.36115959846902" />
-      <entry key="M15" value="287.3112710599856" />
-      <entry key="M30" value="424.56312097850986" />
-      <entry key="H1" value="701.2427184884361" />
-      <entry key="H2" value="1124.6322107185304" />
-      <entry key="H4" value="1538.607233625306" />
-      <entry key="D1" value="2080.2419100339116" />
-      <entry key="W1" value="2198.4394974935635" />
+      <entry key="MS100" value="1.7900413118633771" />
+      <entry key="MS500" value="1.9539597005432614" />
+      <entry key="S2" value="2.021381101545536" />
+      <entry key="S5" value="2.383805590881047" />
+      <entry key="S10" value="2.9262161395732607" />
+      <entry key="S30" value="4.2752263433241655" />
+      <entry key="S60" value="5.292471554091782" />
+      <entry key="M2" value="6.781493441927185" />
+      <entry key="M5" value="27.075341021542997" />
+      <entry key="M10" value="96.24253020586205" />
+      <entry key="M15" value="167.1237019877716" />
+      <entry key="M30" value="342.9731128718226" />
+      <entry key="H1" value="647.2052694397319" />
+      <entry key="H2" value="1101.4429907557844" />
+      <entry key="H4" value="1556.7130604561917" />
+      <entry key="D1" value="2169.332250537772" />
+      <entry key="W1" value="2305.2765396198606" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="9.083036511411305E-234" />
-      <entry key="S2" value="5.62145954035513E-59" />
-      <entry key="S5" value="6.1660396861662004E-24" />
-      <entry key="S10" value="3.695720696504587E-12" />
-      <entry key="S30" value="3.503497941440821E-4" />
-      <entry key="S60" value="0.03748497254227163" />
-      <entry key="M2" value="0.44091958419400934" />
-      <entry key="M5" value="3.374570842520065" />
-      <entry key="M10" value="14.124554000191248" />
-      <entry key="M15" value="29.50291086635386" />
-      <entry key="M30" value="79.74854128554466" />
-      <entry key="H1" value="161.9900337364128" />
-      <entry key="H2" value="259.6435613194962" />
-      <entry key="H4" value="343.9878235535627" />
-      <entry key="D1" value="447.3029956549452" />
-      <entry key="W1" value="469.2075989721698" />
+      <entry key="MS100" value="1.0825823251647997E-49" />
+      <entry key="MS500" value="1.6685313269965314E-10" />
+      <entry key="S2" value="0.005116023572083894" />
+      <entry key="S5" value="0.18066828205617222" />
+      <entry key="S10" value="0.6306065453303298" />
+      <entry key="S30" value="1.8423590232090956" />
+      <entry key="S60" value="2.660927051772308" />
+      <entry key="M2" value="3.4297779381882196" />
+      <entry key="M5" value="4.6721774913711585" />
+      <entry key="M10" value="8.592092131738944" />
+      <entry key="M15" value="16.995365271106156" />
+      <entry key="M30" value="55.74464130286343" />
+      <entry key="H1" value="134.20033259853503" />
+      <entry key="H2" value="237.05110962022547" />
+      <entry key="H4" value="330.5129781530634" />
+      <entry key="D1" value="448.9818676247745" />
+      <entry key="W1" value="474.5574295351571" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.2679615968599327" />
-      <entry key="MS500" value="6.906516886767923" />
-      <entry key="S2" value="22.740325417093466" />
-      <entry key="S5" value="48.72097379155111" />
-      <entry key="S10" value="73.01550399645137" />
-      <entry key="S30" value="103.14227820795618" />
-      <entry key="S60" value="116.1345393609313" />
-      <entry key="M2" value="128.03647853140123" />
-      <entry key="M5" value="168.1390749670839" />
-      <entry key="M10" value="246.45480714336688" />
-      <entry key="M15" value="316.7709455700728" />
-      <entry key="M30" value="504.251377326588" />
-      <entry key="H1" value="863.1692018052513" />
-      <entry key="H2" value="1384.2233120805229" />
-      <entry key="H4" value="1882.55969575728" />
-      <entry key="D1" value="2527.5371248744773" />
-      <entry key="W1" value="2667.645927445053" />
+      <entry key="MS100" value="0.9121941474954911" />
+      <entry key="MS500" value="1.5556147313491324" />
+      <entry key="S2" value="1.900706288259808" />
+      <entry key="S5" value="2.4473349330067524" />
+      <entry key="S10" value="3.402127780389585" />
+      <entry key="S30" value="5.985467728655206" />
+      <entry key="S60" value="7.863733635238698" />
+      <entry key="M2" value="10.15611929579015" />
+      <entry key="M5" value="31.718154956428723" />
+      <entry key="M10" value="104.81000949707821" />
+      <entry key="M15" value="184.089700677221" />
+      <entry key="M30" value="398.6730600415118" />
+      <entry key="H1" value="781.3516095093544" />
+      <entry key="H2" value="1338.4455247282374" />
+      <entry key="H4" value="1887.1917212622625" />
+      <entry key="D1" value="2618.30625119887" />
+      <entry key="W1" value="2779.832778667711" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -181,52 +181,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <module name="" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
