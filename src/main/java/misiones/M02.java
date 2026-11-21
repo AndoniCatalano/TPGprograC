@@ -4,8 +4,8 @@ import asistente.Asistente;
 public class M02 extends Mision {
 
     public M02() {
-        this.combustibleGastado = 4;
-        this.desgasteAcumulado = 4;
+        this.consumeCombustible = 4;
+        this.generaDesgaste = 4;
         this.energia = 5;
     }
 
