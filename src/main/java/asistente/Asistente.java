@@ -1,12 +1,17 @@
 package asistente;
+
 import nave.*;
 import misiones.*;
 import motor.*;
-
+import asistente.vista.AsistenteObserver;
 import Tripulantes.Tripulante;
-
+import nave.tablero.Posicion;
+import nave.tablero.Tablero;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /*
     <b>invariante:</b> nave != null
@@ -23,9 +28,15 @@ public class Asistente{
     evaluarResultado()
     cerrar()
     * */
+    private ArrayList<String> informe;
     private ArrayList<Evento> bitacora;
     private INave nave;
+    private ArrayList<AsistenteObserver> observadores = new ArrayList<>();
     // private Mision mision; Creo que no hace falta el atributo, ya se pasaria la mision m1,m2 o m3 a la funcion de ejectuarmision
+
+    // Atributos nuevos para el soporte de misiones y navegación
+    private Tablero tablero;
+    private int recursosAsistencia = 1;
 
     /*
         <b>pre</b> nave != null
@@ -34,7 +45,19 @@ public class Asistente{
     public Asistente(INave nave){
         assert nave != null : "Error la nave no puede ser  null";
         this.bitacora = new ArrayList<>();
+        this.informe = new ArrayList<>();
         this.nave = nave;
+    }
+
+    public void agregarObservador(AsistenteObserver obs){
+        this.observadores.add(obs);
+        notificarRecursos();
+    }
+
+    private void notificarRecursos() {
+        for (AsistenteObserver obs : observadores) {
+            obs.onRecursosActualizados(consultarCombustible(), consultarEnergia(), consultarDesgaste());
+        }
     }
 
     /*
@@ -43,8 +66,9 @@ public class Asistente{
      */
     public void ejecutarMision(Mision mision) {
         assert mision != null: "Error la mision no puede ser null";
+        assert this.tablero != null : "Error el tablero no fue asignado";
         try {
-            boolean exito = mision.ejecutarCicloMision(this);
+            boolean exito = mision.ejecutarCicloMision(this, this.tablero);
 
             if (exito) {
                 // Aca iria lo del salto que dice el pdf, algo como nave.salto() o nave.prepararsalto()
@@ -54,10 +78,6 @@ public class Asistente{
             this.registrarEventoBitacora("Misión abortada: " + error.getMessage());
         }
     }
-
-
-
-
 
     public void saltoWarp(){
         try {
@@ -82,6 +102,17 @@ public class Asistente{
     public void registrarEventoBitacora(String mensaje){
         assert mensaje != null : "Error el mensaje no puede ser null";
         this.bitacora.add(new Evento(mensaje));
+        for (AsistenteObserver obs : observadores) {
+            obs.onEventoBitacora(mensaje);
+        }
+    }
+
+    public void registrarInforme(String mensaje){
+        assert mensaje != null : "Erroe el mensaje no puede ser null";
+        this.informe.add(mensaje);
+        for (AsistenteObserver obs : observadores) {
+            obs.onInformeGenerado(mensaje);
+        }
     }
 
     /*
@@ -96,43 +127,37 @@ public class Asistente{
         this.nave.liquidarHaberes();
     }
 
-
-
     public int consultarEnergia(){
-
         return nave.getEnergia();
     }
 
     public int consultarCombustible(){
-
         return nave.getCombustible();
     }
 
     public int consultarDesgaste(){
-
         return nave.getDesgaste();
     }
-    public void cargaCombustible(int cantidad){
 
+    public void cargaCombustible(int cantidad){
         try{
             nave.cargaCombustible(cantidad);
             registrarEventoBitacora("Se cargaron " + cantidad + " unidades de combustible");
+            notificarRecursos();
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
     }
 
     public void cargaEnergia(int cantidad){
-
         try{
             nave.cargaEnergia(cantidad);
             registrarEventoBitacora("Se cargaron " + cantidad + " unidades de energia");
+            notificarRecursos();
         }catch(OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
-
     }
-
 
     public void mostrarBitacora(){
         for (Evento evento: bitacora){
@@ -141,10 +166,10 @@ public class Asistente{
     }
 
     public void realizarMantenimiento(){
-
         try{
             nave.realizarMantenimiento();
             registrarEventoBitacora("Se realizo mantenimiento en la nave");
+            notificarRecursos();
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -154,34 +179,70 @@ public class Asistente{
         try{
             nave.consumeCombustible(cantidad);
             registrarEventoBitacora("Se consumieron " + cantidad + " unidades de combustible");
+            notificarRecursos();
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
-
     }
 
     public void consumeEnergia(int cantidad){
         try{
             nave.consumeEnergia(cantidad);
             registrarEventoBitacora("Se consumieron " + cantidad + " unidades de energia");
+            notificarRecursos();
         }catch(OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
-
     }
-
 
     public void incrementaDesgaste(int cantidad){
         try {
             nave.incrementaDesgaste(cantidad);
             registrarEventoBitacora("Se incremento el desgaste de la nave en " + cantidad + " unidades");
+            notificarRecursos();
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
     }
 
+   // metodos segunda parte, tablero, nave, misiones parte 2
 
+    public void setTablero(Tablero tablero) {
+        assert tablero != null : "Error el tablero no puede ser null";
+        this.tablero = tablero;
+    }
 
+    public void ejecutarMision(Mision mision, Tablero tablero) {
+        assert tablero != null : "Error el tablero no puede ser null";
+        this.tablero = tablero;
+        ejecutarMision(mision);
+    }
 
+    public boolean laNaveEstaViva() {
+        return this.nave.getDesgaste() < 100 && this.nave.getCombustible() > 0;
+    }
 
+    public void moverA(Posicion proximoPaso) {
+        assert proximoPaso != null : "Error la posicion destino no puede ser null";
+        assert this.tablero != null : "Error el tablero no fue asignado";
+        this.tablero.moverNave(proximoPaso);
+        registrarEventoBitacora("Nave desplazada a (" + proximoPaso.getX() + ", " + proximoPaso.getY() + ")");
+    }
+
+    public List<Posicion> calcularRuta(Posicion destino) {
+        assert destino != null : "Error el destino no puede ser null";
+        assert this.tablero != null : "Error el tablero no fue asignado";
+        return this.tablero.calcularRuta(destino, this);
+    }
+
+    public boolean tieneRecursosParaEntregar() {
+        return this.recursosAsistencia > 0;
+    }
+
+    public void entregarRecursos() {
+        if (this.recursosAsistencia > 0) {
+            this.recursosAsistencia--;
+            registrarEventoBitacora("Se entregaron los recursos de asistencia en destino");
+        }
+    }
 }
