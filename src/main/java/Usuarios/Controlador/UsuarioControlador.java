@@ -51,4 +51,16 @@ public class UsuarioControlador implements ActionListener {
         }
 
     }
+    
+    private void abrirPantallaCreacion() {
+        ModeloCreacion modelo = new ModeloCreacion();
+
+        VistaCreacion vistaCreacion = new VistaCreacion(modelo);
+        ControladorCreacion controlador = new ControladorCreacion(vistaCreacion, modelo);
+
+        vistaCreacion.setControlador(controlador);
+        vistaCreacion.arrancar();
+
+        this.vista.dispose();
+    }
 }
