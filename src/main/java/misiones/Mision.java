@@ -72,9 +72,9 @@ public abstract class Mision {
         while (asistente.laNaveEstaViva() && !tablero.getPosicionNave().equals(this.destino)) {
 
             //TURNO Nave
-            ElementoDelUniverso elemento = tablero.inspeccionarPosicion();
+            IElementoDelUniverso elemento = tablero.inspeccionarPosicion();
             if (elemento != null) {
-                elemento.interactuar(asistente);
+                elemento.interactuarCon(asistente);
             }
 
             if (!asistente.laNaveEstaViva()) {
@@ -84,23 +84,25 @@ public abstract class Mision {
 
             if (!this.ruta.isEmpty()) {
                 Posicion coordenadaFutura = this.ruta.get(0);
-                ElementoDelUniverso[][] matrizTablero = tablero.verTablero();
-                ElementoDelUniverso futuroEncuentro = matrizTablero[coordenadaFutura.getX()][coordenadaFutura.getY()];
+                IElementoDelUniverso[][] matrizTablero = tablero.verTablero();
+                IElementoDelUniverso futuroEncuentro = matrizTablero[coordenadaFutura.getX()][coordenadaFutura.getY()];
 
                 if (futuroEncuentro != null && futuroEncuentro.esAmenaza(asistente)) {
                     asistente.registrarEventoBitacora("Amenaza detectada. Recalculando la ruta");
                     this.ruta = asistente.calcularRuta(this.destino);
                 }
 
-                Posicion proximoPaso = this.ruta.remove(0);
-                asistente.moverA(proximoPaso);
+                if(!this.ruta.isEmpty()){
+                    Posicion proximoPaso = this.ruta.remove(0);
+                    asistente.moverA(proximoPaso);
 
-                asistente.consumeCombustible(this.consumeCombustible);
-                this.combustibleGastado += consumeCombustible;
-                asistente.incrementaDesgaste(this.generaDesgaste);
-                this.desgasteAcumulado += generaDesgaste;
+                    asistente.consumeCombustible(this.consumeCombustible);
+                    this.combustibleGastado += consumeCombustible;
+                    asistente.incrementaDesgaste(this.generaDesgaste);
+                    this.desgasteAcumulado += generaDesgaste;
 
-                asistente.registrarEventoBitacora("Combustible gastado: " + this.consumeCombustible);
+                    asistente.registrarEventoBitacora("Combustible gastado: " + this.consumeCombustible);
+                }
             }
 
             //TURNO Tablero

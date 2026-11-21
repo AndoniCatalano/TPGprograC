@@ -1,8 +1,9 @@
 package asistente;
+
 import nave.*;
 import misiones.*;
 import motor.*;
-
+import asistente.vista.AsistenteObserver;
 import Tripulantes.Tripulante;
 
 
@@ -23,8 +24,10 @@ public class Asistente{
     evaluarResultado()
     cerrar()
     * */
+    private ArrayList<String> informe;
     private ArrayList<Evento> bitacora;
     private INave nave;
+    private ArrayList<AsistenteObserver> observadores = new ArrayList<>();
     // private Mision mision; Creo que no hace falta el atributo, ya se pasaria la mision m1,m2 o m3 a la funcion de ejectuarmision
 
     /*
@@ -34,7 +37,21 @@ public class Asistente{
     public Asistente(INave nave){
         assert nave != null : "Error la nave no puede ser  null";
         this.bitacora = new ArrayList<>();
+        this.informe = new ArrayList<>();
         this.nave = nave;
+    }
+
+
+
+    public void agregarObservador(AsistenteObserver obs){
+        this.observadores.add(obs);
+        notificarRecursos();
+    }
+
+    private void notificarRecursos() {
+        for (AsistenteObserver obs : observadores) {
+            obs.onRecursosActualizados(consultarCombustible(), consultarEnergia(), consultarDesgaste());
+        }
     }
 
     /*
@@ -82,6 +99,18 @@ public class Asistente{
     public void registrarEventoBitacora(String mensaje){
         assert mensaje != null : "Error el mensaje no puede ser null";
         this.bitacora.add(new Evento(mensaje));
+        for (AsistenteObserver obs : observadores) {
+            obs.onEventoBitacora(mensaje);
+        }
+    }
+
+    public void registrarInforme(String mensaje){
+        assert mensaje != null : "Erroe el mensaje no puede ser null";
+        this.informe.add(mensaje);
+        for (AsistenteObserver obs : observadores) {
+            obs.onInformeGenerado(mensaje);
+        }
+
     }
 
     /*
@@ -117,6 +146,7 @@ public class Asistente{
         try{
             nave.cargaCombustible(cantidad);
             registrarEventoBitacora("Se cargaron " + cantidad + " unidades de combustible");
+            notificarRecursos();
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -127,6 +157,7 @@ public class Asistente{
         try{
             nave.cargaEnergia(cantidad);
             registrarEventoBitacora("Se cargaron " + cantidad + " unidades de energia");
+            notificarRecursos();
         }catch(OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -145,6 +176,7 @@ public class Asistente{
         try{
             nave.realizarMantenimiento();
             registrarEventoBitacora("Se realizo mantenimiento en la nave");
+            notificarRecursos();
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -154,6 +186,7 @@ public class Asistente{
         try{
             nave.consumeCombustible(cantidad);
             registrarEventoBitacora("Se consumieron " + cantidad + " unidades de combustible");
+            notificarRecursos();
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -164,6 +197,7 @@ public class Asistente{
         try{
             nave.consumeEnergia(cantidad);
             registrarEventoBitacora("Se consumieron " + cantidad + " unidades de energia");
+            notificarRecursos();
         }catch(OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }
@@ -175,6 +209,7 @@ public class Asistente{
         try {
             nave.incrementaDesgaste(cantidad);
             registrarEventoBitacora("Se incremento el desgaste de la nave en " + cantidad + " unidades");
+            notificarRecursos();
         }catch (OperacionRechazadaException e){
             registrarEventoBitacora(e.getMessage());
         }

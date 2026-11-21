@@ -23,7 +23,7 @@ public class M01 extends Mision {
     protected void impactaRecursosFinales(Asistente asistente){
         asistente.entregarRecursos();
 
-        asistente.cargaEenergia(5);
+        asistente.cargaEnergia(5);
     }
 
 }
