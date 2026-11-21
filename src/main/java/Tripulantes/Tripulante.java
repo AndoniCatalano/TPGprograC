@@ -20,4 +20,8 @@ public abstract class Tripulante{
         return  this.sueldoBase + this.sueldoBase * this.antiguedad * this.plusAntiguedad;
     }
 
+    public int getAntiguedad(){ 
+        return this.antiguedad;
+    }
+    
 }
