@@ -16,7 +16,7 @@ public class ControlNaveController {
         this.vista = vista;
         this.asistente = asistente;
 
-        // CRÍTICO: Conectamos la vista al modelo para que reciba las actualizaciones automáticas
+        //  Conectamos la vista al modelo para que reciba las actualizaciones automáticas
         this.asistente.agregarObservador(this.vista);
 
         this.vista.getBtnIniciar().addActionListener(new ActionListener() {
@@ -31,7 +31,7 @@ public class ControlNaveController {
         String seleccion = vista.getMisionSeleccionada();
         vista.getBtnIniciar().setEnabled(false);
 
-        // CRÍTICO: Hilo separado para no congelar la interfaz gráfica (Swing)
+        //  Hilo separado para no congelar la interfaz gráfica (Swing)
         new Thread(() -> {
             try {
                 Mision mision;
