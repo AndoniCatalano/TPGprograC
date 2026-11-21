@@ -6,6 +6,7 @@ public class M01 extends Mision {
     public M01() {
         this.consumeCombustible = 4;
         this.generaDesgaste = 4;
+        this.gastaEnergia = 5;
         this.energia = 5;
     }
 

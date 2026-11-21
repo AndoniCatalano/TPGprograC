@@ -18,7 +18,9 @@ public class M03 extends Mision {
 
     @Override
     protected void impactaRecursosFinales(Asistente asistente){
-
+        asistente.cargaCombustible(100);
+        asistente.cargaEnergia(100);
+        //agregar que el asistente baje el desgaste a cero
     }
 
 

@@ -30,6 +30,7 @@ public abstract class Mision {
     protected int consumeCombustible;
     protected int generaDesgaste;
     protected int energia;
+    protected int gastaEnergia;
     protected int energiaGastada = 0;
     protected Posicion destino;
     protected List<Posicion> ruta;
@@ -75,7 +76,12 @@ public abstract class Mision {
         this.desgasteAcumulado += generaDesgaste;
         asistente.registrarEventoBitacora("Desgaste de arranque: " + this.desgasteAcumulado);
 
+        asistente.consumeEnergia(this.gastaEnergia);
+        this.energiaGastada += this.gastaEnergia;
+        asistente.registrarEventoBitacora("Energia consumida por inicio de mision: " + this.energiaGastada);
+
         Destino coordinador = new Destino(tablero);
+
 
         while (asistente.laNaveEstaViva() && !tablero.getPosicionNave().equals(this.destino)) {
 
@@ -90,6 +96,7 @@ public abstract class Mision {
                 break;
             }
 
+
             if (!this.ruta.isEmpty()) {
                 IElementosUniverso[][] alrededores = tablero.observarAlrededores();
                 asistente.consumeEnergia(1);
@@ -101,39 +108,46 @@ public abstract class Mision {
                 int dy = coordenadaFutura.getY() - actual.getY();
                 IElementosUniverso futuroEncuentro = alrededores[dx + 1][dy + 1];
 
+
                 if (futuroEncuentro != null && futuroEncuentro.esAmenaza(asistente)) {
-                    asistente.registrarEventoBitacora("Amenaza detectada. Recalculando la ruta");
-                    this.ruta = asistente.calcularRuta(this.destino);
-                    asistente.registrarEventoBitacora("Ruta recalculada");
-                    asistente.consumeEnergia(2);
-                    this.energiaGastada += 2;
-                }
 
-                if (!asistente.laNaveEstaViva()) {
-                    this.resultado = "FRACASO";
-                    break;
-                }
 
-                if(!this.ruta.isEmpty()){
-                    Posicion proximoPaso = this.ruta.remove(0);
-                    asistente.moverA(proximoPaso);
+                    if (this.ruta.size() >= 2) {
+                        Posicion destinoWarp = this.ruta.get(1);
+                        asistente.saltoWarp(destinoWarp);
 
-                    asistente.consumeCombustible(this.consumeCombustible);
-                    this.combustibleGastado += consumeCombustible;
-                    asistente.incrementaDesgaste(this.generaDesgaste);
-                    this.desgasteAcumulado += generaDesgaste;
+                        if (tablero.getPosicionNave().equals(destinoWarp)) {
+                            this.ruta.remove(0);
+                            this.ruta.remove(0);
+                            this.energiaGastada += 5;
+                        }
+                    } else {
+                        asistente.registrarEventoBitacora("Obstaculo detectado, recalculando ruta");
+                        this.ruta = asistente.calcularRuta(this.destino);
+                        asistente.consumeEnergia(2);
+                        this.energiaGastada += 2;
+                    }
+                } else {
+                    asistente.salta(coordenadaFutura);
 
-                    asistente.registrarEventoBitacora("Combustible gastado: " + this.consumeCombustible);
-                }else{
-                    asistente.registrarEventoBitacora("No hay ruta disponible hacia el destino");
-                    this.resultado = "FRACASO";
-                    break;
+                    if (tablero.getPosicionNave().equals(coordenadaFutura)) {
+                        this.ruta.remove(0);
+                        this.combustibleGastado += 2;
+                    }
+
                 }
             }else{
                 asistente.registrarEventoBitacora("No hay ruta disponible hacia el destino");
                 this.resultado = "FRACASO";
                 break;
             }
+
+            if (!asistente.laNaveEstaViva()) {
+                this.resultado = "FRACASO";
+                break;
+            }
+
+
 
             //TURNO Tablero
 
