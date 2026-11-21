@@ -1,33 +1,25 @@
 package motor;
 
+import asistente.Asistente;
+import nave.tablero.Posicion;
+
 public class MotorWarp{
     private State estado;
 
-    public MotorWarp(){
-        estado = new DisponibleState(this);
+
+    public MotorWarp() {
+        this.estado = new DisponibleState(this);
     }
 
-    public void setEstado(State estado){
+    protected void setEstado(State estado) {
         this.estado = estado;
     }
 
-    public State getEstado(){
-        return this.estado;
+    public void saltar(Asistente asistente, Posicion destino) {
+        this.estado.saltar(asistente, destino);
     }
 
-    public void prepararSalto() throws TransicionInvalidaException{
-        estado.prepararSalto();
-    }
-
-    public void ejecutarSalto() throws TransicionInvalidaException{
-        estado.ejecutarSalto();
-    }
-
-    public void finalizarSalto() throws TransicionInvalidaException{
-        estado.enfriar();
-    }
-
-    public void terminarEnfriamiento() throws TransicionInvalidaException{
-        estado.terminarEnfriamiento();
+    public void saltarWarp(Asistente asistente, Posicion destino) {
+        this.estado.saltarWarp(asistente, destino);
     }
 }

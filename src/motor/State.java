@@ -1,9 +1,9 @@
 package motor;
+import asistente.Asistente;
+import nave.tablero.Posicion;
+
 
 public interface State {
-    void prepararSalto() throws TransicionInvalidaException;
-    void ejecutarSalto() throws TransicionInvalidaException;
-    void enfriar() throws TransicionInvalidaException;
-    void terminarEnfriamiento() throws TransicionInvalidaException;
-
+    void saltar(Asistente asistente, Posicion destino);
+    void saltarWarp(Asistente asistente, Posicion destino);
 }
