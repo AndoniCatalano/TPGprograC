@@ -1,0 +1,58 @@
+@startuml
+class Tripulantes.Vulcano {
++ double getSueldo()
+}
+
+class Tripulantes.Teniente {
+}
+class Tripulantes.TripulanteFactory {
++ {static} Tripulante creaTripulante(String,String,String,int)
+}
+
+class Tripulantes.Alferez {
+}
+abstract class Tripulantes.Tripulante {
+# String identidad
+# int antiguedad
+# double sueldoBase
+# double plusAntiguedad
++ String getIdentidad()
++ double getSueldo()
+}
+
+
+class Tripulantes.Capitan {
+}
+class Tripulantes.Consejero {
+- {static} double plusConsejo
+- int cantidadConsejos
++ double getSueldo()
++ void setCantidadConsejos(int)
+}
+
+
+class Tripulantes.Terricola {
++ double getSueldo()
+}
+
+abstract class Tripulantes.TripulanteDecorator {
+# Tripulante tripulanteDecorado
++ {abstract}double getSueldo()
+}
+
+
+class Tripulantes.Marciano {
++ double getSueldo()
+}
+
+
+
+Tripulantes.TripulanteDecorator <|-- Tripulantes.Vulcano
+Tripulantes.Tripulante <|-- Tripulantes.Teniente
+Tripulantes.Tripulante <|-- Tripulantes.Alferez
+Tripulantes.Tripulante <|-- Tripulantes.Capitan
+Tripulantes.Tripulante <|-- Tripulantes.Consejero
+Tripulantes.TripulanteDecorator <|-- Tripulantes.Terricola
+Tripulantes.Tripulante <|-- Tripulantes.TripulanteDecorator
+Tripulantes.TripulanteDecorator <|-- Tripulantes.Marciano
+@enduml
