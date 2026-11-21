@@ -1,11 +1,14 @@
 package misiones;
 import asistente.Asistente;
 import java.util.List;
+import nave.Tablero.Posicion;
+import nave.IElementosUniverso;
 
 /**
  * <b>precondiciones</b>
  * - El objeto 'asistente' pasado por parámetro no debe ser null.
  * - La nave gestionada por el asistente debe estar inicializada.
+ * - El tablero no puede ser null.
  *
  * <b>postcondiciones</b>
  * - Si la nave no tiene recursos suficientes, el estado de la misión y los recursos del asistente quedan intactos.
@@ -13,6 +16,7 @@ import java.util.List;
  * - Se registrarán todos los eventos en la bitácora del asistente.
  *
  * @param asistente El asistente que coordina la nave y provee los recursos.
+ * @param tablero El tablero del unvierso por el cual navegara la nave.
  * @return true si la misión se completó con EXITO, false si fue un FRACASO o si no superó la fase de preparación por falta de recursos.
  * @throws ContratoMisionException Si ocurre un error interno grave de lógica donde la evaluación no genera un estado válido.
  */
@@ -28,6 +32,8 @@ public abstract class Mision {
     protected int energia;
     protected Posicion destino;
     protected List<Posicion> ruta;
+
+
 
     public final boolean ejecutarCicloMision (Asistente asistente, Tablero tablero) throws ContratoMisionException {
         preparar(asistente, tablero);
@@ -72,7 +78,7 @@ public abstract class Mision {
         while (asistente.laNaveEstaViva() && !tablero.getPosicionNave().equals(this.destino)) {
 
             //TURNO Nave
-            IElementoDelUniverso elemento = tablero.inspeccionarPosicion();
+            IElementosUniverso elemento = tablero.inspeccionarPosicion();
             if (elemento != null) {
                 elemento.interactuarCon(asistente);
             }
@@ -84,8 +90,8 @@ public abstract class Mision {
 
             if (!this.ruta.isEmpty()) {
                 Posicion coordenadaFutura = this.ruta.get(0);
-                IElementoDelUniverso[][] matrizTablero = tablero.verTablero();
-                IElementoDelUniverso futuroEncuentro = matrizTablero[coordenadaFutura.getX()][coordenadaFutura.getY()];
+                IElementosUniverso[][] matrizTablero = tablero.verTablero();
+                IElementosUniverso futuroEncuentro = matrizTablero[coordenadaFutura.getX()][coordenadaFutura.getY()];
 
                 if (futuroEncuentro != null && futuroEncuentro.esAmenaza(asistente)) {
                     asistente.registrarEventoBitacora("Amenaza detectada. Recalculando la ruta");
