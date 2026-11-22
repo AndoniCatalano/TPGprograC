@@ -79,20 +79,18 @@ public class Asistente{
         }
     }
 
-    public void saltoWarp(){
-        try {
-            nave.prepararSalto();
-            nave.ejecutarSalto();
-            nave.terminarEnfriamiento();
-            //terminamos el enfriamiento, que como tal no existe, ya que ahora no podemos medir el paso del tiempo
+    public void saltoWarp(Posicion destino){
+
+
+            nave.saltarWarp(this, destino);
+
             System.out.println("Salto realizado con exito");//esto queda para el testeo nomas
             //bitacora
             registrarEventoBitacora("Salto realizado con exito");
-        }catch (TransicionInvalidaException e){
-            System.out.println(e.getMessage());//esto tambien queda para el testeo
-            //bitacora
-            registrarEventoBitacora(e.getMessage());
-        }
+    }
+
+    public void salta(Posicion destino){
+        nave.saltar(this, destino);
     }
 
     /*

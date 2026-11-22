@@ -4,7 +4,8 @@ import Usuarios.Exceptions.DatosIncorrectosException;
 import Usuarios.Exceptions.UsernameOcupadoException;
 import Usuarios.Vista.UsuarioVista;
 import Usuarios.Modelo.Usuario;
-
+import Creacion.Vista.VistaCreacion;
+import Creacion.Modelo.ModeloCreacion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -28,7 +29,9 @@ public class UsuarioControlador implements ActionListener {
                 switch (e.getActionCommand()) {
                     case "LOGIN":
                         usuario.login();
-                        vista.setMensaje("Usuario Logueado");
+                        VistaCreacion vista2 = new VistaCreacion(new ModeloCreacion());
+                        vista.dispose();
+                        vista2.arrancar();
                         break;
 
                     case  "REGISTRAR":
