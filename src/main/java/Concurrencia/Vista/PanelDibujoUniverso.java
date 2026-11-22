@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class PanelDibujoUniverso extends JPanel {
+public class PanelDibujoUniverso extends JPanel{
 
     private static final Color COLOR_ESPACIO = new Color(9, 7, 24);
     private static final Color COLOR_GENERADORA = new Color(75, 220, 140);

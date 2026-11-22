@@ -330,4 +330,8 @@ public class Asistente{
     public INave getNave() {
         return nave;
     }
+
+    public Tablero getTablero() {
+        return tablero;
+    }
 }

@@ -4,22 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Correcciones varias + linkeo usuarios-creacion">
+    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="ElementosDelUniverso corregidos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creacion/Controlador/ControladorCreacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creacion/Controlador/ControladorCreacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creacion/Modelo/ModeloCreacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creacion/Modelo/ModeloCreacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainPruebaVistaTablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainPruebaVistaTablero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Usuarios/Controlador/UsuarioControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Controlador/UsuarioControlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Concurrencia/Controlador/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Concurrencia/Controlador/ConcurrenciaControlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Concurrencia/Vista/IVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Concurrencia/Vista/IVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Concurrencia/Vista/PanelDibujoUniverso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Concurrencia/Vista/PanelDibujoUniverso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Concurrencia/Vista/VisorConcurrencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Concurrencia/Vista/VisorConcurrencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainPruebaConcurrencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainPruebaConcurrencia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asistente/Asistente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/Asistente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asistente/controlador/ControlNaveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/controlador/ControlNaveController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asistente/vista/ControlNaveVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/vista/ControlNaveVista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asistente/vista/MainPruebaVistaAsistente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/vista/MainPruebaVistaAsistente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nave/Carguero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Carguero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nave/Combate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Combate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nave/Exploradora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Exploradora.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nave/INave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/INave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nave/Nave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Nave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios.db" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nave/EstacionDeCarga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/EstacionDeCarga.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nave/vista/PanelControlNave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/vista/PanelControlNave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,61 +59,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.000000000000023" />
-      <entry key="S5" value="1.0000336772144482" />
-      <entry key="S10" value="1.0486450696565996" />
-      <entry key="S30" value="9.982362875107084" />
-      <entry key="S60" value="38.479481625223706" />
-      <entry key="M2" value="85.8547788350098" />
-      <entry key="M5" value="164.73602252630718" />
-      <entry key="M10" value="223.22892525956635" />
-      <entry key="M15" value="254.88091143862556" />
-      <entry key="M30" value="306.8221560263212" />
-      <entry key="H1" value="369.3946020064245" />
-      <entry key="H2" value="564.4389681895054" />
-      <entry key="H4" value="1047.4053670958683" />
-      <entry key="D1" value="2386.7117204876545" />
-      <entry key="W1" value="2815.6969655530183" />
+      <entry key="MS100" value="1.4696012504299862E-8" />
+      <entry key="MS500" value="0.027129382112532584" />
+      <entry key="S2" value="0.4058447904886392" />
+      <entry key="S5" value="0.6971785074594602" />
+      <entry key="S10" value="0.8349755385084815" />
+      <entry key="S30" value="0.9727495210613308" />
+      <entry key="S60" value="1.6156003417199256" />
+      <entry key="M2" value="4.823982830624593" />
+      <entry key="M5" value="15.442069551542883" />
+      <entry key="M10" value="28.687842183159496" />
+      <entry key="M15" value="37.92743579102624" />
+      <entry key="M30" value="61.99813751670713" />
+      <entry key="H1" value="129.25159854133656" />
+      <entry key="H2" value="309.0745441287137" />
+      <entry key="H4" value="755.1569492658346" />
+      <entry key="D1" value="2307.227065616327" />
+      <entry key="W1" value="2878.7375789207813" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="3.604848137481038E-279" />
-      <entry key="S2" value="2.4728514343869985E-70" />
-      <entry key="S5" value="1.6505238432798148E-28" />
-      <entry key="S10" value="1.6646728519394384E-14" />
-      <entry key="S30" value="3.9653121423032946E-5" />
-      <entry key="S60" value="0.009399386963455264" />
-      <entry key="M2" value="0.19783369173303378" />
-      <entry key="M5" value="2.2716674438004834" />
-      <entry key="M10" value="8.699077583783167" />
-      <entry key="M15" value="16.8264706828296" />
-      <entry key="M30" value="40.64802552739802" />
-      <entry key="H1" value="74.95953861368051" />
-      <entry key="H2" value="136.36917082655458" />
-      <entry key="H4" value="251.18795217918404" />
-      <entry key="D1" value="537.2234949449075" />
-      <entry key="W1" value="625.5656822339913" />
+      <entry key="MS100" value="1.0002785067665694" />
+      <entry key="MS500" value="1.1945212941388546" />
+      <entry key="S2" value="1.6641150569065952" />
+      <entry key="S5" value="1.8577655663742831" />
+      <entry key="S10" value="2.0740587336757237" />
+      <entry key="S30" value="3.094744907869463" />
+      <entry key="S60" value="4.224240476601356" />
+      <entry key="M2" value="6.325631711651825" />
+      <entry key="M5" value="12.236385665128505" />
+      <entry key="M10" value="20.98310449689749" />
+      <entry key="M15" value="27.45755543407357" />
+      <entry key="M30" value="39.32404707123041" />
+      <entry key="H1" value="58.81110269456564" />
+      <entry key="H2" value="107.10246200456059" />
+      <entry key="H4" value="214.81204059816704" />
+      <entry key="D1" value="555.2274881758657" />
+      <entry key="W1" value="675.8848211873519" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.0014801919594828108" />
-      <entry key="MS500" value="0.2716837156315145" />
-      <entry key="S2" value="0.7219645977612709" />
-      <entry key="S5" value="0.8778554534647222" />
-      <entry key="S10" value="0.9855509329485322" />
-      <entry key="S30" value="9.959938768132442" />
-      <entry key="S60" value="38.475903700524924" />
-      <entry key="M2" value="86.0434164503251" />
-      <entry key="M5" value="166.99618891935177" />
-      <entry key="M10" value="231.90888601288" />
-      <entry key="M15" value="271.6824989060519" />
-      <entry key="M30" value="347.4394280577144" />
-      <entry key="H1" value="444.32545899018197" />
-      <entry key="H2" value="700.781573162189" />
-      <entry key="H4" value="1298.5682479055513" />
-      <entry key="D1" value="2923.9260395332226" />
-      <entry key="W1" value="3441.261114500863" />
+      <entry key="MS100" value="0.17194274324586004" />
+      <entry key="MS500" value="0.7410801317654409" />
+      <entry key="S2" value="1.641990675916418" />
+      <entry key="S5" value="2.303076199504432" />
+      <entry key="S10" value="2.7448049886591566" />
+      <entry key="S30" value="3.9610151162480074" />
+      <entry key="S60" value="5.75873137414208" />
+      <entry key="M2" value="11.084167513699605" />
+      <entry key="M5" value="27.624947361603382" />
+      <entry key="M10" value="49.62238095327766" />
+      <entry key="M15" value="65.34135420207397" />
+      <entry key="M30" value="101.28997805966306" />
+      <entry key="H1" value="188.0386075219091" />
+      <entry key="H2" value="416.15535728988687" />
+      <entry key="H4" value="969.9472445392751" />
+      <entry key="D1" value="2862.4450393829375" />
+      <entry key="W1" value="3554.6207395777724" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -172,11 +168,11 @@
       <recent name="Exceptions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\andoni\IdeaProjects\TPG\src\main\resources\RecursosTablero" />
       <recent name="C:\Users\Euge\proyectos\TPGprograC\src\main\resources" />
       <recent name="C:\Users\Euge\proyectos\TPGprograC" />
       <recent name="C:\Users\Euge\proyectos\TPGprograC\src" />
       <recent name="C:\Users\Euge\proyectos\TPGprograC\src\main\java" />
-      <recent name="C:\Users\andoni\IdeaProjects\TPG\src\Nave" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MainUsuarios">
@@ -263,20 +259,21 @@
     <MESSAGE value="Logica de usuarios agregada" />
     <MESSAGE value="password hash" />
     <MESSAGE value="Correcciones varias + linkeo usuarios-creacion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correcciones varias + linkeo usuarios-creacion" />
+    <MESSAGE value="ElementosDelUniverso corregidos" />
+    <option name="LAST_COMMIT_MESSAGE" value="ElementosDelUniverso corregidos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/asistente/controlador/ControlNaveController.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Usuarios/Controlador/UsuarioControlador.java</url>
           <line>16</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/asistente/controlador/ControlNaveController.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

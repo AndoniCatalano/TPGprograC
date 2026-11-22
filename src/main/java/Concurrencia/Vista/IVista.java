@@ -11,4 +11,6 @@ public interface IVista {
         void agregarMensajeConsola(String mensaje);
         void deshabilitarControles();
         void habilitarControles();
+
+    void arrancar();
 }

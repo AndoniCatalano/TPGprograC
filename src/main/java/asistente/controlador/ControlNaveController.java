@@ -1,44 +1,79 @@
 package asistente.controlador;
 
+import Concurrencia.Vista.VisorConcurrencia;
 import asistente.Asistente;
-import misiones.*;
 import asistente.vista.ControlNaveVista;
+import misiones.*;
+import nave.tablero.Tablero;
+import nave.vista.PanelControlNave;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ControlNaveController implements ActionListener {
 
-    private ControlNaveVista vista;
-    private Asistente asistente;
+
+
+    private final ControlNaveVista vista;
+    private final Asistente asistente;
+    private VisorConcurrencia visor;
+
+
+    private JFrame ventanaTablero;
+    private Tablero tableroActual;
 
     public ControlNaveController(Asistente asistente) {
-        vista = new ControlNaveVista();
-
+        this.vista = new ControlNaveVista();
         this.asistente = asistente;
 
-        // Conectamos la vista al modelo para que reciba las actualizaciones automáticas
+        // Conectamos la vista principal al modelo
         this.asistente.agregarObservador(this.vista);
-
-        vista.getBtnIniciar().addActionListener(this);
+        vista.setControlador(this);
     }
 
-    public void iniciarVentana(){
+    public void iniciarVentana() {
         vista.arrancar();
     }
 
-
-
     @Override
-    public void actionPerformed(ActionEvent e){
-        if(e.getSource() == vista.getBtnIniciar()){
-            iniciarMision();
+    public void actionPerformed(ActionEvent e) {
+        switch (e.getActionCommand()) {
+            case "INICIAR": iniciarMision();break;
+            case "CONCURRENCIA": visor = new VisorConcurrencia();
+            visor.setActionListener(this);
+                visor.arrancar();break;
         }
+    }
+
+    private JFrame abrirVentanaTablero() {
+        Tablero tablero = asistente.getTablero();
+
+        // Creamos la ventana del tablero la primera vez (o si el asistente cambió de tablero)
+        if (ventanaTablero == null || tableroActual != tablero) {
+            tableroActual = tablero;
+            PanelControlNave panelTablero = new PanelControlNave(asistente, tablero);
+
+            ventanaTablero = new JFrame("Radar del Universo — Recorrido de la Misión");
+            // DISPOSE_ON_CLOSE cierra solo el tablero y deja abierto ControlNaveVista
+            ventanaTablero.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ventanaTablero.setContentPane(panelTablero);
+            ventanaTablero.pack();
+            ventanaTablero.setLocationRelativeTo(vista);
+        }
+
+        ventanaTablero.setVisible(true);
+        ventanaTablero.toFront();
+
+        return ventanaTablero;
     }
 
     private void iniciarMision() {
         String seleccion = vista.getMisionSeleccionada();
         vista.deshabilitarBoton();
+
+        // Abrimos la vista del tablero antes de lanzar el hilo de la misión
+        ventanaTablero = abrirVentanaTablero();
 
         // Hilo separado para no congelar la interfaz gráfica (Swing)
         new Thread(() -> {
@@ -53,9 +88,10 @@ public class ControlNaveController implements ActionListener {
                 }
 
                 asistente.ejecutarMision(mision);
-
+                ventanaTablero.dispose();
             } catch (Exception ex) {
-                vista.onEventoBitacora("Error crítico: " + ex.getMessage());
+                SwingUtilities.invokeLater(() ->
+                        vista.onEventoBitacora("Error crítico: " + ex.getMessage()));
             } finally {
                 SwingUtilities.invokeLater(() -> vista.habilitarBoton());
             }

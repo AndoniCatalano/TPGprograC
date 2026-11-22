@@ -3,7 +3,7 @@ package nave;
 import asistente.Asistente;
 
 public class EstacionDeCarga implements IElementosUniverso {
-    private final double RECARGA = 0.3;
+    private final double RECARGA = 30;
 
     /**
      * Constructor por defecto de la estación de carga.
@@ -26,7 +26,7 @@ public class EstacionDeCarga implements IElementosUniverso {
         assert asistente != null : "Precondición fallida: el asistente no puede ser nulo";
 
         int combustibleActual = asistente.consultarCombustible();
-        int combustibleARecargar = (int) (combustibleActual * RECARGA);
+        int combustibleARecargar = (int) (combustibleActual + RECARGA);
         int faltaCombustible = 100 - combustibleActual;
         int cargaRealComb = Math.min(combustibleARecargar, faltaCombustible);
 
@@ -35,7 +35,7 @@ public class EstacionDeCarga implements IElementosUniverso {
         }
 
         int energiaActual = asistente.consultarEnergia();
-        int energiaARecargar = (int) (energiaActual * RECARGA);
+        int energiaARecargar = (int) (energiaActual + RECARGA);
         int faltaEnergia = 100 - energiaActual;
         int cargaRealEnergia = Math.min(energiaARecargar, faltaEnergia);
 

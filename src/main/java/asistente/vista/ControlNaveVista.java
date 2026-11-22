@@ -1,6 +1,8 @@
 package asistente.vista;
 
 
+import asistente.controlador.ControlNaveController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
@@ -15,7 +17,7 @@ public class ControlNaveVista extends JFrame implements AsistenteObserver{
 
     private JComboBox<String> comboMisiones = new JComboBox<>(new String[]{"M-01: Asistencia", "M-02: Recolección", "M-03: Retorno"});
     private JButton btnIniciar = new JButton("Iniciar Misión");
-
+    private JButton btnConcurrencia = new JButton("Concurrencia");
     public ControlNaveVista() {
         setTitle("Control de Nave");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,8 +39,12 @@ public class ControlNaveVista extends JFrame implements AsistenteObserver{
 
         JPanel panelControles = new JPanel();
         panelControles.add(new JLabel("Seleccionar Misión:"));
+        btnConcurrencia.setActionCommand("CONCURRENCIA");
+        panelControles.add(btnConcurrencia);
         panelControles.add(comboMisiones);
+        btnIniciar.setActionCommand("INICIAR");
         panelControles.add(btnIniciar);
+
         add(panelControles, BorderLayout.SOUTH);
     }
 
@@ -52,6 +58,8 @@ public class ControlNaveVista extends JFrame implements AsistenteObserver{
     }
 
     public void arrancar(){
+
+        System.out.println("arrancar");
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
@@ -63,6 +71,11 @@ public class ControlNaveVista extends JFrame implements AsistenteObserver{
 
     public void deshabilitarBoton(){
         btnIniciar.setEnabled(false);
+    }
+
+    public void setControlador(ControlNaveController c){
+        btnIniciar.addActionListener(c);
+        btnConcurrencia.addActionListener(c);
     }
 
     public JButton getBtnIniciar() { return btnIniciar; }

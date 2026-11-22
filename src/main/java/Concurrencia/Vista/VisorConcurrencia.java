@@ -52,6 +52,8 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
     private final JTextPane areaConsola;
     private final PanelDibujoUniverso panelDibujo;
 
+    private JFrame ventanaContenedora;
+
     public VisorConcurrencia() {
         this.setLayout(new BorderLayout(14, 14));
         this.setBackground(COLOR_FONDO);
@@ -162,14 +164,7 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
         );
     }
 
-
-    //MVC: Conexión con el Controlador
-    /**
-     * Registra el controlador que escucha los eventos de los botones de la vista.
-     * <b>Pre:</b> controlador no debe ser nulo.
-     * <b>Post:</b> Todos los botones de control quedan asociados al ActionListener indicado.
-     * @param controlador El ActionListener que procesa los comandos de la interfaz.
-     */
+    // MVC: Conexión con el Controlador
     @Override
     public void setActionListener(ActionListener controlador) {
         this.botonCrearNave.addActionListener(controlador);
@@ -178,58 +173,46 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
         this.botonReiniciar.addActionListener(controlador);
     }
 
-
-    /**
-     * Agrega un nuevo mensaje de evento y actualiza la representación gráfica.
-     * <b>Pre:</b> mensaje no debe ser nulo.
-     * <b>Post:</b> El mensaje se muestra en la consola y el panel visual refleja el evento.
-     * @param mensaje El texto descriptivo del evento a mostrar.
-     */
     @Override
     public void agregarMensajeConsola(String mensaje) {
-        StyledDocument documento = this.areaConsola.getStyledDocument();
-        String marcaHora = "[" + LocalTime.now().format(FORMATO_HORA) + "] ";
-        Color colorEvento = determinarColorEvento(mensaje);
+        String textoSeguro = mensaje != null ? mensaje : "";
+        SwingUtilities.invokeLater(() -> {
+            StyledDocument documento = this.areaConsola.getStyledDocument();
+            String marcaHora = "[" + LocalTime.now().format(FORMATO_HORA) + "] ";
+            Color colorEvento = determinarColorEvento(textoSeguro);
 
-        try {
-            agregarTextoConEstilo(documento, marcaHora, COLOR_HORA, false);
-            agregarTextoConEstilo(documento, mensaje + "\n", colorEvento, mensaje.contains("Ingresó"));
-            this.areaConsola.setCaretPosition(documento.getLength());
-        } catch (BadLocationException e) {
-            e.printStackTrace();
-        }
-        this.panelDibujo.procesarEvento(mensaje);
+            try {
+                agregarTextoConEstilo(documento, marcaHora, COLOR_HORA, false);
+                agregarTextoConEstilo(documento, textoSeguro + "\n", colorEvento, textoSeguro.contains("Ingresó"));
+                this.areaConsola.setCaretPosition(documento.getLength());
+            } catch (BadLocationException e) {
+                e.printStackTrace();
+            }
+            this.panelDibujo.procesarEvento(textoSeguro);
+        });
     }
 
-    /**
-     * Deshabilita los controles de creación y detención, y habilita el control de reinicio.
-     * <b>Pre:</b> Los botones de la vista deben estar inicializados.
-     * <b>Post:</b> Los botones de crear nave, crear generadora y detener quedan deshabilitados,
-     * mientras que el botón de reiniciar queda habilitado.
-     */
     @Override
     public void deshabilitarControles() {
-        deshabilitarBoton(this.botonCrearNave);
-        deshabilitarBoton(this.botonCrearGeneradora);
-        deshabilitarBoton(this.botonDetener);
-        habilitarBoton(this.botonReiniciar, FONDO_BTN_REINICIAR, BORDE_BTN_REINICIAR);
+        SwingUtilities.invokeLater(() -> {
+            deshabilitarBoton(this.botonCrearNave);
+            deshabilitarBoton(this.botonCrearGeneradora);
+            deshabilitarBoton(this.botonDetener);
+            habilitarBoton(this.botonReiniciar, FONDO_BTN_REINICIAR, BORDE_BTN_REINICIAR);
+        });
     }
 
-    /**
-     * Habilita los controles de la simulación, deshabilita el reinicio y limpia la consola y el dibujo.
-     * <b>Pre:</b> Los componentes gráficos de la vista deben estar inicializados.
-     * <b>Post:</b> Los botones de crear nave, crear generadora y detener quedan habilitados,
-     * el botón de reiniciar queda deshabilitado, la consola se vacía y el panel visual vuelve a su estado inicial.
-     */
     @Override
     public void habilitarControles() {
-        habilitarBoton(this.botonCrearNave, FONDO_BTN_NAVE, BORDE_BTN_NAVE);
-        habilitarBoton(this.botonCrearGeneradora, FONDO_BTN_GENERADORA, BORDE_BTN_GENERADORA);
-        habilitarBoton(this.botonDetener, FONDO_BTN_DETENER, BORDE_BTN_DETENER);
-        deshabilitarBoton(this.botonReiniciar);
+        SwingUtilities.invokeLater(() -> {
+            habilitarBoton(this.botonCrearNave, FONDO_BTN_NAVE, BORDE_BTN_NAVE);
+            habilitarBoton(this.botonCrearGeneradora, FONDO_BTN_GENERADORA, BORDE_BTN_GENERADORA);
+            habilitarBoton(this.botonDetener, FONDO_BTN_DETENER, BORDE_BTN_DETENER);
+            deshabilitarBoton(this.botonReiniciar);
 
-        this.areaConsola.setText("");
-        this.panelDibujo.reiniciarDibujo();
+            this.areaConsola.setText("");
+            this.panelDibujo.reiniciarDibujo();
+        });
     }
 
     private void habilitarBoton(JButton boton, Color fondo, Color borde) {
@@ -285,9 +268,34 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
         return COLOR_TEXTO_BASE;
     }
 
+    public void arrancar() {
+        SwingUtilities.invokeLater(() -> {
+            this.setVisible(true);
+            Window ventanaPadre = SwingUtilities.getWindowAncestor(this);
+
+            if (ventanaPadre != null) {
+                ventanaPadre.setVisible(true);
+                ventanaPadre.toFront();
+                return;
+            }
+
+            if (this.ventanaContenedora == null || !this.ventanaContenedora.isDisplayable()) {
+                this.ventanaContenedora = new JFrame("Visor del Universo Paralelo");
+                this.ventanaContenedora.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                this.ventanaContenedora.setContentPane(this);
+                this.ventanaContenedora.pack();
+                this.ventanaContenedora.setMinimumSize(new Dimension(980, 680));
+                this.ventanaContenedora.setLocationRelativeTo(null);
+            }
+
+            this.ventanaContenedora.setVisible(true);
+            this.ventanaContenedora.toFront();
+        });
+    }
+
     // OBSERVER: Actualización automática desde los hilos del Modelo
     @Override
     public void actualizarEvento(String mensaje) {
-        SwingUtilities.invokeLater(() -> agregarMensajeConsola(mensaje));
+        agregarMensajeConsola(mensaje);
     }
 }
