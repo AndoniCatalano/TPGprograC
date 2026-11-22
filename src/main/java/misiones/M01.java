@@ -4,16 +4,27 @@ import asistente.Asistente;
 public class M01 extends Mision {
 
     public M01() {
-        this.combustibleGastado = 4;
-        this.desgasteAcumulado = 4;
+        this.consumeCombustible = 4;
+        this.generaDesgaste = 4;
+        this.gastaEnergia = 5;
         this.energia = 5;
     }
 
     @Override
-    protected void ejecutarObjetivo(Asistente asistente) {
-        asistente.registrarEventoBitacora("[M-01] Ejecutando objetivo");
-        asistente.registrarEventoBitacora("[M-01] Recolectando datos");
-        asistente.registrarEventoBitacora("[M-01] Mision ejecutada");
+    protected boolean verificarObjetivo(Asistente asistente){
+        if (asistente.tieneRecursosParaEntregar()) {
+            return true;
+        } else {
+            asistente.registrarEventoBitacora("Llegó al destino, pero no tiene los recursos para asistir.");
+            return false;
+        }
+    }
+
+    @Override
+    protected void impactaRecursosFinales(Asistente asistente){
+        asistente.entregarRecursos();
+
+        asistente.cargaEnergia(5);
     }
 
 }

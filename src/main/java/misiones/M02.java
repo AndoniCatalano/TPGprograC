@@ -4,16 +4,20 @@ import asistente.Asistente;
 public class M02 extends Mision {
 
     public M02() {
-        this.combustibleGastado = 4;
-        this.desgasteAcumulado = 4;
+        this.consumeCombustible = 4;
+        this.generaDesgaste = 4;
+        this.gastaEnergia = 10;
         this.energia = 5;
     }
 
     @Override
-    protected void ejecutarObjetivo(Asistente asistente){
-        asistente.registrarEventoBitacora("[M-02] Ejecutando objetivo");
-        asistente.registrarEventoBitacora("[M-02] Recolectando recursos");
-        asistente.registrarEventoBitacora("[M-02] Mision ejecutada");
+    protected boolean verificarObjetivo(Asistente asistente){
+        return true;
+    }
+
+    @Override
+    protected void impactaRecursosFinales(Asistente asistente){
+        asistente.cargaEnergia(5);
     }
 
 }
