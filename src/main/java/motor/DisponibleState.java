@@ -1,8 +1,9 @@
 package motor;
 
+import asistente.Asistente;
+import nave.tablero.Posicion;
 
-
-public class DisponibleState implements IState{
+public class DisponibleState implements State{
     private MotorWarp m;
 
     public DisponibleState(MotorWarp m){
@@ -10,31 +11,19 @@ public class DisponibleState implements IState{
     }
 
     @Override
+    public void saltar(Asistente asistente, Posicion destino) {
+        asistente.consumeCombustible(2);
+        asistente.moverA(destino);
+    }
+
+    @Override
+    public void saltarWarp(Asistente asistente, Posicion destino) {
+        this.m.setEstado(new PreparandoState(this.m));
+        asistente.registrarEventoBitacora("Iniciando preparación de Motor Warp (turno 1/2).");
+    }
+
+    @Override
     public String toString() {
         return "Disponible";
-    }
-
-    @Override
-    public void prepararSalto() {
-        this.m.setEstado(new PreparandoState(m));
-    }
-
-    @Override
-    public void ejecutarSalto()  throws TransicionInvalidaException{
-       //arrojar excepcion este metodo lo maneja el estado Preparando
-        //System.out.println("ERROR: intenta ejecutar en salto cuando no esta iniciado");
-        throw new TransicionInvalidaException("ERROR: intenta ejecutar en salto cuando no esta iniciado");
-    }
-
-    @Override
-    public void enfriar()  throws TransicionInvalidaException{
-        //arrojar excepcion este metodo lo maneja el estado EnWarp
-        //System.out.println("ERROR: intenta finalizar el salto cuando no esta iniciado");
-        throw new TransicionInvalidaException("ERROR: intenta finalizar el salto cuando no esta iniciado");
-    }
-
-    @Override
-    public void terminarEnfriamiento() throws TransicionInvalidaException {
-        throw new TransicionInvalidaException("Error: el motor no necesita enfriarse");
     }
 }

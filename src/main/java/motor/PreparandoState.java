@@ -1,6 +1,9 @@
 package motor;
 
-public class PreparandoState implements IState{
+import asistente.Asistente;
+import nave.tablero.Posicion;
+
+public class PreparandoState implements State{
     private MotorWarp m;
 
     public PreparandoState(MotorWarp m){
@@ -8,33 +11,23 @@ public class PreparandoState implements IState{
     }
 
     @Override
+    public void saltar(Asistente asistente, Posicion destino) {
+        this.m.setEstado(new DisponibleState(this.m));
+        this.m.saltar(asistente, destino);
+    }
+
+    @Override
+    public void saltarWarp(Asistente asistente, Posicion destino) {
+        if (asistente.consultarEnergia() >= 5) {
+            this.m.setEstado(new EnWarpState(this.m));
+            asistente.registrarEventoBitacora("Motor Warp listo para ejecutar el salto (turno 2/2).");
+        } else {
+            asistente.registrarEventoBitacora("Energía insuficiente para preparar Salto Warp. Esperando...");
+        }
+    }
+
+    @Override
     public String toString() {
         return "Preparando";
-    }
-
-    @Override
-    public void prepararSalto() throws TransicionInvalidaException {
-        //arroja excepcion el salto ya fue iniciado
-        //System.out.println("ERROR: el salto ya a sido iniciado");
-        throw new TransicionInvalidaException("ERROR: el salto ya a sido iniciado");
-    }
-
-    @Override
-    public void ejecutarSalto() {
-        this.m.setEstado(new EnWarpState(m));
-    }
-
-    @Override
-    public void enfriar() throws TransicionInvalidaException{
-        //arroja excepcion el salto lo termina el estado EnWarp
-        //System.out.println("ERROR: el salto aun no fue ejecutado");
-        throw new TransicionInvalidaException("ERROR: el salto aun no fue ejecutado");
-    }
-
-    @Override
-    public void terminarEnfriamiento() throws TransicionInvalidaException {
-        //arroja excepcion no puede terminar enfriamiento, esto lo maneja el estado Enfriamiento
-        //System.out.println("ERROR: el motor no necesita enfriarse");
-        throw new TransicionInvalidaException("ERROR: el motor no necesita enfriarse");
     }
 }

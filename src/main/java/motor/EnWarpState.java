@@ -1,6 +1,9 @@
 package motor;
 
-public class EnWarpState implements IState{
+import asistente.Asistente;
+import nave.tablero.Posicion;
+
+public class EnWarpState implements State{
     private MotorWarp m;
 
     public EnWarpState(MotorWarp m){
@@ -8,33 +11,26 @@ public class EnWarpState implements IState{
     }
 
     @Override
+    public void saltar(Asistente asistente, Posicion destino) {
+        this.m.setEstado(new DisponibleState(this.m));
+        this.m.saltar(asistente, destino);
+    }
+
+    @Override
+    public void saltarWarp(Asistente asistente, Posicion destino) {
+        if (asistente.consultarEnergia() >= 5) {
+            asistente.consumeEnergia(5);
+            asistente.moverA(destino);
+            this.m.setEstado(new EnfriamientoState(this.m));
+            asistente.registrarEventoBitacora("Salto Warp ejecutado (-5 energía).");
+        } else {
+            this.m.setEstado(new PreparandoState(this.m));
+            asistente.registrarEventoBitacora("Salto Warp abortado por falta de energía. Volviendo a preparación.");
+        }
+    }
+
+    @Override
     public String toString() {
         return "En Warp";
-    }
-
-    @Override
-    public void prepararSalto() throws TransicionInvalidaException {
-        //arroja excepcion el salto ya fue iniciado
-        //System.out.println("ERROR: el motor se encuentra en estado Warp, no puede ser iniciado");
-        throw new TransicionInvalidaException("ERROR: el motor se encuentra en estado Warp, no puede ser iniciado");
-    }
-
-    @Override
-    public void ejecutarSalto() throws TransicionInvalidaException {
-        // ya esta siendo ejecutad
-        //System.out.println("ERROR: el salto ya esta siendo ejecutado");
-        throw new TransicionInvalidaException("ERROR: el salto ya esta siendo ejecutado");
-    }
-
-    @Override
-    public void enfriar() {
-        this.m.setEstado(new DisponibleState(m));
-    }
-
-    @Override
-    public void terminarEnfriamiento()  throws TransicionInvalidaException{
-        //arroja excepcion no puede terminar enfriamiento, esto lo maneja el estado Enfriamiento
-        //System.out.println("ERROR: el motor no necesita enfriarse");
-        throw new TransicionInvalidaException("ERROR: el motor no necesita enfriarse");
     }
 }
