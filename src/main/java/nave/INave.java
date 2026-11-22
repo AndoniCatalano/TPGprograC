@@ -5,6 +5,7 @@ import Tripulantes.Tripulante;
 import motor.MotorWarp;
 import motor.TransicionInvalidaException;
 import nave.Observer.IObserver;
+import nave.tablero.Posicion
 
 public interface INave {
     public void cargaCombustible(int cantCombustible) throws OperacionRechazadaException;
