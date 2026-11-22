@@ -4,3 +4,4 @@
 - Mains de prueba
 - Ayudas para resolución de problemas o fallas puntuales en el código
 - Elaboración de vistas
+- Ejecución en ciclo de hilos
