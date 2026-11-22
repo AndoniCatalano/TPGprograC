@@ -1,6 +1,6 @@
 package asistente.controlador;
 
-import Concurrencia.Vista.VisorConcurrencia;
+import Concurrencia.Controlador.ConcurrenciaControlador;
 import asistente.Asistente;
 import asistente.vista.ControlNaveVista;
 import misiones.*;
@@ -13,12 +13,9 @@ import java.awt.event.ActionListener;
 
 public class ControlNaveController implements ActionListener {
 
-
-
     private final ControlNaveVista vista;
     private final Asistente asistente;
-    private VisorConcurrencia visor;
-
+    private ConcurrenciaControlador controladorConcurrencia;
 
     private JFrame ventanaTablero;
     private Tablero tableroActual;
@@ -39,11 +36,20 @@ public class ControlNaveController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
-            case "INICIAR": iniciarMision();break;
-            case "CONCURRENCIA": visor = new VisorConcurrencia();
-            visor.setActionListener(this);
-                visor.arrancar();break;
+            case "INICIAR":
+                iniciarMision();
+                break;
+            case "CONCURRENCIA":
+                abrirConcurrencia();
+                break;
         }
+    }
+
+    private void abrirConcurrencia() {
+        if (controladorConcurrencia == null) {
+            controladorConcurrencia = new ConcurrenciaControlador();
+        }
+        controladorConcurrencia.iniciar();
     }
 
     private JFrame abrirVentanaTablero() {
@@ -88,12 +94,17 @@ public class ControlNaveController implements ActionListener {
                 }
 
                 asistente.ejecutarMision(mision);
-                ventanaTablero.dispose();
             } catch (Exception ex) {
                 SwingUtilities.invokeLater(() ->
                         vista.onEventoBitacora("Error crítico: " + ex.getMessage()));
             } finally {
-                SwingUtilities.invokeLater(() -> vista.habilitarBoton());
+                SwingUtilities.invokeLater(() -> {
+                    if (ventanaTablero != null) {
+                        ventanaTablero.dispose();
+                    }
+                    vista.habilitarBoton();
+                    vista.toFront();
+                });
             }
         }).start();
     }
