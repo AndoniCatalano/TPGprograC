@@ -40,4 +40,5 @@ public interface INave {
     public void addObservador(IObserver observador);
     public void removeObservador(IObserver observador);
     public void notifyObservadores();
+    public void mantenimientoGeneral();
 }

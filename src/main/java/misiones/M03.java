@@ -17,13 +17,17 @@ public class M03 extends Mision {
     }
 
     @Override
-    protected void impactaRecursosFinales(Asistente asistente){
+    protected void impactaRecursosFinales(Asistente asistente) {
         int faltaCombustible = 100 - asistente.consultarCombustible();
         int faltaEnergia = 100 - asistente.consultarEnergia();
-        if (faltaCombustible > 0)
+
+        if (faltaCombustible > 0) {
             asistente.cargaCombustible(faltaCombustible);
-        if (faltaEnergia > 0)
+        }
+        if (faltaEnergia > 0) {
             asistente.cargaEnergia(faltaEnergia);
+        }
+        asistente.mantenimientoGeneral();
     }
 
 

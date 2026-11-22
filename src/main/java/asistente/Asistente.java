@@ -342,4 +342,11 @@ public class Asistente{
     public Tablero getTablero() {
         return tablero;
     }
+
+    public void mantenimientoGeneral() {
+        nave.mantenimientoGeneral();
+        registrarEventoBitacora("Mantenimiento general completado: desgaste reducido a 0.");
+        notificarRecursos();
+    }
+
 }

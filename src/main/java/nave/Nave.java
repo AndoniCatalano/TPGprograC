@@ -382,4 +382,13 @@ public abstract class Nave implements INave {
             observador.actualizarRecursosNave(this); // Estilo "pull": le pasamos la nave a la vista
         }
     }
+
+    @Override
+    public void mantenimientoGeneral() {
+        this.desgaste = 0;
+        this.necesitaMantenimiento = false;
+        this.notifyObservadores();
+    }
+
+
 }
