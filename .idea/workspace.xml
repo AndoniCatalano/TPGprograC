@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="password hash">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Usuarios/Controlador/UsuarioControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Controlador/UsuarioControlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Usuarios/DAO/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/DAO/Conexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Usuarios/Modelo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Modelo/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios.db" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios.db" afterDir="false" />
-    </list>
+    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="password hash" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
