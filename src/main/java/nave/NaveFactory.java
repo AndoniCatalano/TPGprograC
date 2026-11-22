@@ -8,7 +8,6 @@ public class NaveFactory {
      * Fábrica de naves que centraliza la instanciación de los tipos de nave existentes.
      * <b>Pre:</b> tipoNave debe ser un String válido y concordante con un tipo de nave.
      * <b>Post</b> Se devuelve una instancia concreta de INave con su Asistente y relación bidireccional establecida.
-     *
      * @param tipoNave Un String que indica el tipo de nave a crear ("carguero", "combate", o "exploradora").
      * @return Un objeto INave, listo para operar.
      * @throws TipoNaveInvalidoException Si el string pasado por parámetro no corresponde a ningún tipo de nave conocido.
@@ -20,13 +19,13 @@ public class NaveFactory {
         if(tipoNave.equalsIgnoreCase("carguero"))
             nuevaNave = new Carguero();
         else
-            if (tipoNave.equalsIgnoreCase("combate"))
-                nuevaNave = new Combate();
-            else
-                if (tipoNave.equalsIgnoreCase("exploradora"))
-                    nuevaNave = new Exploradora();
-                else
-                    throw new TipoNaveInvalidoException("Tipo de nave inválido: " + tipoNave);
+        if (tipoNave.equalsIgnoreCase("combate"))
+            nuevaNave = new Combate();
+        else
+        if (tipoNave.equalsIgnoreCase("exploradora"))
+            nuevaNave = new Exploradora();
+        else
+            throw new TipoNaveInvalidoException("Tipo de nave inválido: " + tipoNave);
 
         if (nuevaNave != null){                 //establezco la relación bidireccional
             Asistente asistente = new Asistente(nuevaNave);     //asistente tiene una sola nave
