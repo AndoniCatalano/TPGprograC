@@ -335,12 +335,21 @@ public abstract class Nave implements INave, IElementosUniverso {
     }
 
     /**
+     * Delega la ejecución del salto al motor.
+     * @throws TransicionInvalidaException Si el motor no está preparado para ejecutar el salto.
+     */
+    @Override
+    public void saltar(Asistente asistente, Posicion destino) throws TransicionInvalidaException {
+        this.motorWarp.saltar(asistente,destino);
+    }
+
+    /**
      * Delega la ejecución del salto warp al motor.
      * @throws TransicionInvalidaException Si el motor no está preparado para ejecutar el salto.
      */
     @Override
-    public void ejecutarSalto() throws TransicionInvalidaException {
-        this.motorWarp.ejecutarSalto();
+    public void saltarWarp(Asistente asistente, Posicion destino) throws TransicionInvalidaException {
+        this.motorWarp.saltarWarp(asistente,destino);
     }
 
     @Override
