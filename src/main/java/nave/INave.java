@@ -32,7 +32,8 @@ public interface INave {
     public void prepararSalto() throws TransicionInvalidaException ;
     public void terminarEnfriamiento() throws TransicionInvalidaException ;
     public void finalizarSalto() throws TransicionInvalidaException;
-    public void ejecutarSalto() throws TransicionInvalidaException;
+    public void saltar(Asistente asistente, Posicion destino) throws TransicionInvalidaException;
+    public void saltarWarp(Asistente asistente, Posicion destino) throws TransicionInvalidaException;
 
     void defenderContraExploradora(INave naveEnemiga);
     void defenderContraCarguero(INave naveEnemiga);
