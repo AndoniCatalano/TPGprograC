@@ -10,7 +10,7 @@ import motor.TransicionInvalidaException;
 import nave.Observer.IObserver;
 import nave.tablero.Posicion;
 
-public abstract class Nave implements INave, IElementosUniverso {
+public abstract class Nave implements INave {
     protected int combustible;
     protected int energia;
     protected int desgaste;
@@ -303,6 +303,25 @@ public abstract class Nave implements INave, IElementosUniverso {
             double sueldo = t.getSueldo();
             System.out.println("Tripulante " + t.getIdentidad() + ": $" + sueldo);
         }
+    }
+
+    public void destruir(){
+        if (this.getEnergia() > 0) {
+            if (this.getAsistente() != null) {
+                this.getAsistente().consumeEnergia(this.getEnergia()); //consume toda la energía y falla la misión
+            } else {
+                try {
+                    this.consumeEnergia(this.getEnergia());
+                } catch (OperacionRechazadaException e) {
+                    // No debería pasar porque revisa energia > 0
+                }
+            }
+        }
+        if (this.getAsistente() != null) {
+            this.getAsistente().registrarEventoBitacora("Destrucción total contra nave de Combate enemiga.");
+        }
+
+        assert this.getEnergia() == 0 : "Postcondición fallida: la energía de la Exploradora no quedó en 0 tras perder";
     }
 
     //Getters

@@ -22,17 +22,17 @@ public class ModeloCreacion {
 
     public ModeloCreacion() {
         this.naveConfigurada = null;
-        this.tripulantesAgregados = new ArrayList<>();
+        this.tieneCapitan = false;
         this.configuracionCompleta = false;
         this.observadores = new ArrayList<>();
+        this.tripulantesAgregados = new ArrayList<>();
     }
 
     public void instanciarNave(String tipoNave) throws TipoNaveInvalidoException {
         this.naveConfigurada = NaveFactory.getNave(tipoNave);
-
         evaluarEstadoTravesia();
-        notificarObservadores();
     }
+
 
     public void agregarTripulante(String rol, String origen, String identidad, int antiguedad)
             throws AntiguedadInvalidaException, OrigenTripulanteException, RolTripulanteInvalidoException {
@@ -53,15 +53,6 @@ public class ModeloCreacion {
         }
 
         evaluarEstadoTravesia();
-        notificarObservadores();
-    }
-
-    public INave getNaveConfigurada() {
-        return this.naveConfigurada;
-    }
-
-    public List<Tripulante> getTripulacion() {
-        return this.tripulantesAgregados;
     }
 
     private void evaluarEstadoTravesia() {
@@ -70,6 +61,7 @@ public class ModeloCreacion {
         } else {
             this.configuracionCompleta = false;
         }
+        notificarObservadores();
     }
 
     public boolean puedeIniciarTravesia() {
@@ -85,4 +77,17 @@ public class ModeloCreacion {
             obs.actualizarEstado();
         }
     }
+
+    public List<Tripulante> getTripulacion() {
+        return this.tripulantesAgregados;
+    }
+
+    public boolean getTieneCapitan() {
+        return this.tieneCapitan;
+    }
+
+    public INave getNaveConfigurada() {
+        return this.naveConfigurada;
+    }
+
 }

@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
 
-public class ControlNaveVista extends JPanel implements AsistenteObserver{
+public class ControlNaveVista extends JFrame implements AsistenteObserver{
     private JProgressBar barraCombustible = new JProgressBar(0, 100);
     private JProgressBar barraEnergia = new JProgressBar(0, 100);
     private JProgressBar barraDesgaste = new JProgressBar(0, 100);
@@ -17,6 +17,8 @@ public class ControlNaveVista extends JPanel implements AsistenteObserver{
     private JButton btnIniciar = new JButton("Iniciar Misión");
 
     public ControlNaveVista() {
+        setTitle("Control de Nave");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         JPanel panelRecursos = new JPanel(new GridLayout(1, 3, 10, 10));
@@ -47,6 +49,20 @@ public class ControlNaveVista extends JPanel implements AsistenteObserver{
         barra.setForeground(color);
         p.add(barra, BorderLayout.CENTER);
         return p;
+    }
+
+    public void arrancar(){
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+    public void habilitarBoton(){
+        btnIniciar.setEnabled(true);
+    }
+
+    public void deshabilitarBoton(){
+        btnIniciar.setEnabled(false);
     }
 
     public JButton getBtnIniciar() { return btnIniciar; }

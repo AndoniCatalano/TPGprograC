@@ -1,7 +1,10 @@
 package Creacion.Controlador;
 
+import Creacion.Modelo.CapitanAsignadoException;
 import Creacion.Modelo.ModeloCreacion;
 import Creacion.Vista.VistaCreacion;
+import asistente.controlador.ControlNaveController;
+import nave.INave;
 import nave.TipoNaveInvalidoException;
 import Tripulantes.AntiguedadInvalidaException;
 import Tripulantes.OrigenTripulanteException;
@@ -20,22 +23,17 @@ public class ControladorCreacion implements ActionListener {
     public ControladorCreacion(){
         modelo = new ModeloCreacion();
         vista = new VistaCreacion(modelo);
-
-        vista.setControlador(this);
-        vista.arrancar();
     }
 
-
-    public ControladorCreacion(VistaCreacion vista, ModeloCreacion modelo) {
-        this.vista = vista;
-        this.modelo = modelo;
+    public void iniciarVentana(){
+        vista.arrancar();
+        vista.setControlador(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String comando = e.getActionCommand();
 
-        switch (comando) {
+        switch (e.getActionCommand()) {
             case "CREAR_NAVE":
                 crearNave();
                 break;
@@ -43,10 +41,15 @@ public class ControladorCreacion implements ActionListener {
                 agregarTripulante();
                 break;
             case "INICIAR_TRAVESIA":
+                INave nave = modelo.getNaveConfigurada();
+
+
+                ControlNaveController controlNaveController = new ControlNaveController(nave.getAsistente());
+                controlNaveController.iniciarVentana();
                 vista.dispose();
                 break;
             default:
-                System.out.println("Comando desconocido: " + comando);
+                System.out.println("Comando desconocido: " + e.getActionCommand());
                 break;
         }
     }
@@ -71,16 +74,21 @@ public class ControladorCreacion implements ActionListener {
 
     private void agregarTripulante() {
         try {
-            String identidad = vista.getIdentidad();
-            if (identidad == null || identidad.trim().isEmpty()) {
-                throw new IllegalArgumentException("La identidad no puede estar vacía.");
-            }
-
             int antiguedad = Integer.parseInt(vista.getAntiguedad());
+            String identidad = vista.getIdentidad();
             String rol = vista.getRolSeleccionado();
             String origen = vista.getOrigenSeleccionado();
 
+            if (modelo.getTieneCapitan() && rol.equals("Capitan")) {
+                throw new CapitanAsignadoException();
+            }
+
+            if (identidad.trim().isEmpty()) {
+                throw new IllegalArgumentException("La identidad no puede estar vacía.");
+            }
+
             modelo.agregarTripulante(rol, origen, identidad, antiguedad);
+
 
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(vista,
@@ -97,6 +105,12 @@ public class ControladorCreacion implements ActionListener {
                     "Fallo en la creación del tripulante: " + ex.getMessage(),
                     "Error de Negocio",
                     JOptionPane.ERROR_MESSAGE);
+        }
+        catch (CapitanAsignadoException ex){
+            JOptionPane.showMessageDialog(vista,
+                    "Ya hay un capitan asignado",
+                    "Capitan ya asignado",
+                    JOptionPane.WARNING_MESSAGE);
         }
     }
     

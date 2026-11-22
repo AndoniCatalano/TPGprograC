@@ -5,6 +5,8 @@ import misiones.*;
 import motor.*;
 import asistente.vista.AsistenteObserver;
 import Tripulantes.Tripulante;
+import nave.tablero.CantidadDeElementosSuperaCasillaException;
+import nave.tablero.DimensionesDeTableroInconsistentesException;
 import nave.tablero.Posicion;
 import nave.tablero.Tablero;
 
@@ -47,6 +49,7 @@ public class Asistente{
         this.bitacora = new ArrayList<>();
         this.informe = new ArrayList<>();
         this.nave = nave;
+        this.tablero = construirTablero();
     }
 
     public void agregarObservador(AsistenteObserver obs){
@@ -59,6 +62,33 @@ public class Asistente{
             obs.onRecursosActualizados(consultarCombustible(), consultarEnergia(), consultarDesgaste());
         }
     }
+
+    private Tablero construirTablero(){
+        try {
+            int dimX = (int) (Math.random() * 96) + 5;
+            int dimY = (int) (Math.random() * 96) + 5;
+            int cantElem = (int) (Math.random() * (dimX * dimY / 4) * 3);
+
+            ArrayList<IElementosUniverso> elementos = new ArrayList<>();
+
+            for (int i = 0; i < cantElem; i++) {
+                switch ((int) (Math.random() * 3)){
+                    case 0: elementos.add(new Asteroide()); break;
+                    case 1: elementos.add(new EstacionDeCarga()); break;
+                    case 2: elementos.add(new NaveEnemiga());break;
+                }
+            }
+
+            Tablero tablero = new Tablero(dimX,dimY, elementos);
+            return tablero;
+        }
+        catch (DimensionesDeTableroInconsistentesException | CantidadDeElementosSuperaCasillaException e){
+
+        }
+
+        return null;
+    }
+
 
     /*
         <b>pre</b> mision != null
@@ -230,8 +260,60 @@ public class Asistente{
     public List<Posicion> calcularRuta(Posicion destino) {
         assert destino != null : "Error el destino no puede ser null";
         assert this.tablero != null : "Error el tablero no fue asignado";
-        //return this.tablero.calcularRuta(destino, this);
-        return null;
+
+        IElementosUniverso[][] grilla = this.tablero.verTablero();
+        int filas = this.tablero.getX();
+        int columnas = this.tablero.getY();
+        Posicion inicio = this.tablero.getPosicionNave();
+
+        if (inicio == null || inicio.equals(destino)) {
+            return new ArrayList<>();
+        }
+
+        boolean[][] visitado = new boolean[filas][columnas];
+        Posicion[][] padre = new Posicion[filas][columnas];
+        Queue<Posicion> cola = new LinkedList<>();
+
+        cola.add(inicio);
+        visitado[inicio.getX()][inicio.getY()] = true;
+
+        int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
+        int[] dy = {-1, 0, 1, -1, 1, -1, 0, 1};
+
+        while (!cola.isEmpty()) {
+            Posicion actual = cola.poll();
+            if (actual.equals(destino)) {
+                break;
+            }
+
+            for (int i = 0; i < 8; i++) {
+                int nx = actual.getX() + dx[i];
+                int ny = actual.getY() + dy[i];
+
+                if (nx >= 0 && nx < filas && ny >= 0 && ny < columnas && !visitado[nx][ny]) {
+                    IElementosUniverso elemento = grilla[nx][ny];
+                    boolean esDestino = (nx == destino.getX() && ny == destino.getY());
+
+                    if (esDestino || elemento == null || !elemento.esAmenaza(this)) {
+                        visitado[nx][ny] = true;
+                        padre[nx][ny] = actual;
+                        cola.add(new Posicion(nx, ny));
+                    }
+                }
+            }
+        }
+
+        LinkedList<Posicion> ruta = new LinkedList<>();
+        Posicion paso = destino;
+        while (paso != null && !paso.equals(inicio)) {
+            ruta.addFirst(paso);
+            paso = padre[paso.getX()][paso.getY()];
+        }
+
+        if (paso == null) {
+            return new ArrayList<>();
+        }
+        return ruta;
     }
 
     public boolean tieneRecursosParaEntregar() {

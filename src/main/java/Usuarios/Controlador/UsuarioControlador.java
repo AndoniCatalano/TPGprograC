@@ -23,16 +23,17 @@ public class UsuarioControlador implements ActionListener {
             String username = vista.getUsername();
             String password = vista.getPassword();
 
-            if (username.isEmpty() || password.isEmpty())
+            if (username.trim().isEmpty() || password.trim().isEmpty())
                 throw new DatosIncorrectosException();
             else {
                 Usuario usuario = new Usuario(username, password);
                 switch (e.getActionCommand()) {
+
                     case "LOGIN":
                         usuario.login();
                         ControladorCreacion controladorCreacion = new ControladorCreacion();
+                        controladorCreacion.iniciarVentana();
                         vista.dispose();
-
                         break;
 
                     case  "REGISTRAR":
@@ -54,17 +55,5 @@ public class UsuarioControlador implements ActionListener {
             vista.setMensaje("Error en la base de datos: " + ex.getMessage());
         }
 
-    }
-    
-    private void abrirPantallaCreacion() {
-        ModeloCreacion modelo = new ModeloCreacion();
-
-        VistaCreacion vistaCreacion = new VistaCreacion(modelo);
-        ControladorCreacion controlador = new ControladorCreacion(vistaCreacion, modelo);
-
-        vistaCreacion.setControlador(controlador);
-        vistaCreacion.arrancar();
-
-        this.vista.dispose();
     }
 }

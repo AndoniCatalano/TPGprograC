@@ -22,7 +22,7 @@ public class MainPruebaVistaAsistente {
             ControlNaveVista vista = new ControlNaveVista();
 
             // 3. Inicializamos el Controlador (esto conecta automáticamente a la vista como Observer)
-            ControlNaveController controlador = new ControlNaveController(vista, asistente);
+            ControlNaveController controlador = new ControlNaveController(asistente);
 
             // 4. Creamos la ventana principal para mostrar tu JPanel
             JFrame frame = new JFrame("Panel de Control - Nave Interestelar");

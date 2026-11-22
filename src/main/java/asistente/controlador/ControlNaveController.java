@@ -7,31 +7,40 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ControlNaveController {
+public class ControlNaveController implements ActionListener {
 
     private ControlNaveVista vista;
     private Asistente asistente;
 
-    public ControlNaveController(ControlNaveVista vista, Asistente asistente) {
-        this.vista = vista;
+    public ControlNaveController(Asistente asistente) {
+        vista = new ControlNaveVista();
+
         this.asistente = asistente;
 
-        // CRÍTICO: Conectamos la vista al modelo para que reciba las actualizaciones automáticas
+        // Conectamos la vista al modelo para que reciba las actualizaciones automáticas
         this.asistente.agregarObservador(this.vista);
 
-        this.vista.getBtnIniciar().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                iniciarMision();
-            }
-        });
+        vista.getBtnIniciar().addActionListener(this);
+    }
+
+    public void iniciarVentana(){
+        vista.arrancar();
+    }
+
+
+
+    @Override
+    public void actionPerformed(ActionEvent e){
+        if(e.getSource() == vista.getBtnIniciar()){
+            iniciarMision();
+        }
     }
 
     private void iniciarMision() {
         String seleccion = vista.getMisionSeleccionada();
-        vista.getBtnIniciar().setEnabled(false);
+        vista.deshabilitarBoton();
 
-        // CRÍTICO: Hilo separado para no congelar la interfaz gráfica (Swing)
+        // Hilo separado para no congelar la interfaz gráfica (Swing)
         new Thread(() -> {
             try {
                 Mision mision;
@@ -48,7 +57,7 @@ public class ControlNaveController {
             } catch (Exception ex) {
                 vista.onEventoBitacora("Error crítico: " + ex.getMessage());
             } finally {
-                SwingUtilities.invokeLater(() -> vista.getBtnIniciar().setEnabled(true));
+                SwingUtilities.invokeLater(() -> vista.habilitarBoton());
             }
         }).start();
     }

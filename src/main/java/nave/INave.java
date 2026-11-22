@@ -33,13 +33,9 @@ public interface INave {
     public void saltar(Asistente asistente, Posicion destino);
     public void saltarWarp(Asistente asistente, Posicion destino);
 
-    void defenderContraExploradora(INave naveEnemiga);
-    void defenderContraCarguero(INave naveEnemiga);
-    void defenderContraCombate(INave naveEnemiga);
-
-    boolean esAmenazaExploradora();
-    boolean esAmenazaCarguero();
-    boolean esAmenazaCombate();
+    public void interactuarConCarguero(NaveEnemiga enemiga);
+    public void interactuarConCombate(NaveEnemiga enemiga);
+    public void interactuarConExploradora(NaveEnemiga enemiga);
 
     public void addObservador(IObserver observador);
     public void removeObservador(IObserver observador);

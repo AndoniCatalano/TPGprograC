@@ -4,25 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="password hash">
+    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="Correcciones varias + linkeo usuarios-creacion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Creacion/Controlador/ControladorCreacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creacion/Controlador/ControladorCreacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainA_EjecucionConcreta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainB_RecursosInsuficientes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainC_MotorWarp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainD_ContratoInvalido.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creacion/Modelo/ModeloCreacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creacion/Modelo/ModeloCreacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainPruebaVistaTablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainPruebaVistaTablero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Usuarios/Controlador/UsuarioControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Usuarios/Controlador/UsuarioControlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asistente/Asistente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/Asistente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/misiones/Mision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misiones/Mision.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/motor/DisponibleState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/DisponibleState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/motor/EnWarpState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/EnWarpState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/motor/EnfriamientoState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/EnfriamientoState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/motor/IState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/IState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/motor/MotorWarp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/MotorWarp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/motor/PreparandoState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/motor/PreparandoState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/motor/Prueba.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asistente/controlador/ControlNaveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/controlador/ControlNaveController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asistente/vista/ControlNaveVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/vista/ControlNaveVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asistente/vista/MainPruebaVistaAsistente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asistente/vista/MainPruebaVistaAsistente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nave/Carguero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Carguero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nave/Combate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Combate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nave/Exploradora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Exploradora.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nave/INave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/INave.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nave/Nave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nave/Nave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios.db" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +34,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Exception" />
         <option value="package-info" />
         <option value="Interface" />
+        <option value="Exception" />
         <option value="Class" />
       </list>
     </option>
@@ -66,61 +63,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="4.9173284498170916E-113" />
-      <entry key="MS500" value="3.45418698554705E-23" />
-      <entry key="S2" value="2.4245072432852654E-6" />
-      <entry key="S5" value="0.005970895452441126" />
-      <entry key="S10" value="0.11681716692817055" />
-      <entry key="S30" value="1.7527356927990494" />
-      <entry key="S60" value="4.021955374972048" />
-      <entry key="M2" value="6.586973197240501" />
-      <entry key="M5" value="15.349527686692795" />
-      <entry key="M10" value="48.56545951606304" />
-      <entry key="M15" value="97.07656665912245" />
-      <entry key="M30" value="258.10335452392843" />
-      <entry key="H1" value="566.3756340610878" />
-      <entry key="H2" value="1046.0118829620399" />
-      <entry key="H4" value="1549.5875858079062" />
-      <entry key="D1" value="2256.2442052232236" />
-      <entry key="W1" value="2416.8462188682533" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.000000000000023" />
+      <entry key="S5" value="1.0000336772144482" />
+      <entry key="S10" value="1.0486450696565996" />
+      <entry key="S30" value="9.982362875107084" />
+      <entry key="S60" value="38.479481625223706" />
+      <entry key="M2" value="85.8547788350098" />
+      <entry key="M5" value="164.73602252630718" />
+      <entry key="M10" value="223.22892525956635" />
+      <entry key="M15" value="254.88091143862556" />
+      <entry key="M30" value="306.8221560263212" />
+      <entry key="H1" value="369.3946020064245" />
+      <entry key="H2" value="564.4389681895054" />
+      <entry key="H4" value="1047.4053670958683" />
+      <entry key="D1" value="2386.7117204876545" />
+      <entry key="W1" value="2815.6969655530183" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0000000000013503" />
-      <entry key="MS500" value="1.0042274400176785" />
-      <entry key="S2" value="1.2549917245218374" />
-      <entry key="S5" value="1.5904955923274593" />
-      <entry key="S10" value="1.9631316048616037" />
-      <entry key="S30" value="3.8401172046955714" />
-      <entry key="S60" value="5.879822537950042" />
-      <entry key="M2" value="8.03738017844449" />
-      <entry key="M5" value="11.255544429944976" />
-      <entry key="M10" value="15.206755149490068" />
-      <entry key="M15" value="20.254776060132937" />
-      <entry key="M30" value="47.23363465021683" />
-      <entry key="H1" value="116.84327370806947" />
-      <entry key="H2" value="222.11188982614308" />
-      <entry key="H4" value="325.3670277952139" />
-      <entry key="D1" value="463.12671851552653" />
-      <entry key="W1" value="493.66895692757987" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="3.604848137481038E-279" />
+      <entry key="S2" value="2.4728514343869985E-70" />
+      <entry key="S5" value="1.6505238432798148E-28" />
+      <entry key="S10" value="1.6646728519394384E-14" />
+      <entry key="S30" value="3.9653121423032946E-5" />
+      <entry key="S60" value="0.009399386963455264" />
+      <entry key="M2" value="0.19783369173303378" />
+      <entry key="M5" value="2.2716674438004834" />
+      <entry key="M10" value="8.699077583783167" />
+      <entry key="M15" value="16.8264706828296" />
+      <entry key="M30" value="40.64802552739802" />
+      <entry key="H1" value="74.95953861368051" />
+      <entry key="H2" value="136.36917082655458" />
+      <entry key="H4" value="251.18795217918404" />
+      <entry key="D1" value="537.2234949449075" />
+      <entry key="W1" value="625.5656822339913" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="3.289144474770043E-4" />
-      <entry key="MS500" value="0.20159445233259543" />
-      <entry key="S2" value="0.8186248878712186" />
-      <entry key="S5" value="1.3343800663023104" />
-      <entry key="S10" value="1.9076202417142274" />
-      <entry key="S30" value="5.466609615870322" />
-      <entry key="S60" value="9.798383826414456" />
-      <entry key="M2" value="14.551228335674002" />
-      <entry key="M5" value="26.561817041940387" />
-      <entry key="M10" value="63.74019830130098" />
-      <entry key="M15" value="117.3013420571389" />
-      <entry key="M30" value="305.30032667334524" />
-      <entry key="H1" value="683.1724009529736" />
-      <entry key="H2" value="1268.078542948324" />
-      <entry key="H4" value="1874.920989619877" />
-      <entry key="D1" value="2719.362838331664" />
-      <entry key="W1" value="2910.5139416404572" />
+      <entry key="MS100" value="0.0014801919594828108" />
+      <entry key="MS500" value="0.2716837156315145" />
+      <entry key="S2" value="0.7219645977612709" />
+      <entry key="S5" value="0.8778554534647222" />
+      <entry key="S10" value="0.9855509329485322" />
+      <entry key="S30" value="9.959938768132442" />
+      <entry key="S60" value="38.475903700524924" />
+      <entry key="M2" value="86.0434164503251" />
+      <entry key="M5" value="166.99618891935177" />
+      <entry key="M10" value="231.90888601288" />
+      <entry key="M15" value="271.6824989060519" />
+      <entry key="M30" value="347.4394280577144" />
+      <entry key="H1" value="444.32545899018197" />
+      <entry key="H2" value="700.781573162189" />
+      <entry key="H4" value="1298.5682479055513" />
+      <entry key="D1" value="2923.9260395332226" />
+      <entry key="W1" value="3441.261114500863" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -138,37 +135,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainA_EjecucionConcreta.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainB_RecursosInsuficientes.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainC_MotorWarp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainD_ContratoInvalido.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainPruebas.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainUsuarios.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.TPGprograC [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.TPGprograC [install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.MainA_EjecucionConcreta.executor": "Run",
+    "Application.MainB_RecursosInsuficientes.executor": "Run",
+    "Application.MainC_MotorWarp.executor": "Run",
+    "Application.MainD_ContratoInvalido.executor": "Run",
+    "Application.MainPruebaElementosUniverso.executor": "Run",
+    "Application.MainPruebas.executor": "Run",
+    "Application.MainUsuarios.executor": "Run",
+    "Maven.TPGprograC [clean].executor": "Run",
+    "Maven.TPGprograC [install].executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Exceptions" />
@@ -181,7 +179,20 @@
       <recent name="C:\Users\andoni\IdeaProjects\TPG\src\Nave" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainUsuarios">
+    <configuration name="MainPruebaElementosUniverso" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="nave.MainPruebaElementosUniverso" />
+      <module name="TPGprograC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nave.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainUsuarios" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Usuarios.Vista.MainUsuarios" />
       <module name="TPGprograC" />
@@ -207,6 +218,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainUsuarios" />
+        <item itemvalue="Application.MainPruebaElementosUniverso" />
       </list>
     </recent_temporary>
   </component>
@@ -250,6 +262,23 @@
     <MESSAGE value="Nueva branch" />
     <MESSAGE value="Logica de usuarios agregada" />
     <MESSAGE value="password hash" />
-    <option name="LAST_COMMIT_MESSAGE" value="password hash" />
+    <MESSAGE value="Correcciones varias + linkeo usuarios-creacion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcciones varias + linkeo usuarios-creacion" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/asistente/controlador/ControlNaveController.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Usuarios/Controlador/UsuarioControlador.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
