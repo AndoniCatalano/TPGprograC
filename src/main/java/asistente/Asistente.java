@@ -230,7 +230,8 @@ public class Asistente{
     public List<Posicion> calcularRuta(Posicion destino) {
         assert destino != null : "Error el destino no puede ser null";
         assert this.tablero != null : "Error el tablero no fue asignado";
-        return this.tablero.calcularRuta(destino, this);
+        //return this.tablero.calcularRuta(destino, this);
+        return null;
     }
 
     public boolean tieneRecursosParaEntregar() {
@@ -242,5 +243,9 @@ public class Asistente{
             this.recursosAsistencia--;
             registrarEventoBitacora("Se entregaron los recursos de asistencia en destino");
         }
+    }
+
+    public INave getNave() {
+        return nave;
     }
 }

@@ -16,6 +16,16 @@ public class ControladorCreacion implements ActionListener {
     private final VistaCreacion vista;
     private final ModeloCreacion modelo;
 
+
+    public ControladorCreacion(){
+        modelo = new ModeloCreacion();
+        vista = new VistaCreacion(modelo);
+
+        vista.setControlador(this);
+        vista.arrancar();
+    }
+
+
     public ControladorCreacion(VistaCreacion vista, ModeloCreacion modelo) {
         this.vista = vista;
         this.modelo = modelo;

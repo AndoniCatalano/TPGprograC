@@ -4,14 +4,14 @@ import asistente.Asistente;
 import nave.tablero.Posicion;
 
 public class MotorWarp{
-    private State estado;
+    private IState estado;
 
 
     public MotorWarp() {
         this.estado = new DisponibleState(this);
     }
 
-    protected void setEstado(State estado) {
+    protected void setEstado(IState estado) {
         this.estado = estado;
     }
 

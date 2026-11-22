@@ -8,7 +8,7 @@ import java.util.List;
 import motor.MotorWarp;
 import motor.TransicionInvalidaException;
 import nave.Observer.IObserver;
-import nave.tablero.Posicion
+import nave.tablero.Posicion;
 
 public abstract class Nave implements INave, IElementosUniverso {
     protected int combustible;
@@ -326,21 +326,13 @@ public abstract class Nave implements INave, IElementosUniverso {
 
     //Motor
 
-    /**
-     * Delega la preparación del salto al motor.
-     * @throws TransicionInvalidaException Si el estado del motor no permite preparar un salto.
-     */
-    @Override
-    public void prepararSalto() throws TransicionInvalidaException {
-        this.motorWarp.prepararSalto();
-    }
 
     /**
      * Delega la ejecución del salto al motor.
      * @throws TransicionInvalidaException Si el motor no está preparado para ejecutar el salto.
      */
     @Override
-    public void saltar(Asistente asistente, Posicion destino) throws TransicionInvalidaException {
+    public void saltar(Asistente asistente, Posicion destino){
         this.motorWarp.saltar(asistente,destino);
     }
 
@@ -349,22 +341,8 @@ public abstract class Nave implements INave, IElementosUniverso {
      * @throws TransicionInvalidaException Si el motor no está preparado para ejecutar el salto.
      */
     @Override
-    public void saltarWarp(Asistente asistente, Posicion destino) throws TransicionInvalidaException {
+    public void saltarWarp(Asistente asistente, Posicion destino){
         this.motorWarp.saltarWarp(asistente,destino);
-    }
-
-    @Override
-    public void finalizarSalto() throws TransicionInvalidaException{
-        this.motorWarp.finalizarSalto();
-    }
-
-    /**
-     * Delega la finalización del enfriamiento al motor.
-     * @throws TransicionInvalidaException Si el motor no se encuentra en estado de enfriamiento.
-     */
-    @Override
-    public void terminarEnfriamiento() throws TransicionInvalidaException {
-        this.motorWarp.terminarEnfriamiento();
     }
 
     //Observer

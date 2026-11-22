@@ -3,7 +3,7 @@ package motor;
 import asistente.Asistente;
 import nave.tablero.Posicion;
 
-public class EnfriamientoState implements State{
+public class EnfriamientoState implements IState{
     private MotorWarp m;
 
     public EnfriamientoState(MotorWarp m){

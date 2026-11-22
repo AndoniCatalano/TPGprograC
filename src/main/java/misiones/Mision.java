@@ -1,8 +1,10 @@
 package misiones;
 import asistente.Asistente;
 import java.util.List;
-import nave.Tablero.Posicion;
+import nave.tablero.Posicion;
+import nave.tablero.Tablero;
 import nave.IElementosUniverso;
+import nave.tablero.Destino;
 
 /**
  * <b>precondiciones</b>

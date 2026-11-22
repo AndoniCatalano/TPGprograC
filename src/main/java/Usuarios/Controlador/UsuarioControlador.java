@@ -1,5 +1,6 @@
 package Usuarios.Controlador;
 
+import Creacion.Controlador.ControladorCreacion;
 import Usuarios.Exceptions.DatosIncorrectosException;
 import Usuarios.Exceptions.UsernameOcupadoException;
 import Usuarios.Vista.UsuarioVista;
@@ -29,9 +30,9 @@ public class UsuarioControlador implements ActionListener {
                 switch (e.getActionCommand()) {
                     case "LOGIN":
                         usuario.login();
-                        VistaCreacion vista2 = new VistaCreacion(new ModeloCreacion());
+                        ControladorCreacion controladorCreacion = new ControladorCreacion();
                         vista.dispose();
-                        vista2.arrancar();
+
                         break;
 
                     case  "REGISTRAR":

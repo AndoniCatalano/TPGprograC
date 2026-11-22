@@ -3,7 +3,7 @@ package motor;
 import asistente.Asistente;
 import nave.tablero.Posicion;
 
-public class DisponibleState implements State{
+public class DisponibleState implements IState{
     private MotorWarp m;
 
     public DisponibleState(MotorWarp m){
