@@ -42,14 +42,13 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
     private static final Color FONDO_BTN_REINICIAR = new Color(105, 60, 185);
     private static final Color BORDE_BTN_REINICIAR = new Color(185, 145, 255);
 
-    private final JButton botonReiniciar;
-
-    private static final int TAMANO_FUENTE_CONSOLA = 16;
+    private static final int TAMANO_FUENTE_CONSOLA = 18;
     private static final DateTimeFormatter FORMATO_HORA = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     private final JButton botonCrearNave;
     private final JButton botonCrearGeneradora;
     private final JButton botonDetener;
+    private final JButton botonReiniciar;
     private final JTextPane areaConsola;
     private final PanelDibujoUniverso panelDibujo;
 
@@ -63,35 +62,34 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
         panelSuperior.setOpaque(false);
 
         JLabel etiquetaTitulo = new JLabel("VISOR DEL UNIVERSO PARALELO", SwingConstants.CENTER);
-        etiquetaTitulo.setFont(new Font("SansSerif", Font.BOLD, 24));
+        etiquetaTitulo.setFont(new Font("SansSerif", Font.BOLD, 28));
         etiquetaTitulo.setForeground(COLOR_TITULO);
 
-        JPanel panelControles = new JPanel(new FlowLayout(FlowLayout.CENTER, 18, 8));
+        JPanel panelControles = new JPanel(new FlowLayout(FlowLayout.CENTER, 16, 8));
         panelControles.setBackground(COLOR_PANEL);
         panelControles.setBorder(BorderFactory.createCompoundBorder(
-        BorderFactory.createLineBorder(COLOR_BORDE, 1),
-        BorderFactory.createEmptyBorder(8, 12, 8, 12)
+                BorderFactory.createLineBorder(COLOR_BORDE, 1),
+                BorderFactory.createEmptyBorder(8, 12, 8, 12)
         ));
 
         this.botonCrearNave = crearBotonEstilizado(
                 "Crear Nave Consumidora",
                 IVista.CREAR_NAVE,
-                new Color(22, 105, 175),
-                new Color(90, 190, 255)
+                FONDO_BTN_NAVE,
+                BORDE_BTN_NAVE
         );
         this.botonCrearGeneradora = crearBotonEstilizado(
                 "Crear Generadora de Energía",
                 IVista.CREAR_GENERADORA,
-                new Color(26, 130, 78),
-                new Color(95, 220, 150)
+                FONDO_BTN_GENERADORA,
+                BORDE_BTN_GENERADORA
         );
         this.botonDetener = crearBotonEstilizado(
                 "Detener Simulación",
                 IVista.DETENER_SIMULACION,
-                new Color(165, 42, 52),
-                new Color(245, 110, 120)
+                FONDO_BTN_DETENER,
+                BORDE_BTN_DETENER
         );
-
         this.botonReiniciar = crearBotonEstilizado(
                 "Reiniciar Simulación",
                 IVista.REINICIAR_SIMULACION,
@@ -100,11 +98,7 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
         );
         deshabilitarBoton(this.botonReiniciar);
 
-        panelControles.add(this.botonCrearNave);
-        panelControles.add(this.botonCrearGeneradora);
-        panelControles.add(this.botonDetener);
         panelControles.add(this.botonReiniciar);
-
         panelControles.add(this.botonCrearNave);
         panelControles.add(this.botonCrearGeneradora);
         panelControles.add(this.botonDetener);
@@ -127,7 +121,7 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
         this.areaConsola.setMargin(new Insets(12, 14, 12, 14));
 
         JScrollPane scrollConsola = new JScrollPane(this.areaConsola);
-        scrollConsola.setPreferredSize(new Dimension(880, 240));
+        scrollConsola.setPreferredSize(new Dimension(960, 250));
         scrollConsola.getViewport().setBackground(COLOR_CONSOLA);
         scrollConsola.setBackground(COLOR_PANEL);
         scrollConsola.setBorder(crearBordeConTitulo("Registro de Eventos — Plataforma de Carga"));
@@ -144,7 +138,7 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
     private JButton crearBotonEstilizado(String texto, String comando, Color fondo, Color borde) {
         JButton boton = new JButton(texto);
         boton.setActionCommand(comando);
-        boton.setFont(new Font("SansSerif", Font.BOLD, 15));
+        boton.setFont(new Font("SansSerif", Font.BOLD, 17));
         boton.setForeground(Color.WHITE);
         boton.setBackground(fondo);
         boton.setOpaque(true);
@@ -160,7 +154,7 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
     private Border crearBordeConTitulo(String titulo) {
         Border linea = BorderFactory.createLineBorder(COLOR_BORDE, 1);
         TitledBorder bordeConTitulo = BorderFactory.createTitledBorder(linea, " " + titulo + " ");
-        bordeConTitulo.setTitleFont(new Font("SansSerif", Font.BOLD, 14));
+        bordeConTitulo.setTitleFont(new Font("SansSerif", Font.BOLD, 16));
         bordeConTitulo.setTitleColor(COLOR_TITULO);
         return BorderFactory.createCompoundBorder(
                 bordeConTitulo,
@@ -168,7 +162,14 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
         );
     }
 
-    // --- MVC: Conexión con el Controlador ---
+
+    //MVC: Conexión con el Controlador
+    /**
+     * Registra el controlador que escucha los eventos de los botones de la vista.
+     * <b>Pre:</b> controlador no debe ser nulo.
+     * <b>Post:</b> Todos los botones de control quedan asociados al ActionListener indicado.
+     * @param controlador El ActionListener que procesa los comandos de la interfaz.
+     */
     @Override
     public void setActionListener(ActionListener controlador) {
         this.botonCrearNave.addActionListener(controlador);
@@ -177,6 +178,13 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
         this.botonReiniciar.addActionListener(controlador);
     }
 
+
+    /**
+     * Agrega un nuevo mensaje de evento y actualiza la representación gráfica.
+     * <b>Pre:</b> mensaje no debe ser nulo.
+     * <b>Post:</b> El mensaje se muestra en la consola y el panel visual refleja el evento.
+     * @param mensaje El texto descriptivo del evento a mostrar.
+     */
     @Override
     public void agregarMensajeConsola(String mensaje) {
         StyledDocument documento = this.areaConsola.getStyledDocument();
@@ -193,6 +201,12 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
         this.panelDibujo.procesarEvento(mensaje);
     }
 
+    /**
+     * Deshabilita los controles de creación y detención, y habilita el control de reinicio.
+     * <b>Pre:</b> Los botones de la vista deben estar inicializados.
+     * <b>Post:</b> Los botones de crear nave, crear generadora y detener quedan deshabilitados,
+     * mientras que el botón de reiniciar queda habilitado.
+     */
     @Override
     public void deshabilitarControles() {
         deshabilitarBoton(this.botonCrearNave);
@@ -201,6 +215,12 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
         habilitarBoton(this.botonReiniciar, FONDO_BTN_REINICIAR, BORDE_BTN_REINICIAR);
     }
 
+    /**
+     * Habilita los controles de la simulación, deshabilita el reinicio y limpia la consola y el dibujo.
+     * <b>Pre:</b> Los componentes gráficos de la vista deben estar inicializados.
+     * <b>Post:</b> Los botones de crear nave, crear generadora y detener quedan habilitados,
+     * el botón de reiniciar queda deshabilitado, la consola se vacía y el panel visual vuelve a su estado inicial.
+     */
     @Override
     public void habilitarControles() {
         habilitarBoton(this.botonCrearNave, FONDO_BTN_NAVE, BORDE_BTN_NAVE);
@@ -265,7 +285,7 @@ public class VisorConcurrencia extends JPanel implements IVista, IObserverPlataf
         return COLOR_TEXTO_BASE;
     }
 
-    // --- OBSERVER: Actualización automática desde los hilos del Modelo ---
+    // OBSERVER: Actualización automática desde los hilos del Modelo
     @Override
     public void actualizarEvento(String mensaje) {
         SwingUtilities.invokeLater(() -> agregarMensajeConsola(mensaje));
