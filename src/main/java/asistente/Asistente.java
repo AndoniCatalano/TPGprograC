@@ -109,18 +109,26 @@ public class Asistente{
         }
     }
 
-    public void saltoWarp(Posicion destino){
-
-
-            nave.saltarWarp(this, destino);
-
-            System.out.println("Salto realizado con exito");//esto queda para el testeo nomas
-            //bitacora
-            registrarEventoBitacora("Salto realizado con exito");
+    public void saltar(Posicion destino) {
+        assert destino != null : "Error el destino no puede ser null";
+        assert this.tablero != null : "Error el tablero no fue asignado";
+        try {
+            nave.saltar(this, destino);
+            notificarRecursos();
+        } catch (Exception e) {
+            registrarEventoBitacora("No se pudo realizar el salto normal: " + e.getMessage());
+        }
     }
 
-    public void salta(Posicion destino){
-        nave.saltar(this, destino);
+    public void saltoWarp(Posicion destino) {
+        assert destino != null : "Error el destino no puede ser null";
+        assert this.tablero != null : "Error el tablero no fue asignado";
+        try {
+            nave.saltarWarp(this, destino);
+            notificarRecursos();
+        } catch (Exception e) {
+            registrarEventoBitacora("Maniobra Warp interrumpida: " + e.getMessage());
+        }
     }
 
     /*
@@ -247,7 +255,7 @@ public class Asistente{
     }
 
     public boolean laNaveEstaViva() {
-        return this.nave.getDesgaste() < 100 && this.nave.getCombustible() > 0;
+        return this.nave.getDesgaste() < 100 && this.nave.getCombustible() > 0 && this.nave.getEnergia() > 0;
     }
 
     public void moverA(Posicion proximoPaso) {

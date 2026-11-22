@@ -56,7 +56,7 @@ public abstract class Mision {
     }
 
     protected void preparar(Asistente asistente, Tablero tablero){
-        if (asistente.consultarCombustible() >= this.consumeCombustible && (asistente.consultarDesgaste() + this.generaDesgaste) <= 100){
+        if (asistente.consultarCombustible() >= this.consumeCombustible && asistente.consultarEnergia() >= this.gastaEnergia && (asistente.consultarDesgaste() + this.generaDesgaste) <= 100){
             this.preparada = true;
             asistente.registrarEventoBitacora("Mision preparada con exito");
 
@@ -78,12 +78,13 @@ public abstract class Mision {
         this.desgasteAcumulado += generaDesgaste;
         asistente.registrarEventoBitacora("Desgaste de arranque: " + this.desgasteAcumulado);
 
-        asistente.consumeEnergia(this.gastaEnergia);
-        this.energiaGastada += this.gastaEnergia;
-        asistente.registrarEventoBitacora("Energia consumida por inicio de mision: " + this.energiaGastada);
+        if (this.gastaEnergia > 0) {
+            asistente.consumeEnergia(this.gastaEnergia);
+            this.energiaGastada += this.gastaEnergia;
+            asistente.registrarEventoBitacora("Energia consumida por inicio de mision: " + this.energiaGastada);
+        }
 
         Destino coordinador = new Destino(tablero);
-
 
         while (asistente.laNaveEstaViva() && !tablero.getPosicionNave().equals(this.destino)) {
 
@@ -98,8 +99,13 @@ public abstract class Mision {
                 break;
             }
 
-
             if (!this.ruta.isEmpty()) {
+                if (asistente.consultarEnergia() < 1) {
+                    asistente.registrarEventoBitacora("Energía agotada para operar el radar.");
+                    this.resultado = "FRACASO";
+                    break;
+                }
+
                 IElementosUniverso[][] alrededores = tablero.observarAlrededores();
                 asistente.consumeEnergia(1);
                 this.energiaGastada += 1;
@@ -110,11 +116,15 @@ public abstract class Mision {
                 int dy = coordenadaFutura.getY() - actual.getY();
                 IElementosUniverso futuroEncuentro = alrededores[dx + 1][dy + 1];
 
-
                 if (futuroEncuentro != null && futuroEncuentro.esAmenaza(asistente)) {
 
-
                     if (this.ruta.size() >= 2) {
+                        if (asistente.consultarEnergia() < 5) {
+                            asistente.registrarEventoBitacora("Energía insuficiente (< 5) para esquivar obstáculo con Warp.");
+                            this.resultado = "FRACASO";
+                            break;
+                        }
+
                         Posicion destinoWarp = this.ruta.get(1);
                         asistente.saltoWarp(destinoWarp);
 
@@ -124,21 +134,32 @@ public abstract class Mision {
                             this.energiaGastada += 5;
                         }
                     } else {
+                        if (asistente.consultarEnergia() < 2) {
+                            asistente.registrarEventoBitacora("Energía insuficiente (< 2) para recalcular ruta.");
+                            this.resultado = "FRACASO";
+                            break;
+                        }
+
                         asistente.registrarEventoBitacora("Obstaculo detectado, recalculando ruta");
                         this.ruta = asistente.calcularRuta(this.destino);
                         asistente.consumeEnergia(2);
                         this.energiaGastada += 2;
                     }
                 } else {
-                    asistente.salta(coordenadaFutura);
+                    if (asistente.consultarCombustible() < 2) {
+                        asistente.registrarEventoBitacora("Combustible insuficiente (< 2) para realizar salto.");
+                        this.resultado = "FRACASO";
+                        break;
+                    }
+
+                    asistente.saltar(coordenadaFutura);
 
                     if (tablero.getPosicionNave().equals(coordenadaFutura)) {
                         this.ruta.remove(0);
                         this.combustibleGastado += 2;
                     }
-
                 }
-            }else{
+            } else {
                 asistente.registrarEventoBitacora("No hay ruta disponible hacia el destino");
                 this.resultado = "FRACASO";
                 break;
@@ -149,25 +170,20 @@ public abstract class Mision {
                 break;
             }
 
-
-
             //TURNO Tablero
-
-
             coordinador.turnoDestino();
 
-            try{
+            try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 break;
             }
-
         }
 
         if (!asistente.laNaveEstaViva()) {
             this.resultado = "FRACASO";
-            asistente.registrarEventoBitacora("Misión fallida: La nave fue destruida.");
+            asistente.registrarEventoBitacora("Misión fallida: La nave fue destruida o se quedó sin energía.");
             return;
         }
         if (!tablero.getPosicionNave().equals(this.destino)) {
@@ -178,12 +194,11 @@ public abstract class Mision {
 
         boolean objetivoCumplido = verificarObjetivo(asistente);
 
-        if(objetivoCumplido){
+        if (objetivoCumplido) {
             this.resultado = "EXITO";
-        }else{
+        } else {
             this.resultado = "FRACASO";
         }
-
     }
 
     protected abstract boolean verificarObjetivo(Asistente asistente);
