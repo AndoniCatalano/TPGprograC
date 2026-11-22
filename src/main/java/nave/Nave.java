@@ -8,6 +8,7 @@ import java.util.List;
 import motor.MotorWarp;
 import motor.TransicionInvalidaException;
 import nave.Observer.IObserver;
+import nave.tablero.Posicion
 
 public abstract class Nave implements INave, IElementosUniverso {
     protected int combustible;
