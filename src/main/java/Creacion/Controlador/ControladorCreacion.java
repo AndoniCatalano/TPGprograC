@@ -53,7 +53,20 @@ public class ControladorCreacion implements ActionListener {
                 break;
         }
     }
-
+    /**
+     * Obtiene el tipo de nave seleccionado en la vista, solicita al modelo instanciarla e informa el resultado al usuario.
+     *
+     * <p><b>Precondiciones:</b></p>
+     * <ul>
+     *     <li>La vista y el modelo están inicializados</li>
+     * </ul>
+     *
+     * <p><b>Postcondiciones:</b></p>
+     * <ul>
+     *     <li>Si el tipo es válido, la nave queda instanciada en el modelo y se muestra un aviso de éxito</li>
+     *     <li>Si el tipo es inválido, se captura {@code TipoNaveInvalidoException} y se muestra un mensaje de error sin interrumpir la aplicación</li>
+     * </ul>
+     */
     private void crearNave() {
         try {
             String tipoNave = vista.getTipoNaveSeleccionado();
@@ -71,7 +84,21 @@ public class ControladorCreacion implements ActionListener {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    /**
+     * Lee los datos del tripulante desde la vista, valida las reglas de negocio y lo registra en el modelo.
+     *
+     * <p><b>Precondiciones:</b></p>
+     * <ul>
+     *     <li>La vista y el modelo están inicializados</li>
+     *     <li>Los campos de antigüedad, identidad, rol y origen existen en la vista</li>
+     * </ul>
+     *
+     * <p><b>Postcondiciones:</b></p>
+     * <ul>
+     *     <li>Si los datos y reglas son válidos, el tripulante queda agregado al modelo</li>
+     *     <li>Si ocurre un error de formato, validación o dominio, se muestra el cuadro de diálogo correspondiente y no se altera el estado válido del modelo</li>
+     * </ul>
+     */
     private void agregarTripulante() {
         try {
             int antiguedad = Integer.parseInt(vista.getAntiguedad());
