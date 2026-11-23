@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="pom" />
+    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="pom">
+      <change afterPath="$PROJECT_DIR$/src/main/java/MainAnt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Usuarios/Vista/MainUsuarios.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,38 +123,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainA_EjecucionConcreta.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainB_RecursosInsuficientes.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainC_MotorWarp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainD_ContratoInvalido.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainPruebaElementosUniverso.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainPruebas.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainUsuarios.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.TPGprograC [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.TPGprograC [install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.MainA_EjecucionConcreta.executor": "Run",
+    "Application.MainB_RecursosInsuficientes.executor": "Run",
+    "Application.MainC_MotorWarp.executor": "Run",
+    "Application.MainD_ContratoInvalido.executor": "Run",
+    "Application.MainPruebaElementosUniverso.executor": "Run",
+    "Application.MainPruebas.executor": "Run",
+    "Application.MainUsuarios.executor": "Run",
+    "Maven.TPGprograC [clean,compile,exec:java...].executor": "Run",
+    "Maven.TPGprograC [clean].executor": "Run",
+    "Maven.TPGprograC [compile].executor": "Run",
+    "Maven.TPGprograC [install].executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Exceptions" />
@@ -162,6 +168,12 @@
       <recent name="C:\Users\Euge\proyectos\TPGprograC\src" />
       <recent name="C:\Users\Euge\proyectos\TPGprograC\src\main\java" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean compile exec:java -Dexec.mainClass=&quot;Usuarios.Vista.MainUsuarios&quot;" />
+      <command value="clean compile exec:java -Dexec.mainClass=Usuarios.Vista.MainUsuarios" />
+    </option>
   </component>
   <component name="RunManager" selected="Application.MainUsuarios">
     <configuration name="MainPruebaElementosUniverso" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -178,11 +190,12 @@
       </method>
     </configuration>
     <configuration name="MainUsuarios" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
       <option name="MAIN_CLASS_NAME" value="Usuarios.Vista.MainUsuarios" />
       <module name="TPGprograC" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Usuarios.Vista.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -190,15 +203,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Application.MainPruebaElementosUniverso" />
+      <item itemvalue="Application.MainUsuarios" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainUsuarios" />
