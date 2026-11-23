@@ -5,4 +5,5 @@
 mvn clean compile
 
 #### Ejecucion
-mvn exec:java -Dexec.mainClass="Usuarios.Vista.MainUsuarios"
+mvn clean compile exec:java -Dexec.mainClass=Main
+
