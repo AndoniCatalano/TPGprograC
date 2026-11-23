@@ -305,6 +305,20 @@ public abstract class Nave implements INave {
         }
     }
 
+    /**
+     * Agota toda la energía disponible de la nave tras una derrota en combate y registra el evento en la bitácora.
+     *
+     * <p><b>Precondiciones:</b></p>
+     * <ul>
+     *     <li>La nave está inicializada y posee un nivel de energía mayor o igual a 0</li>
+     * </ul>
+     *
+     * <p><b>Postcondiciones:</b></p>
+     * <ul>
+     *     <li>La energía restante de la nave queda en {@code 0}</li>
+     *     <li>Si existe un asistente asignado, se registra en su bitácora la destrucción total contra una nave de combate enemiga</li>
+     * </ul>
+     */
     public void destruir(){
         if (this.getEnergia() > 0) {
             if (this.getAsistente() != null) {
