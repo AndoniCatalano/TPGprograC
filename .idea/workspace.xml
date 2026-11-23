@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="contratos" />
+    <list default="true" id="11090e33-0ad8-444b-9f56-504814756e9c" name="Changes" comment="pom" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,61 +47,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.4493111625917448" />
-      <entry key="MS500" value="3.5996903850716535" />
-      <entry key="S2" value="6.0332267011735885" />
-      <entry key="S5" value="7.055811047850364" />
-      <entry key="S10" value="7.494045678880852" />
-      <entry key="S30" value="7.8229051008656825" />
-      <entry key="S60" value="7.911416370494595" />
-      <entry key="M2" value="8.053509753485873" />
-      <entry key="M5" value="9.901503440942871" />
-      <entry key="M10" value="15.648022411185224" />
-      <entry key="M15" value="23.005647540619886" />
-      <entry key="M30" value="47.059004717289845" />
-      <entry key="H1" value="108.03848913847648" />
-      <entry key="H2" value="274.57549422903946" />
-      <entry key="H4" value="703.5646566392772" />
-      <entry key="D1" value="2295.157991795082" />
-      <entry key="W1" value="2902.827541109037" />
+      <entry key="MS100" value="2.0402197755354754" />
+      <entry key="MS500" value="5.482719294709156" />
+      <entry key="S2" value="13.208720191593533" />
+      <entry key="S5" value="25.71819282251503" />
+      <entry key="S10" value="38.86957708746497" />
+      <entry key="S30" value="55.07171706461794" />
+      <entry key="S60" value="60.673830452555855" />
+      <entry key="M2" value="65.26065910175869" />
+      <entry key="M5" value="80.27554705825803" />
+      <entry key="M10" value="98.22258732609635" />
+      <entry key="M15" value="110.02176552327039" />
+      <entry key="M30" value="137.0455414475397" />
+      <entry key="H1" value="194.02352625031364" />
+      <entry key="H2" value="348.6452517545701" />
+      <entry key="H4" value="760.6523966433246" />
+      <entry key="D1" value="2385.359328534603" />
+      <entry key="W1" value="3027.2295191275966" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="2.1965670313930195E-138" />
-      <entry key="S5" value="9.76323926990729E-56" />
-      <entry key="S10" value="4.0046998688138347E-28" />
-      <entry key="S30" value="1.1391719637967594E-9" />
-      <entry key="S60" value="4.756430432632554E-5" />
-      <entry key="M2" value="0.009751181724055244" />
-      <entry key="M5" value="0.286717805009812" />
-      <entry key="M10" value="2.0175036062910707" />
-      <entry key="M15" value="5.343977197240027" />
-      <entry key="M30" value="17.073625682104513" />
-      <entry key="H1" value="38.80108600150368" />
-      <entry key="H2" value="86.92651285543499" />
-      <entry key="H4" value="193.38921299185125" />
-      <entry key="D1" value="546.6721524174229" />
-      <entry key="W1" value="676.0345903313464" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="1.5695824250121958E-192" />
+      <entry key="S10" value="1.6057024526416078E-96" />
+      <entry key="S30" value="1.8097600083598756E-32" />
+      <entry key="S60" value="1.8958195553073848E-16" />
+      <entry key="M2" value="1.946772374674774E-8" />
+      <entry key="M5" value="0.0015050739296728873" />
+      <entry key="M10" value="0.14617257736187914" />
+      <entry key="M15" value="0.928750341172419" />
+      <entry key="M30" value="7.117753618735021" />
+      <entry key="H1" value="25.05258121545436" />
+      <entry key="H2" value="69.8484151620094" />
+      <entry key="H4" value="173.35421087744464" />
+      <entry key="D1" value="536.7976958187256" />
+      <entry key="W1" value="674.2764888266937" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.416429275619116" />
-      <entry key="MS500" value="3.581295487917411" />
-      <entry key="S2" value="6.025045878783346" />
-      <entry key="S5" value="7.051821363761614" />
-      <entry key="S10" value="7.491886200953529" />
-      <entry key="S30" value="7.82214281853259" />
-      <entry key="S60" value="7.911072310484654" />
-      <entry key="M2" value="8.062682218527865" />
-      <entry key="M5" value="10.184626692756542" />
-      <entry key="M10" value="17.65780184184593" />
-      <entry key="M15" value="28.33833417114739" />
-      <entry key="M30" value="64.11672401019418" />
-      <entry key="H1" value="146.82254096611078" />
-      <entry key="H2" value="361.4838120547185" />
-      <entry key="H4" value="896.933967490094" />
-      <entry key="D1" value="2841.820720734777" />
-      <entry key="W1" value="3578.8604625578437" />
+      <entry key="MS100" value="1.9688517322622054" />
+      <entry key="MS500" value="5.446528252646862" />
+      <entry key="S2" value="13.187019034990247" />
+      <entry key="S5" value="25.701090271727146" />
+      <entry key="S10" value="38.85656360564486" />
+      <entry key="S30" value="55.06554078243513" />
+      <entry key="S60" value="60.67042365405056" />
+      <entry key="M2" value="65.25881778072157" />
+      <entry key="M5" value="80.27609967548246" />
+      <entry key="M10" value="98.36762058887284" />
+      <entry key="M15" value="110.94812718349883" />
+      <entry key="M30" value="144.15642513347615" />
+      <entry key="H1" value="219.06498199883" />
+      <entry key="H2" value="418.4789809560931" />
+      <entry key="H4" value="933.9887338616122" />
+      <entry key="D1" value="2922.147765450541" />
+      <entry key="W1" value="3701.5043426042007" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -249,7 +249,8 @@
     <MESSAGE value="Correcciones varias + linkeo usuarios-creacion" />
     <MESSAGE value="ElementosDelUniverso corregidos" />
     <MESSAGE value="contratos" />
-    <option name="LAST_COMMIT_MESSAGE" value="contratos" />
+    <MESSAGE value="pom" />
+    <option name="LAST_COMMIT_MESSAGE" value="pom" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
